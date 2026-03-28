@@ -1,8 +1,21 @@
 import re
 import nltk
+from functools import lru_cache
 
-for _d in ("averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"): 
+for _d in ("averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"):
     nltk.download(_d, quiet=True)
+
+# ---------------------------------------------------------------------------
+# Optional spaCy backend – faster and more accurate than NLTK when available.
+# Falls back to NLTK if spaCy or the English model is not installed.
+# Only the tagger and tok2vec components are loaded (no parser / NER).
+# ---------------------------------------------------------------------------
+try:
+    import spacy as _spacy
+    _nlp = _spacy.load("en_core_web_sm", exclude=["parser", "ner", "lemmatizer"])
+    _USE_SPACY = True
+except (ImportError, OSError):
+    _USE_SPACY = False
 
 _TOKENIZE = re.compile(r"[A-Za-z]+(?:'[a-z]+)?|\d+(?:\.\d+)?|[^\s]")
 
@@ -43,6 +56,13 @@ _PREPOSITIONS = frozenset({
     "beyond", "near", "within", "without",
 })
 
+_SUBORD_CONJ = frozenset({
+    "because", "although", "though", "if", "when", "while",
+    "since", "unless", "until", "whereas", "whether",
+})
+
+_SUBJ_PRONOUNS = frozenset({"i", "he", "she", "it", "we", "they", "you"})
+
 _NOUN_TAGS = frozenset({"NN", "NNS", "NNP", "NNPS"})
 _VERB_TAGS = frozenset({"VB", "VBZ", "VBD", "VBG", "VBN", "VBP"})
 _ADJ_TAGS  = frozenset({"JJ", "JJR", "JJS"})
@@ -53,13 +73,18 @@ _NEG_OR_DEG   = _NEGATIONS | _DEGREE_ADVERBS
 _NOUN_OR_VERB = _NOUN_TAGS | _VERB_TAGS
 _AUX_FORMS    = _HAVE_FORMS | _DO_FORMS | _MODALS | _BE_FORMS
 
+# Lookup tables used in the context-rule self-corrections (module-level for speed)
+_HAVE_TAG = {"have": "VBP", "has": "VBZ", "had": "VBD", "having": "VBG"}
+_DO_TAG   = {"do": "VBP", "does": "VBZ", "did": "VBD"}
 
+
+@lru_cache(maxsize=4096)
 def _guess_raw_morphology(word: str) -> str:
     """Fallback guesser that returns raw Penn Treebank-style tags."""
     # 1. Numbers & Symbols
     if re.match(r'^-?\d+(\.\d+)?$', word): return 'CD'   # Cardinal Digit
     if not re.match(r"^[A-Za-z]+(?:'[A-Za-z]+)*$", word): return 'SYM'  # Symbol
-    
+
     w = word.lower()
 
     # 2. Common closed-class function words (before suffix rules)
@@ -83,19 +108,30 @@ def _guess_raw_morphology(word: str) -> str:
     if w in {"did"}:                                       return 'VBD'
     if w in _MODALS:                                       return 'MD'
     if w in _PREPOSITIONS:                                 return 'IN'
+    if w in _SUBORD_CONJ:                                  return 'IN'
     if w in {"not", "never"}:                              return 'RB'
     if w in _DEGREE_ADVERBS:                               return 'RB'
+    if w in {"more", "less"}:                              return 'RBR'
+    if w in {"most", "least"}:                             return 'RBS'
+    if w == "there":                                       return 'EX'
 
-    # 3. Suffix Rules
-    if w.endswith('ly'): return 'RB'                     # Adverb
-    if w.endswith('ing'): return 'VBG'                   # Verb, gerund / present participle
-    if w.endswith('ed'): return 'VBD'                    # Verb, past tense / past participle
-    if w.endswith('est'): return 'JJS'                   # Adjective, superlative
-    if w.endswith(('tion', 'sion', 'ness', 'ment', 'ity')): return 'NN'  # Noun, singular
-    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ic')): return 'JJ'  # Adjective
-    
+    # 3. Suffix rules — longer / more specific suffixes checked first
+    if w.endswith(('ize', 'ise', 'ify')):   return 'VB'   # organize, realise, modify
+    if w.endswith(('ism', 'ist')):           return 'NN'   # capitalism, scientist
+    if w.endswith('ship'):                   return 'NN'   # friendship, hardship
+    if w.endswith('hood'):                   return 'NN'   # childhood, neighborhood
+    if w.endswith('dom'):                    return 'NN'   # kingdom, freedom
+    if w.endswith(('tion', 'sion')):         return 'NN'   # nation, tension
+    if w.endswith(('ness', 'ment', 'ity')): return 'NN'   # kindness, treatment, ability
+    if w.endswith('ing'):                    return 'VBG'  # running, jumping
+    if w.endswith('est'):                    return 'JJS'  # fastest, largest
+    if w.endswith('ed'):                     return 'VBD'  # walked, played
+    if w.endswith('ish'):                    return 'JJ'   # reddish, childish
+    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ic')): return 'JJ'
+    if w.endswith('ly'):                     return 'RB'   # quickly, slowly
+
     if word[0].isupper(): return 'NNP'
-    
+
     return 'NN'
 
 
@@ -131,6 +167,18 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
          e.g. "do KNOW", "does SHE like" → "like" is VB, "did NOT see"
     13. "going to" future: going + to → next verb is VB
          e.g. "I am going TO LEAVE"
+    14. Subordinating conjunctions → always IN
+         e.g. "BECAUSE he left", "ALTHOUGH it rained", "IF you go"
+    15. Existential "there" before be-form → EX
+         e.g. "THERE is a problem", "THERE are many options"
+    16. "more" / "less" before adj/noun/verb → RBR + JJ
+         e.g. "MORE beautiful", "LESS interesting"
+    17. JJR/RBR + "than" → "than" is IN  (comparative conjunction)
+         e.g. "faster THAN light", "more beautiful THAN ever"
+    18. Relative pronoun + ambiguous word → verb form
+         e.g. "the man WHO RUNS", "a book THAT DESCRIBES"
+    Post-pass 19. Passive voice: be + [advs] + -ed/-en word + "by" → VBN
+         e.g. "was WRITTEN by", "is KNOWN for"
     """
     tags = list(tagged)
     n = len(tags)
@@ -151,8 +199,6 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # Self-correction: known modal / auxiliary verbs should be verb tags.
         # Sentence-initial capitalisation can cause NLTK to produce NNP.
         # ------------------------------------------------------------------
-        _HAVE_TAG = {"have": "VBP", "has": "VBZ", "had": "VBD", "having": "VBG"}
-        _DO_TAG   = {"do": "VBP", "does": "VBZ", "did": "VBD"}
         if w in _MODALS and tag != "MD":
             tags[i] = (word, "MD")
             tag = "MD"
@@ -162,6 +208,59 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         if w in _DO_FORMS and tag not in _VERB_TAGS:
             tags[i] = (word, _DO_TAG.get(w, "VBZ"))
             tag = tags[i][1]
+
+        # ------------------------------------------------------------------
+        # Pattern 14 — Subordinating conjunctions: force to IN
+        # "BECAUSE he left", "ALTHOUGH it rained", "IF you go"
+        # ------------------------------------------------------------------
+        if w in _SUBORD_CONJ and tag not in ("IN", "RB"):
+            tags[i] = (word, "IN")
+            tag = "IN"
+
+        # ------------------------------------------------------------------
+        # Pattern 15 — Existential "there" before a be-form → EX
+        # "THERE is a problem", "THERE are many options"
+        # ------------------------------------------------------------------
+        if w == "there" and tag != "EX" and i + 1 < n:
+            if tags[i + 1][0].lower() in _BE_FORMS:
+                tags[i] = (word, "EX")
+                tag = "EX"
+
+        # ------------------------------------------------------------------
+        # Pattern 16 — "more" / "less" → RBR; next non-"than" word → JJ
+        # "MORE beautiful", "LESS interesting", "more THAN"
+        # ------------------------------------------------------------------
+        if w in ("more", "less"):
+            if tag not in ("RBR", "JJR"):
+                tags[i] = (word, "RBR")
+                tag = "RBR"
+            if i + 1 < n:
+                nw, nt = tags[i + 1]
+                if nw.lower() != "than" and nt not in _ADJ_TAGS and nt not in ("RB", "RBR", "RBS"):
+                    tags[i + 1] = (nw, "JJ")
+
+        # ------------------------------------------------------------------
+        # Pattern 17 — Comparative/superlative + "than" → "than" is IN
+        # "faster THAN light", "more beautiful THAN ever"
+        # ------------------------------------------------------------------
+        if tag in ("JJR", "RBR") and i + 1 < n and tags[i + 1][0].lower() == "than":
+            tags[i + 1] = (tags[i + 1][0], "IN")
+
+        # ------------------------------------------------------------------
+        # Pattern 18 — Relative pronoun + ambiguous word → verb form
+        # "the man WHO RUNS", "a book THAT DESCRIBES", "the cat WHICH SITS"
+        # Only corrects NNS (plural-noun) tags to VBZ to avoid false-positives
+        # on singular nouns that legitimately end in -s (e.g. "analysis",
+        # "crisis") which tend to be tagged NN rather than NNS.
+        # ------------------------------------------------------------------
+        if w in ("who", "which", "that") and tag in ("WP", "WDT", "IN") and i + 1 < n:
+            nw, nt = tags[i + 1]
+            nwl = nw.lower()
+            if nwl not in _BE_FORMS and nwl not in _MODALS:
+                if nwl.endswith("s") and not nwl.endswith("ss") and nt == "NNS":
+                    tags[i + 1] = (nw, "VBZ")
+                elif nt in ("JJ", "VB") and not nwl.endswith("s"):
+                    tags[i + 1] = (nw, "VBP")
 
         # ------------------------------------------------------------------
         # Pattern 1 — Infinitive: "to" → next word is base verb (VB)
@@ -313,7 +412,6 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # ------------------------------------------------------------------
         if w in _DO_FORMS and tag in _VERB_TAGS:
             j = i + 1
-            _SUBJ_PRONOUNS = {"i", "he", "she", "it", "we", "they", "you"}
             while j < n and (
                 (tags[j][1] == "PRP" and tags[j][0].lower() in _SUBJ_PRONOUNS)
                 or (tags[j][0].lower() in _NEGATIONS)
@@ -334,32 +432,73 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                 if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC"):
                     tags[i + 2] = (nw, "VB")
 
+    # ------------------------------------------------------------------
+    # Post-pass 19 — Passive voice (agentive): be + [advs] + -ed/-en word + "by" → VBN
+    # "was WRITTEN by the president", "is KNOWN by everyone"
+    # Scope is intentionally limited to explicit "by"-passives so that
+    # ambiguous cases like "was tired" (adjective) are left unchanged.
+    # Runs after the main loop so it can override JJ tags set by Pattern 4.
+    # ------------------------------------------------------------------
+    for i in range(n - 2):
+        w0 = tags[i][0].lower()
+        if w0 in _BE_FORMS and tags[i][1] in _VERB_TAGS:
+            j = i + 1
+            while j < n and tags[j][1] in ("RB", "RBR", "RBS"):
+                j += 1
+            if j < n - 1:
+                pw, pt = tags[j]
+                pwl = pw.lower()
+                if (pwl.endswith("ed") or pwl.endswith("en")) and tags[j + 1][0].lower() == "by":
+                    tags[j] = (pw, "VBN")
+
     return tags
 
 
 def analyze_sentence(text: str) -> list[tuple[str, str]]:
     """
-    Takes an English string and returns a list of (word, RAW_NLTK_TAG) tuples,
-    with contextual pattern rules applied on top of NLTK's base tagging.
+    Takes an English string and returns a list of (word, POS_TAG) tuples,
+    with contextual pattern rules applied on top of the base tagger.
+
+    Uses spaCy (en_core_web_sm) when available for higher accuracy and speed;
+    falls back to NLTK's averaged perceptron tagger otherwise.
+
     Example: [('The', 'DT'), ('fast', 'JJ'), ('robot', 'NN')]
     """
-    tokens = _TOKENIZE.findall(text)
-    
-    tagged_tokens = nltk.pos_tag(tokens)
-    
-    result = []
-    for word, pos_tag in tagged_tokens:
-        if not pos_tag:
-            pos_tag = _guess_raw_morphology(word)
-        result.append((word, pos_tag))
+    if _USE_SPACY:
+        doc = _nlp(text)
+        tagged = [(t.text, t.tag_) for t in doc if not t.is_space]
+    else:
+        tokens = _TOKENIZE.findall(text)
+        raw = nltk.pos_tag(tokens) if tokens else []
+        tagged = [(w, t if t else _guess_raw_morphology(w)) for w, t in raw]
 
-    # Apply contextual pattern rules to refine the NLTK output
-    result = _apply_context_rules(result)
+    return _apply_context_rules(tagged)
 
-    return result
+
+def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
+    """
+    Analyze multiple sentences efficiently.
+
+    When spaCy is available, uses nlp.pipe() for batched throughput,
+    which is significantly faster than calling analyze_sentence() in a loop.
+    Falls back to sequential analyze_sentence() calls when spaCy is absent.
+
+    Example::
+
+        results = analyze_batch(["The cat sat.", "Dogs run fast."])
+        for sent, pairs in zip(["The cat sat.", "Dogs run fast."], results):
+            print(sent, pairs)
+    """
+    if _USE_SPACY:
+        return [
+            _apply_context_rules([(t.text, t.tag_) for t in doc if not t.is_space])
+            for doc in _nlp.pipe(texts)
+        ]
+    return [analyze_sentence(t) for t in texts]
 
 if __name__ == "__main__":
     sentences = [
+        # Original test cases
         "The incredibly fast robot jumped over 2 walls!",
         "I want to eat a big red apple.",
         "She can not go to the store.",
@@ -378,10 +517,35 @@ if __name__ == "__main__":
         # Going-to future (Pattern 13)
         "We are going to visit the oldest castle.",
         "She is going to start the newest project.",
+        # Subordinating conjunctions (Pattern 14)
+        "He stayed home because it was raining.",
+        "Although she was tired, she kept working.",
+        # Existential there (Pattern 15)
+        "There is a problem with the system.",
+        "There are many ways to solve this.",
+        # Comparative (Patterns 16 & 17)
+        "She is more intelligent than her brother.",
+        "This road is less dangerous than the other.",
+        # Passive voice (Post-pass 19)
+        "The letter was written by the president.",
+        "The bridge was built by engineers.",
+        # Relative clause (Pattern 18)
+        "The man who runs the company is smart.",
+        "A book that describes history well.",
     ]
 
+    backend = "spaCy" if _USE_SPACY else "NLTK"
+    print(f"=== Single sentence analysis  [backend: {backend}] ===\n")
     for sentence in sentences:
         print(f"INPUT: '{sentence}'")
         for word, raw_tag in analyze_sentence(sentence):
-            print(f"  {word:<15} -> {raw_tag}")
+            print(f"  {word:<20} -> {raw_tag}")
+        print()
+
+    print("=== Batch analysis demo ===\n")
+    batch = ["The cat sat on the mat.", "Dogs run faster than cats."]
+    for sent, result in zip(batch, analyze_batch(batch)):
+        print(f"INPUT: '{sent}'")
+        for word, tag in result:
+            print(f"  {word:<20} -> {tag}")
         print()
