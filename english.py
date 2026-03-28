@@ -11,7 +11,15 @@ _TOKENIZE = re.compile(r"[A-Za-z]+(?:'[a-z]+)?|\d+(?:\.\d+)?|[^\s]")
 # ---------------------------------------------------------------------------
 _MODALS = frozenset({
     "can", "will", "shall", "may", "might",
-    "could", "would", "should", "must",
+    "could", "would", "should", "must", "ought",
+})
+
+_HAVE_FORMS = frozenset({
+    "have", "has", "had", "having",
+})
+
+_DO_FORMS = frozenset({
+    "do", "does", "did",
 })
 
 _BE_FORMS = frozenset({
@@ -41,8 +49,9 @@ _ADJ_TAGS  = frozenset({"JJ", "JJR", "JJS"})
 _AMBIG_TAGS = frozenset({"JJ", "VB", "VBZ", "VBD"})   # tags that can be misclassified
 
 # Pre-computed unions for use inside the hot loop
-_NEG_OR_DEG  = _NEGATIONS | _DEGREE_ADVERBS
+_NEG_OR_DEG   = _NEGATIONS | _DEGREE_ADVERBS
 _NOUN_OR_VERB = _NOUN_TAGS | _VERB_TAGS
+_AUX_FORMS    = _HAVE_FORMS | _DO_FORMS | _MODALS | _BE_FORMS
 
 
 def _guess_raw_morphology(word: str) -> str:
@@ -52,12 +61,38 @@ def _guess_raw_morphology(word: str) -> str:
     if not re.match(r"^[A-Za-z]+(?:'[A-Za-z]+)*$", word): return 'SYM'  # Symbol
     
     w = word.lower()
-    # 2. Suffix Rules
+
+    # 2. Common closed-class function words (before suffix rules)
+    if w in {"the", "a", "an"}:                            return 'DT'
+    if w in {"and", "or", "but", "nor", "yet", "for", "so"}: return 'CC'
+    if w in {"i", "he", "she", "it", "we", "they", "you"}: return 'PRP'
+    if w in {"my", "his", "her", "its", "our", "their", "your"}: return 'PRP$'
+    if w in {"this", "that", "these", "those"}:            return 'DT'
+    if w in {"am", "is"}:                                  return 'VBZ'
+    if w in {"are"}:                                       return 'VBP'
+    if w in {"was", "were"}:                               return 'VBD'
+    if w in {"be"}:                                        return 'VB'
+    if w in {"been"}:                                      return 'VBN'
+    if w in {"being"}:                                     return 'VBG'
+    if w in {"has"}:                                       return 'VBZ'
+    if w in {"have"}:                                      return 'VBP'
+    if w in {"had"}:                                       return 'VBD'
+    if w in {"having"}:                                    return 'VBG'
+    if w in {"does"}:                                      return 'VBZ'
+    if w in {"do"}:                                        return 'VBP'
+    if w in {"did"}:                                       return 'VBD'
+    if w in _MODALS:                                       return 'MD'
+    if w in _PREPOSITIONS:                                 return 'IN'
+    if w in {"not", "never"}:                              return 'RB'
+    if w in _DEGREE_ADVERBS:                               return 'RB'
+
+    # 3. Suffix Rules
     if w.endswith('ly'): return 'RB'                     # Adverb
-    if w.endswith('ing'): return 'VBG'                   # Verb, gerund
-    if w.endswith('ed'): return 'VBD'                    # Verb, past tense
-    if w.endswith(('tion', 'sion', 'ness', 'ment', 'ity')): return 'NN' # Noun, singular
-    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'al')): return 'JJ' # Adjective
+    if w.endswith('ing'): return 'VBG'                   # Verb, gerund / present participle
+    if w.endswith('ed'): return 'VBD'                    # Verb, past tense / past participle
+    if w.endswith('est'): return 'JJS'                   # Adjective, superlative
+    if w.endswith(('tion', 'sion', 'ness', 'ment', 'ity')): return 'NN'  # Noun, singular
+    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ic')): return 'JJ'  # Adjective
     
     if word[0].isupper(): return 'NNP'
     
@@ -90,6 +125,12 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
          e.g. "in the CITY", "by the RIVER"
     10. Wh-word (what/which) + WORD → WORD is NN or VB based on position
          e.g. "what IS this" → IS is VB; "which CAR" → CAR is NN
+    11. Have-auxiliary + [neg] + WORD → WORD is VBN  (perfect aspect)
+         e.g. "has EATEN", "have FINISHED", "had GONE"
+    12. Do-support + [neg] + WORD → WORD is VB  (emphatic / interrogative)
+         e.g. "do KNOW", "does SHE like" → "like" is VB, "did NOT see"
+    13. "going to" future: going + to → next verb is VB
+         e.g. "I am going TO LEAVE"
     """
     tags = list(tagged)
     n = len(tags)
@@ -105,6 +146,22 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         if w in _DEGREE_ADVERBS and tag not in ("RB", "RBR", "RBS"):
             tags[i] = (word, "RB")
             tag = "RB"
+
+        # ------------------------------------------------------------------
+        # Self-correction: known modal / auxiliary verbs should be verb tags.
+        # Sentence-initial capitalisation can cause NLTK to produce NNP.
+        # ------------------------------------------------------------------
+        _HAVE_TAG = {"have": "VBP", "has": "VBZ", "had": "VBD", "having": "VBG"}
+        _DO_TAG   = {"do": "VBP", "does": "VBZ", "did": "VBD"}
+        if w in _MODALS and tag != "MD":
+            tags[i] = (word, "MD")
+            tag = "MD"
+        if w in _HAVE_FORMS and tag not in _VERB_TAGS:
+            tags[i] = (word, _HAVE_TAG.get(w, "VBZ"))
+            tag = tags[i][1]
+        if w in _DO_FORMS and tag not in _VERB_TAGS:
+            tags[i] = (word, _DO_TAG.get(w, "VBZ"))
+            tag = tags[i][1]
 
         # ------------------------------------------------------------------
         # Pattern 1 — Infinitive: "to" → next word is base verb (VB)
@@ -233,6 +290,50 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
             if nt in _AMBIG_TAGS and nw.lower() not in _BE_FORMS:
                 tags[i + 1] = (nw, "NN")
 
+        # ------------------------------------------------------------------
+        # Pattern 11 — Have-auxiliary → perfect participle (VBN)
+        # "has eaten", "have finished", "had gone", "have been told"
+        # Skip an optional negation between auxiliary and participle.
+        # ------------------------------------------------------------------
+        if w in _HAVE_FORMS and tag in _VERB_TAGS:
+            j = i + 1
+            if j < n and tags[j][0].lower() in _NEGATIONS:
+                j += 1
+            if j < n:
+                nw, nt = tags[j]
+                nwl = nw.lower()
+                if (nwl.endswith("ed") or nwl.endswith("en")
+                        or (nt in _VERB_TAGS and nwl not in _MODALS)):
+                    tags[j] = (nw, "VBN")
+
+        # ------------------------------------------------------------------
+        # Pattern 12 — Do-support → base verb (VB)
+        # "do know", "does she LIKE", "did not SEE"
+        # Skip an optional pronoun subject (interrogative inversion) or negation.
+        # ------------------------------------------------------------------
+        if w in _DO_FORMS and tag in _VERB_TAGS:
+            j = i + 1
+            _SUBJ_PRONOUNS = {"i", "he", "she", "it", "we", "they", "you"}
+            while j < n and (
+                (tags[j][1] == "PRP" and tags[j][0].lower() in _SUBJ_PRONOUNS)
+                or (tags[j][0].lower() in _NEGATIONS)
+            ):
+                j += 1
+            if j < n:
+                nw, nt = tags[j]
+                if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC", "WP", "WDT"):
+                    tags[j] = (nw, "VB")
+
+        # ------------------------------------------------------------------
+        # Pattern 13 — "going to" future construction → next verb is VB
+        # "I am going to LEAVE", "she is going to SING"
+        # ------------------------------------------------------------------
+        if w == "going" and i + 1 < n and tags[i + 1][0].lower() == "to":
+            if i + 2 < n:
+                nw, nt = tags[i + 2]
+                if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC"):
+                    tags[i + 2] = (nw, "VB")
+
     return tags
 
 
@@ -266,6 +367,17 @@ if __name__ == "__main__":
         "John's car was completely destroyed.",
         "What time should we leave?",
         "He was running through the dark forest.",
+        # Perfect aspect (Pattern 11)
+        "She has eaten the largest piece.",
+        "They have finished the hardest exercise.",
+        "He had gone to the nearest hospital.",
+        # Do-support (Pattern 12)
+        "Do you know the fastest route?",
+        "She does not understand the simplest rule.",
+        "Did they see the brightest star?",
+        # Going-to future (Pattern 13)
+        "We are going to visit the oldest castle.",
+        "She is going to start the newest project.",
     ]
 
     for sentence in sentences:
