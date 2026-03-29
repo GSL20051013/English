@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "english-pos"
+name = "gsl20051013-english"
 version = "1.0.0"
 description = "Context-aware English part-of-speech tagger with clause and connective detection"
 readme = "README.md"
@@ -60,6 +60,7 @@ Repository    = "https://github.com/GSL20051013/English"
 "Bug Tracker" = "https://github.com/GSL20051013/English/issues"
 Changelog     = "https://github.com/GSL20051013/English/blob/main/CHANGELOG.md"
 
-[tool.setuptools]
-py-modules = ["english"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["Geemeth*"]
 
