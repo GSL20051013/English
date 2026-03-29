@@ -1,0 +1,69 @@
+english-pos Non-Commercial License
+Version 1.0, 2024
+
+Copyright (c) 2024 GSL20051013
+All rights reserved.
+
+DEFINITIONS
+
+"Software" means the english-pos library and all associated source code,
+documentation, and related files distributed under this license.
+
+"Non-Commercial Use" means use that is not primarily intended for or directed
+toward commercial advantage or monetary compensation.  Examples of
+Non-Commercial Use include personal projects, academic research, education,
+and open-source projects whose own licenses do not restrict redistribution.
+
+"Commercial Use" means any use of the Software in a product, service, or
+activity that is primarily intended for or directed toward commercial
+advantage or monetary compensation, including but not limited to:
+  • incorporating the Software into a commercial product or SaaS offering;
+  • using the Software to provide paid consulting, training, or services;
+  • using the Software within a for-profit company's internal tooling or
+    production systems.
+
+GRANT OF LICENSE
+
+Subject to the terms and conditions of this License, the copyright holder
+grants you a worldwide, royalty-free, non-exclusive license to:
+
+  1. Use, copy, and modify the Software solely for Non-Commercial Use.
+  2. Distribute verbatim or modified copies of the Software under the same
+     license terms, provided that:
+       a. You retain this copyright notice and license text in all copies.
+       b. You clearly mark any modified files as changed from the originals.
+       c. Your distribution is also solely for Non-Commercial Use.
+
+COMMERCIAL USE
+
+Any Commercial Use of the Software requires a separate commercial license
+obtained from the copyright holder.  To obtain a commercial license, contact:
+
+    https://github.com/GSL20051013
+
+Unauthorized Commercial Use is strictly prohibited and constitutes copyright
+infringement.
+
+RESTRICTIONS
+
+You may not:
+  • Sublicense, sell, or transfer the Software or any derivative work without
+    the copyright holder's prior written consent.
+  • Remove or alter any copyright, trademark, or attribution notices.
+  • Use the Software in any way that violates applicable law.
+
+DISCLAIMER OF WARRANTIES
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  IN NO EVENT SHALL
+THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF,
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+TERMINATION
+
+This License and the rights granted hereunder will terminate automatically
+upon any breach by you of the terms of this License.  Upon termination you
+must destroy all copies of the Software in your possession.
