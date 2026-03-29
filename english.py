@@ -1,6 +1,7 @@
 import re
 import nltk
 from functools import lru_cache
+from typing import Callable, Union
 
 for _d in ("averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"):
     nltk.download(_d, quiet=True)
@@ -122,10 +123,11 @@ _CONJ_SUBTYPES: dict[str, str] = {
 # analyze_batch(), so they always win over the built-in tagger and context
 # rules.  External modules can register entries via register_word_tag().
 # ---------------------------------------------------------------------------
-_word_tag_overrides: dict[str, "str | callable"] = {}
+_TagOverride = Union[str, Callable[[str, str, list[tuple[str, str]]], str]]
+_word_tag_overrides: dict[str, _TagOverride] = {}
 
 
-def register_word_tag(word: str, tag_or_fn: "str | callable") -> None:
+def register_word_tag(word: str, tag_or_fn: _TagOverride) -> None:
     """Register a custom POS tag (or tag-computing function) for *word*.
 
     After registration every call to :func:`analyze_sentence` or
@@ -138,8 +140,9 @@ def register_word_tag(word: str, tag_or_fn: "str | callable") -> None:
         The word to override.  Matching is case-insensitive.
     tag_or_fn : str or callable
         Either a Penn Treebank tag string (e.g. ``"NN"``, ``"JJ"``) **or** a
-        callable that receives ``(word, current_tag, context)`` and returns
-        the desired tag string:
+        callable with signature
+        ``(word: str, current_tag: str, context: list[tuple[str, str]]) -> str``
+        that returns the desired tag string:
 
         * ``word``        – the word as it appears in the sentence
         * ``current_tag`` – the tag produced by the built-in pipeline
@@ -177,7 +180,7 @@ def clear_word_tag_overrides() -> None:
     _word_tag_overrides.clear()
 
 
-def get_word_tag_overrides() -> dict:
+def get_word_tag_overrides() -> dict[str, _TagOverride]:
     """Return a shallow copy of the current override registry.
 
     Returns
@@ -194,16 +197,17 @@ def _apply_word_overrides(
     """Apply registered word-tag overrides to *tagged* and return the result."""
     if not _word_tag_overrides:
         return tagged
-    result = list(tagged)
-    for i, (word, tag) in enumerate(result):
+    result: list[tuple[str, str]] | None = None
+    for i, (word, tag) in enumerate(tagged):
         override = _word_tag_overrides.get(word.lower())
         if override is None:
             continue
-        if callable(override):
-            result[i] = (word, override(word, tag, result))
-        else:
-            result[i] = (word, override)
-    return result
+        new_tag = override(word, tag, tagged) if callable(override) else override
+        if new_tag != tag:
+            if result is None:
+                result = list(tagged)
+            result[i] = (word, new_tag)
+    return result if result is not None else tagged
 
 
 @lru_cache(maxsize=4096)
