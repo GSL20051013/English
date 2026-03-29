@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GSL20051013-english"
-version = "1.0.0"
+version = "1.0.1"
 description = "Context-aware English part-of-speech tagger with clause and connective detection"
 readme = "README.md"
 license = { file = "LICENSE" }
