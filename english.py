@@ -110,6 +110,101 @@ _CONJ_SUBTYPES: dict[str, str] = {
     "that":     "nominal",
 }
 
+# ---------------------------------------------------------------------------
+# Word-tag override registry
+# ---------------------------------------------------------------------------
+# Maps a lower-cased word to either:
+#   • a Penn Treebank tag string (e.g. "NN", "JJ"), or
+#   • a callable with signature:
+#       fn(word: str, current_tag: str, context: list[tuple[str, str]]) -> str
+#
+# Overrides are applied as the last step in both analyze_sentence() and
+# analyze_batch(), so they always win over the built-in tagger and context
+# rules.  External modules can register entries via register_word_tag().
+# ---------------------------------------------------------------------------
+_word_tag_overrides: dict[str, "str | callable"] = {}
+
+
+def register_word_tag(word: str, tag_or_fn: "str | callable") -> None:
+    """Register a custom POS tag (or tag-computing function) for *word*.
+
+    After registration every call to :func:`analyze_sentence` or
+    :func:`analyze_batch` that contains *word* will use the supplied override
+    instead of the built-in tagger result.
+
+    Parameters
+    ----------
+    word : str
+        The word to override.  Matching is case-insensitive.
+    tag_or_fn : str or callable
+        Either a Penn Treebank tag string (e.g. ``"NN"``, ``"JJ"``) **or** a
+        callable that receives ``(word, current_tag, context)`` and returns
+        the desired tag string:
+
+        * ``word``        – the word as it appears in the sentence
+        * ``current_tag`` – the tag produced by the built-in pipeline
+        * ``context``     – full ``list[tuple[str, str]]`` of the sentence
+
+    Example::
+
+        import english
+
+        # Fixed tag override: treat "Python" always as a proper noun
+        english.register_word_tag("Python", "NNP")
+
+        # Callable override: keep existing tag unless the tagger says "NN"
+        def fix_data(word, tag, ctx):
+            return "NNP" if tag == "NN" else tag
+
+        english.register_word_tag("data", fix_data)
+    """
+    _word_tag_overrides[word.lower()] = tag_or_fn
+
+
+def unregister_word_tag(word: str) -> None:
+    """Remove the override previously registered for *word* (if any).
+
+    Parameters
+    ----------
+    word : str
+        The word whose override should be removed.  Case-insensitive.
+    """
+    _word_tag_overrides.pop(word.lower(), None)
+
+
+def clear_word_tag_overrides() -> None:
+    """Remove *all* registered word-tag overrides."""
+    _word_tag_overrides.clear()
+
+
+def get_word_tag_overrides() -> dict:
+    """Return a shallow copy of the current override registry.
+
+    Returns
+    -------
+    dict
+        Mapping of lower-cased word → tag string or callable.
+    """
+    return dict(_word_tag_overrides)
+
+
+def _apply_word_overrides(
+    tagged: list[tuple[str, str]]
+) -> list[tuple[str, str]]:
+    """Apply registered word-tag overrides to *tagged* and return the result."""
+    if not _word_tag_overrides:
+        return tagged
+    result = list(tagged)
+    for i, (word, tag) in enumerate(result):
+        override = _word_tag_overrides.get(word.lower())
+        if override is None:
+            continue
+        if callable(override):
+            result[i] = (word, override(word, tag, result))
+        else:
+            result[i] = (word, override)
+    return result
+
 
 @lru_cache(maxsize=4096)
 def _guess_raw_morphology(word: str) -> str:
@@ -591,7 +686,7 @@ def analyze_sentence(text: str) -> list[tuple[str, str]]:
         raw = nltk.pos_tag(tokens) if tokens else []
         tagged = [(w, t if t else _guess_raw_morphology(w)) for w, t in raw]
 
-    return _apply_context_rules(tagged)
+    return _apply_word_overrides(_apply_context_rules(tagged))
 
 
 def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
@@ -610,7 +705,7 @@ def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
     """
     if _USE_SPACY:
         return [
-            _apply_context_rules([(t.text, t.tag_) for t in doc if not t.is_space])
+            _apply_word_overrides(_apply_context_rules([(t.text, t.tag_) for t in doc if not t.is_space]))
             for doc in _nlp.pipe(texts)
         ]
     return [analyze_sentence(t) for t in texts]
@@ -921,3 +1016,38 @@ if __name__ == "__main__":
         for c in conns:
             print(f"  pos={c['position']:<3} {c['type']:<16} subtype={c['subtype']:<12} word={c['word']!r}")
         print()
+
+    # -----------------------------------------------------------------------
+    # Word-tag override demo
+    # -----------------------------------------------------------------------
+    print("=== Word-tag override demo ===\n")
+
+    # 1. Fixed tag: treat "Python" as a proper noun regardless of context
+    register_word_tag("Python", "NNP")
+    print("After register_word_tag('Python', 'NNP'):")
+    print(" ", analyze_sentence("I love Python programming."))
+    print()
+
+    # 2. Callable override: force "data" to NNS (plural) when the tagger
+    #    returns NN (singular) — a common mis-tag for the uncountable noun.
+    def _fix_data(word: str, tag: str, context: list) -> str:
+        return "NNS" if tag == "NN" else tag
+
+    register_word_tag("data", _fix_data)
+    print("After register_word_tag('data', callable):")
+    print(" ", analyze_sentence("The data shows a clear trend."))
+    print()
+
+    # 3. Inspect the registry
+    print("Current overrides:", get_word_tag_overrides())
+    print()
+
+    # 4. Remove a single override
+    unregister_word_tag("Python")
+    print("After unregister_word_tag('Python'):", get_word_tag_overrides())
+    print()
+
+    # 5. Clear all overrides
+    clear_word_tag_overrides()
+    print("After clear_word_tag_overrides():", get_word_tag_overrides())
+    print()
