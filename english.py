@@ -1,3 +1,33 @@
+# SPDX-License-Identifier: LicenseRef-english-pos-noncommercial
+# Copyright (c) 2024 GSL20051013
+# See LICENSE for full terms. Commercial use requires a paid license.
+
+"""english-pos – Context-aware English POS tagger.
+
+Public API
+----------
+analyze_sentence(text)        → list[tuple[str, str]]
+analyze_batch(texts)          → list[list[tuple[str, str]]]
+find_clauses(tagged)          → list[dict]
+find_connectives(tagged)      → list[dict]
+register_word_tag(word, tag)  → None
+unregister_word_tag(word)     → None
+clear_word_tag_overrides()    → None
+get_word_tag_overrides()      → dict
+"""
+
+__version__ = "1.0.0"
+__all__ = [
+    "analyze_sentence",
+    "analyze_batch",
+    "find_clauses",
+    "find_connectives",
+    "register_word_tag",
+    "unregister_word_tag",
+    "clear_word_tag_overrides",
+    "get_word_tag_overrides",
+]
+
 import re
 import nltk
 from functools import lru_cache
