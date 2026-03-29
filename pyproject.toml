@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gsl20051013-english"
+name = "GSL20051013-english"
 version = "1.0.0"
 description = "Context-aware English part-of-speech tagger with clause and connective detection"
 readme = "README.md"
