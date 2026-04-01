@@ -90,6 +90,7 @@ _PREPOSITIONS = frozenset({
 _SUBORD_CONJ = frozenset({
     "because", "although", "though", "if", "when", "while",
     "since", "unless", "until", "whereas", "whether",
+    "except", "lest",
 })
 
 _SUBJ_PRONOUNS = frozenset({"i", "he", "she", "it", "we", "they", "you"})
@@ -137,8 +138,31 @@ _CONJ_SUBTYPES: dict[str, str] = {
     "once":     "temporal",
     "if":       "conditional",
     "unless":   "conditional",
+    "lest":     "conditional",
     "whether":  "nominal",
     "that":     "nominal",
+    "except":   "exceptive",
+}
+
+# Multi-word connective patterns mapped to their semantic subtype.
+# Keys are tuples of lower-cased words; longer keys are checked first.
+_MULTIWORD_CONJ: dict[tuple[str, ...], str] = {
+    # 3-word patterns (checked before 2-word)
+    ("as", "long", "as"):   "conditional",
+    ("as", "soon", "as"):   "temporal",
+    ("in", "order", "to"):  "purpose",
+    # 2-word patterns
+    ("instead", "of"):      "contrastive",
+    ("rather", "than"):     "contrastive",
+    ("even", "though"):     "concessive",
+    ("even", "if"):         "conditional",
+    ("provided", "that"):   "conditional",
+    ("in", "case"):         "conditional",
+    ("as", "if"):           "manner",
+    ("as", "though"):       "manner",
+    ("so", "that"):         "purpose",
+    ("now", "that"):        "causal",
+    ("except", "that"):     "exceptive",
 }
 
 # ---------------------------------------------------------------------------
@@ -333,7 +357,8 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
     13. "going to" future: going + to → next verb is VB  (stops at clause
          boundaries)  e.g. "I am going TO LEAVE"
     14. Subordinating conjunctions → always IN
-         e.g. "BECAUSE he left", "ALTHOUGH it rained", "IF you go"
+         e.g. "BECAUSE he left", "ALTHOUGH it rained", "IF you go",
+              "EXCEPT she was sick", "LEST he be late"
     15. Existential "there" before be-form → EX
          e.g. "THERE is a problem", "THERE are many options"
     16. "more" / "less" before adj/noun/verb → RBR + JJ
@@ -752,6 +777,38 @@ _PUNCT_TAGS = frozenset({",", ".", ":", ";", "``", "''",
                           "-LRB-", "-RRB-", "HYPH", "NFP", "SYM"})
 
 
+def _match_multiword(
+    tagged: list[tuple[str, str]], i: int
+) -> tuple[str, str, int] | None:
+    """Check whether *tagged[i:]* opens a known multi-word connective.
+
+    Longer keys (3 words) are tested before shorter ones (2 words) to ensure
+    the most specific match wins (e.g. "as long as" beats any 2-word prefix).
+
+    Parameters
+    ----------
+    tagged : list[tuple[str, str]]
+        Full list of ``(word, tag)`` pairs for the sentence.
+    i : int
+        Start index to check.
+
+    Returns
+    -------
+    tuple[str, str, int] or None
+        *(surface, subtype, length)* where *surface* is the joined connective
+        text, *subtype* is the semantic subtype string, and *length* is how
+        many tokens are consumed.  Returns ``None`` when no match is found.
+    """
+    for length in (3, 2):
+        if i + length > len(tagged):
+            continue
+        key = tuple(w.lower() for w, _ in tagged[i : i + length])
+        if key in _MULTIWORD_CONJ:
+            surface = " ".join(w for w, _ in tagged[i : i + length])
+            return surface, _MULTIWORD_CONJ[key], length
+    return None
+
+
 def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
     """
     Segment a POS-tagged sentence into logical clause records.
@@ -760,6 +817,10 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
     - Fronted adverbial clauses  ("Although X, Y"  → subordinate + main)
     - Post-verbal adverbial clauses ("Y because X"  → main + subordinate)
     - Relative clauses introduced by who/whom/whose/which (noted inline)
+    - Multi-word connectives: "instead of", "rather than", "even though",
+      "even if", "as long as", "as soon as", "as if", "as though",
+      "so that", "in order to", "now that", "except that", "provided that",
+      "in case"
 
     Parameters
     ----------
@@ -774,10 +835,12 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
         ``type``       : ``'main'``, ``'subordinate'``, or ``'relative'``
         ``subtype``    : semantic relationship – ``'causal'``,
                          ``'concessive'``, ``'temporal'``, ``'conditional'``,
-                         ``'nominal'``, or ``''`` for main/relative clauses
+                         ``'nominal'``, ``'contrastive'``, ``'exceptive'``,
+                         ``'manner'``, ``'purpose'``, or ``''`` for
+                         main/relative clauses
         ``connective`` : the conjunction or relative pronoun that opens the
-                         clause (``'if'``, ``'because'``, ``'who'``, …),
-                         or ``''`` for the root main clause
+                         clause (``'if'``, ``'because'``, ``'instead of'``,
+                         ``'who'``, …), or ``''`` for the root main clause
         ``tokens``     : list of ``(word, POS_tag)`` tuples in this clause
                          (leading/trailing punctuation tokens are removed)
         ``span``       : ``(start, end)`` half-open index range into *tagged*
@@ -840,6 +903,26 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
                 i += 1
                 continue
 
+        # ---- Multi-word connective ----
+        mw_match = _match_multiword(tagged, i)
+        if mw_match is not None:
+            surface, subtype, length = mw_match
+            if i == seg_start:
+                # Fronted: the whole following phrase/clause is subordinate.
+                seg_type = "subordinate"
+                seg_subtype = subtype
+                seg_connective = surface
+            elif i > seg_start:
+                # Mid-sentence: flush what came before, then start subordinate.
+                cut = (i - 1) if (i > 0 and tagged[i - 1][0] == ",") else i
+                _flush(cut)
+                seg_start = i
+                seg_type = "subordinate"
+                seg_subtype = subtype
+                seg_connective = surface
+            i += length
+            continue
+
         # ---- Subordinating conjunction ----
         if (tag == "IN"
                 and w in _CONJ_SUBTYPES
@@ -894,13 +977,18 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
 
     Returns a list of dicts describing each connective found:
 
-    ``word``     : the connective word as it appears in the sentence
-    ``tag``      : Penn Treebank POS tag of the connective
+    ``word``     : the connective word(s) as they appear in the sentence;
+                   multi-word connectives are returned as a single space-joined
+                   string (e.g. ``'instead of'``, ``'even though'``)
+    ``tag``      : Penn Treebank POS tag of the first token (``'IN'`` for
+                   multi-word connectives)
     ``type``     : ``'subordinating'``, ``'coordinating'``, or ``'relative'``
     ``subtype``  : semantic relationship (``'causal'``, ``'concessive'``,
-                   ``'temporal'``, ``'conditional'``, ``'nominal'``) for
-                   subordinating conjunctions; ``''`` for others
-    ``position`` : index of the connective in *tagged*
+                   ``'temporal'``, ``'conditional'``, ``'nominal'``,
+                   ``'contrastive'``, ``'exceptive'``, ``'manner'``,
+                   ``'purpose'``) for subordinating connectives; ``''`` for
+                   coordinating and relative connectives
+    ``position`` : index of the first token of the connective in *tagged*
 
     Parameters
     ----------
@@ -916,8 +1004,26 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
             print(c['type'], c['subtype'], c['word'])
     """
     result: list[dict] = []
-    for i, (word, tag) in enumerate(tagged):
+    i = 0
+    while i < len(tagged):
+        word, tag = tagged[i]
         w = word.lower()
+
+        # Check for multi-word connectives first so that e.g. "even though"
+        # is reported as one entry instead of "though" being double-counted.
+        mw_match = _match_multiword(tagged, i)
+        if mw_match is not None:
+            surface, subtype, length = mw_match
+            result.append({
+                "word": surface,
+                "tag": "IN",
+                "type": "subordinating",
+                "subtype": subtype,
+                "position": i,
+            })
+            i += length
+            continue
+
         if tag == "IN" and w in _CONJ_SUBTYPES and w not in _PREPOSITIONS:
             result.append({
                 "word": word,
@@ -942,6 +1048,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
                 "subtype": "",
                 "position": i,
             })
+        i += 1
     return result
 
 
@@ -966,9 +1073,11 @@ if __name__ == "__main__":
         # Going-to future (Pattern 13)
         "We are going to visit the oldest castle.",
         "She is going to start the newest project.",
-        # Subordinating conjunctions (Pattern 14)
+        # Subordinating conjunctions (Pattern 14) — "except" and "lest"
         "He stayed home because it was raining.",
         "Although she was tired, she kept working.",
+        "She ate everything, except she left the broccoli.",
+        "Speak softly, lest you wake the baby.",
         # Existential there (Pattern 15)
         "There is a problem with the system.",
         "There are many ways to solve this.",
@@ -1032,6 +1141,16 @@ if __name__ == "__main__":
         "She left early, but he stayed because he had more work.",
         "The man who runs the company is smart.",
         "Because the engineer who designed the bridge miscalculated, the structure collapsed.",
+        # New multi-word connective examples
+        "Instead of running, she walked to the station.",
+        "She chose to walk rather than take a cab.",
+        "Even though it was raining, they continued the match.",
+        "As soon as she arrived, they started the meeting.",
+        "He studied hard so that he could pass the exam.",
+        "She went to the gym instead of staying home.",
+        "She ate everything, except that she left the broccoli.",
+        "Even if you study, you must also rest.",
+        "You may borrow the car, provided that you return it by noon.",
     ]
     for sentence in clause_sentences:
         tagged = analyze_sentence(sentence)

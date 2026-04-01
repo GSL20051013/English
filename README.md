@@ -14,8 +14,8 @@
 
 - **Dual backend** – uses spaCy (`en_core_web_sm`) when installed for highest accuracy; falls back to NLTK's averaged perceptron tagger automatically.
 - **Context-rule layer** – 19+ heuristic patterns correct auxiliary chains, passive voice, predicate adjectives, comparative/superlative forms, and more.
-- **Clause detection** – `find_clauses()` segments a sentence into main, subordinate, and relative clauses with semantic subtypes (causal, concessive, temporal, conditional, nominal).
-- **Connective detection** – `find_connectives()` identifies coordinating, subordinating, and relative connectives with their positions.
+- **Clause detection** – `find_clauses()` segments a sentence into main, subordinate, and relative clauses with semantic subtypes (causal, concessive, temporal, conditional, nominal, contrastive, exceptive, manner, purpose). Supports both single-word and multi-word connectives (e.g. "instead of", "rather than", "even though", "as long as").
+- **Connective detection** – `find_connectives()` identifies coordinating, subordinating, and relative connectives (including multi-word connectives) with their positions.
 - **Custom overrides** – register per-word tag overrides (fixed string or callable) via `register_word_tag()`.
 - **Batch processing** – `analyze_batch()` processes multiple sentences efficiently using `nlp.pipe()` when spaCy is available.
 - **Zero configuration** – NLTK data is downloaded automatically on first use.
@@ -73,6 +73,12 @@ for clause in english.find_clauses(tagged):
 for conn in english.find_connectives(tagged):
     print(conn["type"], conn["subtype"], repr(conn["word"]))
 # subordinating concessive 'Although'
+
+# Detect multi-word connectives
+tagged = english.analyze_sentence("She ran instead of walking.")
+for conn in english.find_connectives(tagged):
+    print(conn["type"], conn["subtype"], repr(conn["word"]))
+# subordinating contrastive 'instead of'
 ```
 
 ---
@@ -116,8 +122,8 @@ Segment a POS-tagged sentence into logical clauses.
 | Key          | Type   | Values / Notes                                                   |
 |--------------|--------|------------------------------------------------------------------|
 | `type`       | `str`  | `'main'`, `'subordinate'`, `'relative'`                          |
-| `subtype`    | `str`  | `'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, or `''` |
-| `connective` | `str`  | Opening conjunction / relative pronoun, or `''` for root main   |
+| `subtype`    | `str`  | `'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, or `''` |
+| `connective` | `str`  | Opening conjunction / relative pronoun (may be multi-word, e.g. `'instead of'`), or `''` for root main |
 | `tokens`     | `list` | `list[tuple[str, str]]` – tagged tokens in this clause           |
 
 ```python
@@ -140,11 +146,11 @@ Identify logical connectives in a tagged sentence.
 
 | Key        | Type  | Values / Notes                                                    |
 |------------|-------|-------------------------------------------------------------------|
-| `word`     | `str` | The connective as it appears in the text                          |
-| `tag`      | `str` | Penn Treebank POS tag                                             |
+| `word`     | `str` | The connective as it appears in the text (multi-word connectives are space-joined, e.g. `'instead of'`) |
+| `tag`      | `str` | Penn Treebank POS tag (`'IN'` for multi-word connectives)         |
 | `type`     | `str` | `'subordinating'`, `'coordinating'`, `'relative'`                 |
-| `subtype`  | `str` | Semantic subtype for subordinating; `''` for others               |
-| `position` | `int` | Index of the connective in `tagged`                               |
+| `subtype`  | `str` | Semantic subtype (`'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`) for subordinating; `''` for others |
+| `position` | `int` | Index of the first token of the connective in `tagged`            |
 
 ```python
 tagged = english.analyze_sentence(
