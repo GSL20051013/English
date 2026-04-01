@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to **english-pos** will be documented in this file.
+All notable changes to **GSL20051013-english** will be documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
@@ -22,8 +22,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   (space-joined surface form, `tag='IN'`, `position` of first token).
 - New single-word connectives: "except" (subtype `'exceptive'`) and "lest"
   (subtype `'conditional'`) added to `_SUBORD_CONJ` and `_CONJ_SUBTYPES`.
+- New single-word connectives: "whenever" (subtype `'temporal'`), "once"
+  (subtype `'temporal'`), and "that" (subtype `'nominal'`) added to
+  `_SUBORD_CONJ` to align with `_CONJ_SUBTYPES`.
 - New semantic subtypes: `'contrastive'`, `'exceptive'`, `'manner'`,
-  `'purpose'` alongside the existing causal/concessive/temporal/conditional/nominal.
+  `'purpose'`, `'additive'` alongside the existing causal/concessive/temporal/conditional/nominal.
+- New multi-word connectives: "as well as" (`'additive'`), "given that"
+  (`'conditional'`), "in spite of" (`'concessive'`), "due to" (`'causal'`),
+  "owing to" (`'causal'`), "regardless of" (`'concessive'`), "such that"
+  (`'purpose'`), "for fear that" (`'conditional'`),
+  "on the condition that" (`'conditional'`).
+- Extended `_DEGREE_ADVERBS` with additional intensifiers: "enormously",
+  "intensely", "remarkably", "surprisingly", "unusually", "exceedingly",
+  "exceptionally", "extraordinarily", "particularly", "especially",
+  "notably", "genuinely", "distinctly", "utterly", "immensely", "profoundly".
+- Pattern 20: "most"/"least" as superlative intensifier → `RBS`; next
+  adjective/adverb promoted to `JJS` (e.g. "most beautiful", "least interesting").
+- Pattern 21: Sentence-initial gerund mis-tagged as `NN`/`NNS` corrected to
+  `VBG` (e.g. "Running every day builds stamina.").
 
 ---
 
