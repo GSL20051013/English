@@ -1,8 +1,8 @@
-# SPDX-License-Identifier: LicenseRef-english-pos-noncommercial
+# SPDX-License-Identifier: LicenseRef-GSL20051013-english-noncommercial
 # Copyright (c) 2024 GSL20051013
 # See LICENSE for full terms. Commercial use requires a paid license.
 
-"""english-pos – Context-aware English POS tagger.
+"""GSL20051013-english – Context-aware English POS tagger.
 
 Public API
 ----------
@@ -75,6 +75,10 @@ _DEGREE_ADVERBS = frozenset({
     "really", "fairly", "pretty", "somewhat", "incredibly",
     "awfully", "terribly", "deeply", "highly", "hugely",
     "perfectly", "totally", "absolutely", "completely",
+    "enormously", "intensely", "remarkably", "surprisingly",
+    "unusually", "exceedingly", "exceptionally", "extraordinarily",
+    "particularly", "especially", "notably", "genuinely",
+    "distinctly", "utterly", "immensely", "profoundly",
 })
 
 _NEGATIONS = frozenset({"not", "n't", "never"})
@@ -90,7 +94,7 @@ _PREPOSITIONS = frozenset({
 _SUBORD_CONJ = frozenset({
     "because", "although", "though", "if", "when", "while",
     "since", "unless", "until", "whereas", "whether",
-    "except", "lest",
+    "except", "lest", "whenever", "once", "that",
 })
 
 _SUBJ_PRONOUNS = frozenset({"i", "he", "she", "it", "we", "they", "you"})
@@ -147,10 +151,15 @@ _CONJ_SUBTYPES: dict[str, str] = {
 # Multi-word connective patterns mapped to their semantic subtype.
 # Keys are tuples of lower-cased words; longer keys are checked first.
 _MULTIWORD_CONJ: dict[tuple[str, ...], str] = {
+    # 4-word patterns (checked before 3-word)
+    ("on", "the", "condition", "that"): "conditional",
     # 3-word patterns (checked before 2-word)
     ("as", "long", "as"):   "conditional",
     ("as", "soon", "as"):   "temporal",
     ("in", "order", "to"):  "purpose",
+    ("as", "well", "as"):   "additive",
+    ("for", "fear", "that"): "purpose",
+    ("in", "spite", "of"):  "concessive",
     # 2-word patterns
     ("instead", "of"):      "contrastive",
     ("rather", "than"):     "contrastive",
@@ -163,6 +172,11 @@ _MULTIWORD_CONJ: dict[tuple[str, ...], str] = {
     ("so", "that"):         "purpose",
     ("now", "that"):        "causal",
     ("except", "that"):     "exceptive",
+    ("given", "that"):      "causal",
+    ("such", "that"):       "purpose",
+    ("due", "to"):          "causal",
+    ("owing", "to"):        "causal",
+    ("regardless", "of"):   "concessive",
 }
 
 # ---------------------------------------------------------------------------
@@ -369,6 +383,10 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
          e.g. "the man WHO RUNS", "a book THAT DESCRIBES"
     Post-pass 19. Passive voice: be + [advs] + -ed/-en word + "by" → VBN
          e.g. "was WRITTEN by", "is KNOWN for"
+    20. "most" / "least" before adj/adv → RBS + JJS  (superlative intensifier)
+         e.g. "MOST beautiful", "LEAST interesting"
+    21. Sentence-initial gerund mis-tagged as NN/NNS → VBG
+         e.g. "RUNNING every day builds stamina"
     """
     tags = list(tagged)
     n = len(tags)
@@ -705,6 +723,37 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                 if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC"):
                     tags[i + 2] = (nw, "VB")
 
+        # ------------------------------------------------------------------
+        # Pattern 20 — "most" / "least" as superlative intensifier → RBS
+        # followed by adjective or adverb → promote to superlative form.
+        # "most beautiful" → RBS + JJS; "most carefully" → RBS + RBS
+        # Excludes "most" used as a determiner before a noun ("most people").
+        # ------------------------------------------------------------------
+        if w in ("most", "least") and tag not in ("RBS", "JJS"):
+            if i + 1 < n:
+                nw, nt = tags[i + 1]
+                if nt in _ADJ_TAGS or nt in ("VB", "VBZ", "VBD", "VBP"):
+                    tags[i] = (word, "RBS")
+                    tag = "RBS"
+                    if nt not in _ADJ_TAGS:
+                        tags[i + 1] = (nw, "JJS")
+                elif nt in ("RB", "RBR"):
+                    tags[i] = (word, "RBS")
+                    tag = "RBS"
+                    tags[i + 1] = (nw, "RBS")
+
+        # ------------------------------------------------------------------
+        # Pattern 21 — Sentence-initial gerund subject
+        # A VBG at position 0 that is followed (possibly after adverbs) by a
+        # verb is likely a gerund phrase acting as the subject; keep its VBG
+        # tag (gerund-as-noun) rather than demoting it.  When the tagger has
+        # mis-labelled it as NN/NNS, restore VBG.
+        # e.g. "Running every day builds stamina."
+        # ------------------------------------------------------------------
+        if i == 0 and word.lower().endswith("ing") and tag in ("NN", "NNS"):
+            tags[i] = (word, "VBG")
+            tag = "VBG"
+
     # ------------------------------------------------------------------
     # Post-pass 19 — Passive voice (agentive): be + [advs] + -ed/-en word + "by" → VBN
     # "was WRITTEN by the president", "is KNOWN by everyone"
@@ -799,7 +848,7 @@ def _match_multiword(
         text, *subtype* is the semantic subtype string, and *length* is how
         many tokens are consumed.  Returns ``None`` when no match is found.
     """
-    for length in (3, 2):
+    for length in (4, 3, 2):
         if i + length > len(tagged):
             continue
         key = tuple(w.lower() for w, _ in tagged[i : i + length])
@@ -836,7 +885,7 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
         ``subtype``    : semantic relationship – ``'causal'``,
                          ``'concessive'``, ``'temporal'``, ``'conditional'``,
                          ``'nominal'``, ``'contrastive'``, ``'exceptive'``,
-                         ``'manner'``, ``'purpose'``, or ``''`` for
+                         ``'manner'``, ``'purpose'``, ``'additive'``, or ``''`` for
                          main/relative clauses
         ``connective`` : the conjunction or relative pronoun that opens the
                          clause (``'if'``, ``'because'``, ``'instead of'``,
@@ -986,7 +1035,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
     ``subtype``  : semantic relationship (``'causal'``, ``'concessive'``,
                    ``'temporal'``, ``'conditional'``, ``'nominal'``,
                    ``'contrastive'``, ``'exceptive'``, ``'manner'``,
-                   ``'purpose'``) for subordinating connectives; ``''`` for
+                   ``'purpose'``, ``'additive'``) for subordinating connectives; ``''`` for
                    coordinating and relative connectives
     ``position`` : index of the first token of the connective in *tagged*
 

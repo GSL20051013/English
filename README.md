@@ -1,20 +1,20 @@
-# english-pos
+# GSL20051013-english
 
 **Context-aware English part-of-speech tagger with clause and connective detection.**
 
-[![PyPI version](https://badge.fury.io/py/english-pos.svg)](https://pypi.org/project/english-pos/)
+[![PyPI version](https://badge.fury.io/py/GSL20051013-english.svg)](https://pypi.org/project/GSL20051013-english/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: Non-Commercial](https://img.shields.io/badge/license-Non--Commercial-red.svg)](LICENSE)
 
-`english-pos` is a lightweight Python library for tagging English text with Penn Treebank part-of-speech tags. It combines a state-of-the-art neural backend (spaCy) with a hand-crafted context-rule layer that corrects common mis-tags in auxiliary chains, adjective/verb ambiguities, passives, and more. It also detects clause boundaries and logical connectives.
+`GSL20051013-english` is a lightweight Python library for tagging English text with Penn Treebank part-of-speech tags. It combines a state-of-the-art neural backend (spaCy) with a hand-crafted context-rule layer that corrects common mis-tags in auxiliary chains, adjective/verb ambiguities, passives, and more. It also detects clause boundaries and logical connectives.
 
 ---
 
 ## Features
 
 - **Dual backend** – uses spaCy (`en_core_web_sm`) when installed for highest accuracy; falls back to NLTK's averaged perceptron tagger automatically.
-- **Context-rule layer** – 19+ heuristic patterns correct auxiliary chains, passive voice, predicate adjectives, comparative/superlative forms, and more.
-- **Clause detection** – `find_clauses()` segments a sentence into main, subordinate, and relative clauses with semantic subtypes (causal, concessive, temporal, conditional, nominal, contrastive, exceptive, manner, purpose). Supports both single-word and multi-word connectives (e.g. "instead of", "rather than", "even though", "as long as").
+- **Context-rule layer** – 21+ heuristic patterns correct auxiliary chains, passive voice, predicate adjectives, comparative/superlative forms, gerund subjects, and more.
+- **Clause detection** – `find_clauses()` segments a sentence into main, subordinate, and relative clauses with semantic subtypes (causal, concessive, temporal, conditional, nominal, contrastive, exceptive, manner, purpose, additive). Supports both single-word and multi-word connectives (e.g. "instead of", "rather than", "even though", "as long as", "as well as", "in spite of", "due to").
 - **Connective detection** – `find_connectives()` identifies coordinating, subordinating, and relative connectives (including multi-word connectives) with their positions.
 - **Custom overrides** – register per-word tag overrides (fixed string or callable) via `register_word_tag()`.
 - **Batch processing** – `analyze_batch()` processes multiple sentences efficiently using `nlp.pipe()` when spaCy is available.
@@ -27,17 +27,17 @@
 ### Minimal (NLTK backend only)
 
 ```bash
-pip install english-pos
+pip install GSL20051013-english
 ```
 
 ### With spaCy backend (recommended – faster and more accurate)
 
 ```bash
-pip install "english-pos[spacy]"
+pip install "GSL20051013-english[spacy]"
 ```
 
 > **Note:** The spaCy extra installs `en_core_web_sm` automatically via the direct wheel URL.  
-> If you manage spaCy models separately, run `pip install english-pos` and then  
+> If you manage spaCy models separately, run `pip install GSL20051013-english` and then  
 > `python -m spacy download en_core_web_sm`.
 
 ---
@@ -45,7 +45,7 @@ pip install "english-pos[spacy]"
 ## Quick Start
 
 ```python
-import english
+from Geemeth import english
 
 # Tag a single sentence
 tagged = english.analyze_sentence("The fast robot jumped over 2 walls!")
@@ -122,7 +122,7 @@ Segment a POS-tagged sentence into logical clauses.
 | Key          | Type   | Values / Notes                                                   |
 |--------------|--------|------------------------------------------------------------------|
 | `type`       | `str`  | `'main'`, `'subordinate'`, `'relative'`                          |
-| `subtype`    | `str`  | `'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, or `''` |
+| `subtype`    | `str`  | `'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, `'additive'`, or `''` |
 | `connective` | `str`  | Opening conjunction / relative pronoun (may be multi-word, e.g. `'instead of'`), or `''` for root main |
 | `tokens`     | `list` | `list[tuple[str, str]]` – tagged tokens in this clause           |
 
@@ -149,7 +149,7 @@ Identify logical connectives in a tagged sentence.
 | `word`     | `str` | The connective as it appears in the text (multi-word connectives are space-joined, e.g. `'instead of'`) |
 | `tag`      | `str` | Penn Treebank POS tag (`'IN'` for multi-word connectives)         |
 | `type`     | `str` | `'subordinating'`, `'coordinating'`, `'relative'`                 |
-| `subtype`  | `str` | Semantic subtype (`'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`) for subordinating; `''` for others |
+| `subtype`  | `str` | Semantic subtype (`'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, `'additive'`) for subordinating; `''` for others |
 | `position` | `int` | Index of the first token of the connective in `tagged`            |
 
 ```python
