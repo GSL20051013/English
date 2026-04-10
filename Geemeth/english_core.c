@@ -2667,8 +2667,8 @@ return 0;
  * 
  * 
  * cdef inline bint in_mask(int tag, uint64_t mask) noexcept nogil:             # <<<<<<<<<<<<<<
- *     """Return True when *tag* (163) is set in *mask*."""
- *     if tag <= 0 or tag > 63:
+ *     """Return True when *tag* is set in *mask*.
+ * 
 */
 
 static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag, uint64_t __pyx_v_mask) {
@@ -2676,9 +2676,9 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag
   int __pyx_t_1;
   int __pyx_t_2;
 
-  /* "Geemeth/english_core.pyx":139
- * cdef inline bint in_mask(int tag, uint64_t mask) noexcept nogil:
- *     """Return True when *tag* (163) is set in *mask*."""
+  /* "Geemeth/english_core.pyx":143
+ *     rejected, as UNKNOWN is never a member of any tag-set bitmask.
+ *     """
  *     if tag <= 0 or tag > 63:             # <<<<<<<<<<<<<<
  *         return 0
  *     return (mask >> tag) & 1
@@ -2694,8 +2694,8 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":140
- *     """Return True when *tag* (163) is set in *mask*."""
+    /* "Geemeth/english_core.pyx":144
+ *     """
  *     if tag <= 0 or tag > 63:
  *         return 0             # <<<<<<<<<<<<<<
  *     return (mask >> tag) & 1
@@ -2704,16 +2704,16 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":139
- * cdef inline bint in_mask(int tag, uint64_t mask) noexcept nogil:
- *     """Return True when *tag* (163) is set in *mask*."""
+    /* "Geemeth/english_core.pyx":143
+ *     rejected, as UNKNOWN is never a member of any tag-set bitmask.
+ *     """
  *     if tag <= 0 or tag > 63:             # <<<<<<<<<<<<<<
  *         return 0
  *     return (mask >> tag) & 1
 */
   }
 
-  /* "Geemeth/english_core.pyx":141
+  /* "Geemeth/english_core.pyx":145
  *     if tag <= 0 or tag > 63:
  *         return 0
  *     return (mask >> tag) & 1             # <<<<<<<<<<<<<<
@@ -2727,8 +2727,8 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag
  * 
  * 
  * cdef inline bint in_mask(int tag, uint64_t mask) noexcept nogil:             # <<<<<<<<<<<<<<
- *     """Return True when *tag* (163) is set in *mask*."""
- *     if tag <= 0 or tag > 63:
+ *     """Return True when *tag* is set in *mask*.
+ * 
 */
 
   /* function exit code */
@@ -2736,7 +2736,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core_in_mask(int __pyx_v_tag
   return __pyx_r;
 }
 
-/* "Geemeth/english_core.pyx":165
+/* "Geemeth/english_core.pyx":169
  * 
  * 
  * def _init_cy_globals(             # <<<<<<<<<<<<<<
@@ -2797,104 +2797,104 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_modals,&__pyx_mstate_global->__pyx_n_u_have_forms,&__pyx_mstate_global->__pyx_n_u_do_forms,&__pyx_mstate_global->__pyx_n_u_be_forms,&__pyx_mstate_global->__pyx_n_u_degree_adverbs,&__pyx_mstate_global->__pyx_n_u_negations,&__pyx_mstate_global->__pyx_n_u_prepositions,&__pyx_mstate_global->__pyx_n_u_subord_conj,&__pyx_mstate_global->__pyx_n_u_subj_pronouns,&__pyx_mstate_global->__pyx_n_u_have_tag,&__pyx_mstate_global->__pyx_n_u_do_tag,&__pyx_mstate_global->__pyx_n_u_neg_or_deg,&__pyx_mstate_global->__pyx_n_u_clause_boundary,&__pyx_mstate_global->__pyx_n_u_pos_tag_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 165, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 169, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case 14:
         values[13] = __Pyx_ArgRef_FASTCALL(__pyx_args, 13);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[13])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[13])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 13:
         values[12] = __Pyx_ArgRef_FASTCALL(__pyx_args, 12);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 12:
         values[11] = __Pyx_ArgRef_FASTCALL(__pyx_args, 11);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 11:
         values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 10:
         values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  9:
         values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  8:
         values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  7:
         values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  6:
         values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_init_cy_globals", 0) < (0)) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_init_cy_globals", 0) < (0)) __PYX_ERR(0, 169, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 14; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_init_cy_globals", 1, 14, 14, i); __PYX_ERR(0, 165, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_init_cy_globals", 1, 14, 14, i); __PYX_ERR(0, 169, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 14)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[11] = __Pyx_ArgRef_FASTCALL(__pyx_args, 11);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[12] = __Pyx_ArgRef_FASTCALL(__pyx_args, 12);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 169, __pyx_L3_error)
       values[13] = __Pyx_ArgRef_FASTCALL(__pyx_args, 13);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[13])) __PYX_ERR(0, 165, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[13])) __PYX_ERR(0, 169, __pyx_L3_error)
     }
     __pyx_v_modals = values[0];
     __pyx_v_have_forms = values[1];
@@ -2913,7 +2913,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_init_cy_globals", 1, 14, 14, __pyx_nargs); __PYX_ERR(0, 165, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_init_cy_globals", 1, 14, 14, __pyx_nargs); __PYX_ERR(0, 169, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2942,133 +2942,133 @@ static PyObject *__pyx_pf_7Geemeth_12english_core__init_cy_globals(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_init_cy_globals", 0);
 
-  /* "Geemeth/english_core.pyx":176
+  /* "Geemeth/english_core.pyx":180
  *     global _SUBJ_PRONOUNS, _HAVE_TAG, _DO_TAG, _NEG_OR_DEG
  *     global _CLAUSE_BOUNDARY, _POSTag
  *     _MODALS        = modals             # <<<<<<<<<<<<<<
  *     _HAVE_FORMS    = have_forms
  *     _DO_FORMS      = do_forms
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MODALS, __pyx_v_modals) < (0)) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MODALS, __pyx_v_modals) < (0)) __PYX_ERR(0, 180, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":177
+  /* "Geemeth/english_core.pyx":181
  *     global _CLAUSE_BOUNDARY, _POSTag
  *     _MODALS        = modals
  *     _HAVE_FORMS    = have_forms             # <<<<<<<<<<<<<<
  *     _DO_FORMS      = do_forms
  *     _BE_FORMS      = be_forms
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS, __pyx_v_have_forms) < (0)) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS, __pyx_v_have_forms) < (0)) __PYX_ERR(0, 181, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":178
+  /* "Geemeth/english_core.pyx":182
  *     _MODALS        = modals
  *     _HAVE_FORMS    = have_forms
  *     _DO_FORMS      = do_forms             # <<<<<<<<<<<<<<
  *     _BE_FORMS      = be_forms
  *     _DEGREE_ADVERBS = degree_adverbs
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_FORMS, __pyx_v_do_forms) < (0)) __PYX_ERR(0, 178, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_FORMS, __pyx_v_do_forms) < (0)) __PYX_ERR(0, 182, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":179
+  /* "Geemeth/english_core.pyx":183
  *     _HAVE_FORMS    = have_forms
  *     _DO_FORMS      = do_forms
  *     _BE_FORMS      = be_forms             # <<<<<<<<<<<<<<
  *     _DEGREE_ADVERBS = degree_adverbs
  *     _NEGATIONS     = negations
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BE_FORMS, __pyx_v_be_forms) < (0)) __PYX_ERR(0, 179, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BE_FORMS, __pyx_v_be_forms) < (0)) __PYX_ERR(0, 183, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":180
+  /* "Geemeth/english_core.pyx":184
  *     _DO_FORMS      = do_forms
  *     _BE_FORMS      = be_forms
  *     _DEGREE_ADVERBS = degree_adverbs             # <<<<<<<<<<<<<<
  *     _NEGATIONS     = negations
  *     _PREPOSITIONS  = prepositions
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS, __pyx_v_degree_adverbs) < (0)) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS, __pyx_v_degree_adverbs) < (0)) __PYX_ERR(0, 184, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":181
+  /* "Geemeth/english_core.pyx":185
  *     _BE_FORMS      = be_forms
  *     _DEGREE_ADVERBS = degree_adverbs
  *     _NEGATIONS     = negations             # <<<<<<<<<<<<<<
  *     _PREPOSITIONS  = prepositions
  *     _SUBORD_CONJ   = subord_conj
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEGATIONS, __pyx_v_negations) < (0)) __PYX_ERR(0, 181, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEGATIONS, __pyx_v_negations) < (0)) __PYX_ERR(0, 185, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":182
+  /* "Geemeth/english_core.pyx":186
  *     _DEGREE_ADVERBS = degree_adverbs
  *     _NEGATIONS     = negations
  *     _PREPOSITIONS  = prepositions             # <<<<<<<<<<<<<<
  *     _SUBORD_CONJ   = subord_conj
  *     _SUBJ_PRONOUNS = subj_pronouns
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS, __pyx_v_prepositions) < (0)) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS, __pyx_v_prepositions) < (0)) __PYX_ERR(0, 186, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":183
+  /* "Geemeth/english_core.pyx":187
  *     _NEGATIONS     = negations
  *     _PREPOSITIONS  = prepositions
  *     _SUBORD_CONJ   = subord_conj             # <<<<<<<<<<<<<<
  *     _SUBJ_PRONOUNS = subj_pronouns
  *     _HAVE_TAG      = have_tag
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ, __pyx_v_subord_conj) < (0)) __PYX_ERR(0, 183, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ, __pyx_v_subord_conj) < (0)) __PYX_ERR(0, 187, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":184
+  /* "Geemeth/english_core.pyx":188
  *     _PREPOSITIONS  = prepositions
  *     _SUBORD_CONJ   = subord_conj
  *     _SUBJ_PRONOUNS = subj_pronouns             # <<<<<<<<<<<<<<
  *     _HAVE_TAG      = have_tag
  *     _DO_TAG        = do_tag
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS, __pyx_v_subj_pronouns) < (0)) __PYX_ERR(0, 184, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS, __pyx_v_subj_pronouns) < (0)) __PYX_ERR(0, 188, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":185
+  /* "Geemeth/english_core.pyx":189
  *     _SUBORD_CONJ   = subord_conj
  *     _SUBJ_PRONOUNS = subj_pronouns
  *     _HAVE_TAG      = have_tag             # <<<<<<<<<<<<<<
  *     _DO_TAG        = do_tag
  *     _NEG_OR_DEG    = neg_or_deg
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_TAG, __pyx_v_have_tag) < (0)) __PYX_ERR(0, 185, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_TAG, __pyx_v_have_tag) < (0)) __PYX_ERR(0, 189, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":186
+  /* "Geemeth/english_core.pyx":190
  *     _SUBJ_PRONOUNS = subj_pronouns
  *     _HAVE_TAG      = have_tag
  *     _DO_TAG        = do_tag             # <<<<<<<<<<<<<<
  *     _NEG_OR_DEG    = neg_or_deg
  *     _CLAUSE_BOUNDARY = clause_boundary
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_TAG, __pyx_v_do_tag) < (0)) __PYX_ERR(0, 186, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_TAG, __pyx_v_do_tag) < (0)) __PYX_ERR(0, 190, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":187
+  /* "Geemeth/english_core.pyx":191
  *     _HAVE_TAG      = have_tag
  *     _DO_TAG        = do_tag
  *     _NEG_OR_DEG    = neg_or_deg             # <<<<<<<<<<<<<<
  *     _CLAUSE_BOUNDARY = clause_boundary
  *     _POSTag        = pos_tag_cls
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG, __pyx_v_neg_or_deg) < (0)) __PYX_ERR(0, 187, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG, __pyx_v_neg_or_deg) < (0)) __PYX_ERR(0, 191, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":188
+  /* "Geemeth/english_core.pyx":192
  *     _DO_TAG        = do_tag
  *     _NEG_OR_DEG    = neg_or_deg
  *     _CLAUSE_BOUNDARY = clause_boundary             # <<<<<<<<<<<<<<
  *     _POSTag        = pos_tag_cls
  * 
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY, __pyx_v_clause_boundary) < (0)) __PYX_ERR(0, 188, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY, __pyx_v_clause_boundary) < (0)) __PYX_ERR(0, 192, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":189
+  /* "Geemeth/english_core.pyx":193
  *     _NEG_OR_DEG    = neg_or_deg
  *     _CLAUSE_BOUNDARY = clause_boundary
  *     _POSTag        = pos_tag_cls             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_POSTag, __pyx_v_pos_tag_cls) < (0)) __PYX_ERR(0, 189, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_POSTag, __pyx_v_pos_tag_cls) < (0)) __PYX_ERR(0, 193, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":165
+  /* "Geemeth/english_core.pyx":169
  * 
  * 
  * def _init_cy_globals(             # <<<<<<<<<<<<<<
@@ -3088,7 +3088,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core__init_cy_globals(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "Geemeth/english_core.pyx":192
+/* "Geemeth/english_core.pyx":196
  * 
  * 
  * def apply_context_rules_cy(list tagged):             # <<<<<<<<<<<<<<
@@ -3136,32 +3136,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_tagged,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 192, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 196, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 192, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 196, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "apply_context_rules_cy", 0) < (0)) __PYX_ERR(0, 192, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "apply_context_rules_cy", 0) < (0)) __PYX_ERR(0, 196, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("apply_context_rules_cy", 1, 1, 1, i); __PYX_ERR(0, 192, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("apply_context_rules_cy", 1, 1, 1, i); __PYX_ERR(0, 196, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 192, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 196, __pyx_L3_error)
     }
     __pyx_v_tagged = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("apply_context_rules_cy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 192, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("apply_context_rules_cy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 196, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3172,7 +3172,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tagged), (&PyList_Type), 1, "tagged", 1))) __PYX_ERR(0, 192, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tagged), (&PyList_Type), 1, "tagged", 1))) __PYX_ERR(0, 196, __pyx_L1_error)
   __pyx_r = __pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(__pyx_self, __pyx_v_tagged);
 
   /* function exit code */
@@ -3265,7 +3265,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("apply_context_rules_cy", 0);
 
-  /* "Geemeth/english_core.pyx":199
+  /* "Geemeth/english_core.pyx":203
  *     All tag comparisons are performed as C integer operations.
  *     """
  *     cdef int n = len(tagged)             # <<<<<<<<<<<<<<
@@ -3274,36 +3274,36 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
   if (unlikely(__pyx_v_tagged == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 199, __pyx_L1_error)
+    __PYX_ERR(0, 203, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyList_GET_SIZE(__pyx_v_tagged); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyList_GET_SIZE(__pyx_v_tagged); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 203, __pyx_L1_error)
   __pyx_v_n = __pyx_t_1;
 
-  /* "Geemeth/english_core.pyx":208
+  /* "Geemeth/english_core.pyx":212
  *     cdef object tag_obj, nt_obj, pt_obj   # POSTag enum objects
  * 
  *     cdef list tags = list(tagged)             # <<<<<<<<<<<<<<
  * 
  *     _T = _POSTag   # local alias
 */
-  __pyx_t_2 = PySequence_List(__pyx_v_tagged); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_2 = PySequence_List(__pyx_v_tagged); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_tags = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "Geemeth/english_core.pyx":210
+  /* "Geemeth/english_core.pyx":214
  *     cdef list tags = list(tagged)
  * 
  *     _T = _POSTag   # local alias             # <<<<<<<<<<<<<<
  * 
  *     for i in range(n):
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_POSTag); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_POSTag); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v__T = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "Geemeth/english_core.pyx":212
+  /* "Geemeth/english_core.pyx":216
  *     _T = _POSTag   # local alias
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3315,7 +3315,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "Geemeth/english_core.pyx":213
+    /* "Geemeth/english_core.pyx":217
  * 
  *     for i in range(n):
  *         tup = tags[i]             # <<<<<<<<<<<<<<
@@ -3327,63 +3327,63 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __Pyx_XDECREF_SET(__pyx_v_tup, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "Geemeth/english_core.pyx":214
+    /* "Geemeth/english_core.pyx":218
  *     for i in range(n):
  *         tup = tags[i]
  *         word = tup[0]             # <<<<<<<<<<<<<<
  *         tag_obj = tup[1]
  *         tag_val = <int>tag_obj
 */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tup, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tup, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_2))) __PYX_ERR(0, 214, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_2))) __PYX_ERR(0, 218, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_word, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "Geemeth/english_core.pyx":215
+    /* "Geemeth/english_core.pyx":219
  *         tup = tags[i]
  *         word = tup[0]
  *         tag_obj = tup[1]             # <<<<<<<<<<<<<<
  *         tag_val = <int>tag_obj
  *         w = word.lower()
 */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tup, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tup, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_tag_obj, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "Geemeth/english_core.pyx":216
+    /* "Geemeth/english_core.pyx":220
  *         word = tup[0]
  *         tag_obj = tup[1]
  *         tag_val = <int>tag_obj             # <<<<<<<<<<<<<<
  *         w = word.lower()
  * 
 */
-    __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_tag_obj); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_tag_obj); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 220, __pyx_L1_error)
     __pyx_v_tag_val = ((int)__pyx_t_6);
 
-    /* "Geemeth/english_core.pyx":217
+    /* "Geemeth/english_core.pyx":221
  *         tag_obj = tup[1]
  *         tag_val = <int>tag_obj
  *         w = word.lower()             # <<<<<<<<<<<<<<
  * 
  *         # ---- Self-correction: degree adverbs  RB ----
 */
-    __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_w, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "Geemeth/english_core.pyx":220
+    /* "Geemeth/english_core.pyx":224
  * 
  *         # ---- Self-correction: degree adverbs  RB ----
  *         if w in _DEGREE_ADVERBS and not in_mask(tag_val, ADV_MASK):             # <<<<<<<<<<<<<<
  *             tag_val = T_RB
  *             tags[i] = (word, _T(T_RB))
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 220, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 224, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
     } else {
@@ -3395,7 +3395,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":221
+      /* "Geemeth/english_core.pyx":225
  *         # ---- Self-correction: degree adverbs  RB ----
  *         if w in _DEGREE_ADVERBS and not in_mask(tag_val, ADV_MASK):
  *             tag_val = T_RB             # <<<<<<<<<<<<<<
@@ -3404,7 +3404,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_tag_val = 20;
 
-      /* "Geemeth/english_core.pyx":222
+      /* "Geemeth/english_core.pyx":226
  *         if w in _DEGREE_ADVERBS and not in_mask(tag_val, ADV_MASK):
  *             tag_val = T_RB
  *             tags[i] = (word, _T(T_RB))             # <<<<<<<<<<<<<<
@@ -3431,21 +3431,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
-      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 222, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 222, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 226, __pyx_L1_error);
       __Pyx_GIVEREF(__pyx_t_2);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 222, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 226, __pyx_L1_error);
       __pyx_t_2 = 0;
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 222, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 226, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":220
+      /* "Geemeth/english_core.pyx":224
  * 
  *         # ---- Self-correction: degree adverbs  RB ----
  *         if w in _DEGREE_ADVERBS and not in_mask(tag_val, ADV_MASK):             # <<<<<<<<<<<<<<
@@ -3454,16 +3454,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":225
+    /* "Geemeth/english_core.pyx":229
  * 
  *         # ---- Self-correction: modals  MD ----
  *         if w in _MODALS and tag_val != T_MD:             # <<<<<<<<<<<<<<
  *             tag_val = T_MD
  *             tags[i] = (word, _T(T_MD))
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_8) {
     } else {
@@ -3475,7 +3475,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":226
+      /* "Geemeth/english_core.pyx":230
  *         # ---- Self-correction: modals  MD ----
  *         if w in _MODALS and tag_val != T_MD:
  *             tag_val = T_MD             # <<<<<<<<<<<<<<
@@ -3484,7 +3484,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_tag_val = 11;
 
-      /* "Geemeth/english_core.pyx":227
+      /* "Geemeth/english_core.pyx":231
  *         if w in _MODALS and tag_val != T_MD:
  *             tag_val = T_MD
  *             tags[i] = (word, _T(T_MD))             # <<<<<<<<<<<<<<
@@ -3511,21 +3511,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_9, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 227, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 231, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
       }
-      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 231, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 227, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 231, __pyx_L1_error);
       __Pyx_GIVEREF(__pyx_t_10);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 227, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 231, __pyx_L1_error);
       __pyx_t_10 = 0;
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 227, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 231, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "Geemeth/english_core.pyx":225
+      /* "Geemeth/english_core.pyx":229
  * 
  *         # ---- Self-correction: modals  MD ----
  *         if w in _MODALS and tag_val != T_MD:             # <<<<<<<<<<<<<<
@@ -3534,16 +3534,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":230
+    /* "Geemeth/english_core.pyx":234
  * 
  *         # ---- Self-correction: have-forms  correct verb form ----
  *         if w in _HAVE_FORMS and not in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
  *             new_tag = _HAVE_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 230, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 230, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 234, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     if (__pyx_t_8) {
     } else {
@@ -3555,7 +3555,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":231
+      /* "Geemeth/english_core.pyx":235
  *         # ---- Self-correction: have-forms  correct verb form ----
  *         if w in _HAVE_FORMS and not in_mask(tag_val, VERB_MASK):
  *             new_tag = _HAVE_TAG.get(w, _T(T_VBZ))             # <<<<<<<<<<<<<<
@@ -3563,9 +3563,9 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
  *             tag_val = <int>new_tag
 */
       __pyx_t_10 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_TAG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_TAG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 231, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 235, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_13 = NULL;
@@ -3588,7 +3588,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_14, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
       __pyx_t_11 = 1;
@@ -3609,41 +3609,41 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 231, __pyx_L1_error)
+        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 235, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
       }
       __Pyx_XDECREF_SET(__pyx_v_new_tag, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "Geemeth/english_core.pyx":232
+      /* "Geemeth/english_core.pyx":236
  *         if w in _HAVE_FORMS and not in_mask(tag_val, VERB_MASK):
  *             new_tag = _HAVE_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)             # <<<<<<<<<<<<<<
  *             tag_val = <int>new_tag
  * 
 */
-      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 232, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 236, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 232, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 236, __pyx_L1_error);
       __Pyx_INCREF(__pyx_v_new_tag);
       __Pyx_GIVEREF(__pyx_v_new_tag);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_new_tag) != (0)) __PYX_ERR(0, 232, __pyx_L1_error);
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 232, __pyx_L1_error)
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_new_tag) != (0)) __PYX_ERR(0, 236, __pyx_L1_error);
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 236, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "Geemeth/english_core.pyx":233
+      /* "Geemeth/english_core.pyx":237
  *             new_tag = _HAVE_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)
  *             tag_val = <int>new_tag             # <<<<<<<<<<<<<<
  * 
  *         # ---- Self-correction: do-forms  correct verb form ----
 */
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_new_tag); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 233, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_new_tag); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 237, __pyx_L1_error)
       __pyx_v_tag_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":230
+      /* "Geemeth/english_core.pyx":234
  * 
  *         # ---- Self-correction: have-forms  correct verb form ----
  *         if w in _HAVE_FORMS and not in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
@@ -3652,16 +3652,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":236
+    /* "Geemeth/english_core.pyx":240
  * 
  *         # ---- Self-correction: do-forms  correct verb form ----
  *         if w in _DO_FORMS and not in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
  *             new_tag = _DO_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_DO_FORMS); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_DO_FORMS); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     if (__pyx_t_8) {
     } else {
@@ -3673,7 +3673,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L15_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":237
+      /* "Geemeth/english_core.pyx":241
  *         # ---- Self-correction: do-forms  correct verb form ----
  *         if w in _DO_FORMS and not in_mask(tag_val, VERB_MASK):
  *             new_tag = _DO_TAG.get(w, _T(T_VBZ))             # <<<<<<<<<<<<<<
@@ -3681,9 +3681,9 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
  *             tag_val = <int>new_tag
 */
       __pyx_t_12 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DO_TAG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DO_TAG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 241, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_14 = NULL;
@@ -3706,7 +3706,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_13, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
       __pyx_t_11 = 1;
@@ -3727,41 +3727,41 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 237, __pyx_L1_error)
+        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 241, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
       }
       __Pyx_XDECREF_SET(__pyx_v_new_tag, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "Geemeth/english_core.pyx":238
+      /* "Geemeth/english_core.pyx":242
  *         if w in _DO_FORMS and not in_mask(tag_val, VERB_MASK):
  *             new_tag = _DO_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)             # <<<<<<<<<<<<<<
  *             tag_val = <int>new_tag
  * 
 */
-      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 242, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 238, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 242, __pyx_L1_error);
       __Pyx_INCREF(__pyx_v_new_tag);
       __Pyx_GIVEREF(__pyx_v_new_tag);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_new_tag) != (0)) __PYX_ERR(0, 238, __pyx_L1_error);
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 238, __pyx_L1_error)
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_v_new_tag) != (0)) __PYX_ERR(0, 242, __pyx_L1_error);
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 242, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "Geemeth/english_core.pyx":239
+      /* "Geemeth/english_core.pyx":243
  *             new_tag = _DO_TAG.get(w, _T(T_VBZ))
  *             tags[i] = (word, new_tag)
  *             tag_val = <int>new_tag             # <<<<<<<<<<<<<<
  * 
  *         # ---- Pattern 14: subordinating conj  IN ----
 */
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_new_tag); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_v_new_tag); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
       __pyx_v_tag_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":236
+      /* "Geemeth/english_core.pyx":240
  * 
  *         # ---- Self-correction: do-forms  correct verb form ----
  *         if w in _DO_FORMS and not in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
@@ -3770,16 +3770,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":242
+    /* "Geemeth/english_core.pyx":246
  * 
  *         # ---- Pattern 14: subordinating conj  IN ----
  *         if w in _SUBORD_CONJ and tag_val != T_IN and tag_val != T_RB:             # <<<<<<<<<<<<<<
  *             tag_val = T_IN
  *             tags[i] = (word, _T(T_IN))
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_9, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     if (__pyx_t_8) {
     } else {
@@ -3799,7 +3799,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L18_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":243
+      /* "Geemeth/english_core.pyx":247
  *         # ---- Pattern 14: subordinating conj  IN ----
  *         if w in _SUBORD_CONJ and tag_val != T_IN and tag_val != T_RB:
  *             tag_val = T_IN             # <<<<<<<<<<<<<<
@@ -3808,7 +3808,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_tag_val = 6;
 
-      /* "Geemeth/english_core.pyx":244
+      /* "Geemeth/english_core.pyx":248
  *         if w in _SUBORD_CONJ and tag_val != T_IN and tag_val != T_RB:
  *             tag_val = T_IN
  *             tags[i] = (word, _T(T_IN))             # <<<<<<<<<<<<<<
@@ -3835,21 +3835,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_9 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 244, __pyx_L1_error)
+        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 248, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
       }
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 244, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 248, __pyx_L1_error);
       __Pyx_GIVEREF(__pyx_t_9);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 244, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 248, __pyx_L1_error);
       __pyx_t_9 = 0;
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 244, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":242
+      /* "Geemeth/english_core.pyx":246
  * 
  *         # ---- Pattern 14: subordinating conj  IN ----
  *         if w in _SUBORD_CONJ and tag_val != T_IN and tag_val != T_RB:             # <<<<<<<<<<<<<<
@@ -3858,14 +3858,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":247
+    /* "Geemeth/english_core.pyx":251
  * 
  *         # ---- Pattern 15: existential "there"  EX ----
  *         if w == "there" and tag_val != T_EX and i + 1 < n:             # <<<<<<<<<<<<<<
  *             if (<str>(tags[i + 1][0])).lower() in _BE_FORMS:
  *                 tag_val = T_EX
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_there, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 247, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_there, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 251, __pyx_L1_error)
     if (__pyx_t_8) {
     } else {
       __pyx_t_7 = __pyx_t_8;
@@ -3882,7 +3882,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L21_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":248
+      /* "Geemeth/english_core.pyx":252
  *         # ---- Pattern 15: existential "there"  EX ----
  *         if w == "there" and tag_val != T_EX and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() in _BE_FORMS:             # <<<<<<<<<<<<<<
@@ -3890,7 +3890,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
  *                 tags[i] = (word, _T(T_EX))
 */
       __pyx_t_15 = (__pyx_v_i + 1);
-      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_15), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_15), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 252, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_9 = __pyx_t_10;
       __Pyx_INCREF(__pyx_t_9);
@@ -3900,17 +3900,17 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 252, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 248, __pyx_L1_error)
+      __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 252, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":249
+        /* "Geemeth/english_core.pyx":253
  *         if w == "there" and tag_val != T_EX and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() in _BE_FORMS:
  *                 tag_val = T_EX             # <<<<<<<<<<<<<<
@@ -3919,7 +3919,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_tag_val = 4;
 
-        /* "Geemeth/english_core.pyx":250
+        /* "Geemeth/english_core.pyx":254
  *             if (<str>(tags[i + 1][0])).lower() in _BE_FORMS:
  *                 tag_val = T_EX
  *                 tags[i] = (word, _T(T_EX))             # <<<<<<<<<<<<<<
@@ -3946,21 +3946,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_9, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 250, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 254, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
         }
-        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 250, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 254, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_v_word);
         __Pyx_GIVEREF(__pyx_v_word);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 250, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 254, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_10);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 250, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 254, __pyx_L1_error);
         __pyx_t_10 = 0;
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 250, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 254, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "Geemeth/english_core.pyx":248
+        /* "Geemeth/english_core.pyx":252
  *         # ---- Pattern 15: existential "there"  EX ----
  *         if w == "there" and tag_val != T_EX and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() in _BE_FORMS:             # <<<<<<<<<<<<<<
@@ -3969,7 +3969,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":247
+      /* "Geemeth/english_core.pyx":251
  * 
  *         # ---- Pattern 15: existential "there"  EX ----
  *         if w == "there" and tag_val != T_EX and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -3978,25 +3978,25 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":253
+    /* "Geemeth/english_core.pyx":257
  * 
  *         # ---- Pattern 16: "more"/"less"  RBR; next word  JJ ----
  *         if w == "more" or w == "less":             # <<<<<<<<<<<<<<
  *             if tag_val != T_RBR and tag_val != T_JJR:
  *                 tag_val = T_RBR
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_more, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_more, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 257, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       __pyx_t_7 = __pyx_t_8;
       goto __pyx_L26_bool_binop_done;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 253, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 257, __pyx_L1_error)
     __pyx_t_7 = __pyx_t_8;
     __pyx_L26_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":254
+      /* "Geemeth/english_core.pyx":258
  *         # ---- Pattern 16: "more"/"less"  RBR; next word  JJ ----
  *         if w == "more" or w == "less":
  *             if tag_val != T_RBR and tag_val != T_JJR:             # <<<<<<<<<<<<<<
@@ -4014,7 +4014,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       }
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":255
+        /* "Geemeth/english_core.pyx":259
  *         if w == "more" or w == "less":
  *             if tag_val != T_RBR and tag_val != T_JJR:
  *                 tag_val = T_RBR             # <<<<<<<<<<<<<<
@@ -4023,7 +4023,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_tag_val = 21;
 
-        /* "Geemeth/english_core.pyx":256
+        /* "Geemeth/english_core.pyx":260
  *             if tag_val != T_RBR and tag_val != T_JJR:
  *                 tag_val = T_RBR
  *                 tags[i] = (word, _T(T_RBR))             # <<<<<<<<<<<<<<
@@ -4050,21 +4050,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_9 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 256, __pyx_L1_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 260, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
         }
-        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(__pyx_v_word);
         __Pyx_GIVEREF(__pyx_v_word);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 256, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 260, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_9);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 256, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 260, __pyx_L1_error);
         __pyx_t_9 = 0;
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 256, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 260, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":254
+        /* "Geemeth/english_core.pyx":258
  *         # ---- Pattern 16: "more"/"less"  RBR; next word  JJ ----
  *         if w == "more" or w == "less":
  *             if tag_val != T_RBR and tag_val != T_JJR:             # <<<<<<<<<<<<<<
@@ -4073,7 +4073,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":257
+      /* "Geemeth/english_core.pyx":261
  *                 tag_val = T_RBR
  *                 tags[i] = (word, _T(T_RBR))
  *             if i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = ((__pyx_v_i + 1) < __pyx_v_n);
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":258
+        /* "Geemeth/english_core.pyx":262
  *                 tags[i] = (word, _T(T_RBR))
  *             if i + 1 < n:
  *                 nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -4096,14 +4096,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":259
+        /* "Geemeth/english_core.pyx":263
  *             if i + 1 < n:
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 if (nw.lower() != "than"
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 263, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_9 = __pyx_t_2;
         __Pyx_INCREF(__pyx_t_9);
@@ -4111,29 +4111,29 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_9));
         __pyx_t_9 = 0;
 
-        /* "Geemeth/english_core.pyx":260
+        /* "Geemeth/english_core.pyx":264
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 if (nw.lower() != "than"
  *                         and not in_mask(nt_val, ADJ_MASK)
 */
-        __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 260, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 264, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_9); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 260, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_9); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 264, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":261
+        /* "Geemeth/english_core.pyx":265
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if (nw.lower() != "than"             # <<<<<<<<<<<<<<
  *                         and not in_mask(nt_val, ADJ_MASK)
  *                         and not in_mask(nt_val, ADV_MASK)):
 */
-        __pyx_t_9 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 261, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 265, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_than, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 261, __pyx_L1_error)
+        __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_than, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 265, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         if (__pyx_t_8) {
         } else {
@@ -4141,7 +4141,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L31_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":262
+        /* "Geemeth/english_core.pyx":266
  *                 nt_val = <int>nxt[1]
  *                 if (nw.lower() != "than"
  *                         and not in_mask(nt_val, ADJ_MASK)             # <<<<<<<<<<<<<<
@@ -4155,7 +4155,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L31_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":263
+        /* "Geemeth/english_core.pyx":267
  *                 if (nw.lower() != "than"
  *                         and not in_mask(nt_val, ADJ_MASK)
  *                         and not in_mask(nt_val, ADV_MASK)):             # <<<<<<<<<<<<<<
@@ -4166,7 +4166,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         __pyx_L31_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":261
+        /* "Geemeth/english_core.pyx":265
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if (nw.lower() != "than"             # <<<<<<<<<<<<<<
@@ -4175,7 +4175,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":264
+          /* "Geemeth/english_core.pyx":268
  *                         and not in_mask(nt_val, ADJ_MASK)
  *                         and not in_mask(nt_val, ADV_MASK)):
  *                     tags[i + 1] = (nw, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -4202,22 +4202,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_9 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 264, __pyx_L1_error)
+            if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 268, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_9);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 264, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 268, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 264, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 268, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_9);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 264, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_9) != (0)) __PYX_ERR(0, 268, __pyx_L1_error);
           __pyx_t_9 = 0;
           __pyx_t_15 = (__pyx_v_i + 1);
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 264, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 268, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":261
+          /* "Geemeth/english_core.pyx":265
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if (nw.lower() != "than"             # <<<<<<<<<<<<<<
@@ -4226,7 +4226,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":257
+        /* "Geemeth/english_core.pyx":261
  *                 tag_val = T_RBR
  *                 tags[i] = (word, _T(T_RBR))
  *             if i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4235,7 +4235,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":253
+      /* "Geemeth/english_core.pyx":257
  * 
  *         # ---- Pattern 16: "more"/"less"  RBR; next word  JJ ----
  *         if w == "more" or w == "less":             # <<<<<<<<<<<<<<
@@ -4244,7 +4244,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":267
+    /* "Geemeth/english_core.pyx":271
  * 
  *         # ---- Pattern 17: JJR/RBR + "than"  IN ----
  *         if (tag_val == T_JJR or tag_val == T_RBR) and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4270,7 +4270,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L35_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":268
+      /* "Geemeth/english_core.pyx":272
  *         # ---- Pattern 17: JJR/RBR + "than"  IN ----
  *         if (tag_val == T_JJR or tag_val == T_RBR) and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -4283,14 +4283,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":269
+      /* "Geemeth/english_core.pyx":273
  *         if (tag_val == T_JJR or tag_val == T_RBR) and i + 1 < n:
  *             nxt = tags[i + 1]
  *             if (<str>nxt[0]).lower() == "than":             # <<<<<<<<<<<<<<
  *                 tags[i + 1] = (nxt[0], _T(T_IN))
  * 
 */
-      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 269, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_9 = __pyx_t_2;
       __Pyx_INCREF(__pyx_t_9);
@@ -4300,21 +4300,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_10 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 269, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 273, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
       }
-      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_than, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 269, __pyx_L1_error)
+      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_than, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":270
+        /* "Geemeth/english_core.pyx":274
  *             nxt = tags[i + 1]
  *             if (<str>nxt[0]).lower() == "than":
  *                 tags[i + 1] = (nxt[0], _T(T_IN))             # <<<<<<<<<<<<<<
  * 
  *         # ---- Pattern 18: relative pronoun + ambiguous word  verb ----
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 270, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 274, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_9 = NULL;
         __Pyx_INCREF(__pyx_v__T);
@@ -4336,22 +4336,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 270, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 274, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_GIVEREF(__pyx_t_10);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10) != (0)) __PYX_ERR(0, 270, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10) != (0)) __PYX_ERR(0, 274, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 270, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 274, __pyx_L1_error);
         __pyx_t_10 = 0;
         __pyx_t_2 = 0;
         __pyx_t_15 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 270, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 274, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":269
+        /* "Geemeth/english_core.pyx":273
  *         if (tag_val == T_JJR or tag_val == T_RBR) and i + 1 < n:
  *             nxt = tags[i + 1]
  *             if (<str>nxt[0]).lower() == "than":             # <<<<<<<<<<<<<<
@@ -4360,7 +4360,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":267
+      /* "Geemeth/english_core.pyx":271
  * 
  *         # ---- Pattern 17: JJR/RBR + "than"  IN ----
  *         if (tag_val == T_JJR or tag_val == T_RBR) and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4369,24 +4369,24 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":273
+    /* "Geemeth/english_core.pyx":277
  * 
  *         # ---- Pattern 18: relative pronoun + ambiguous word  verb ----
  *         if (w == "who" or w == "which" or w == "that") and i + 1 < n:             # <<<<<<<<<<<<<<
  *             if tag_val == T_WP or tag_val == T_WDT or tag_val == T_IN:
  *                 nxt = tags[i + 1]
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_who, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_who, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 277, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       goto __pyx_L40_next_and;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_which, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_which, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 277, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       goto __pyx_L40_next_and;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_that, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_that, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 277, __pyx_L1_error)
     if (__pyx_t_8) {
     } else {
       __pyx_t_7 = __pyx_t_8;
@@ -4398,7 +4398,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L39_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":274
+      /* "Geemeth/english_core.pyx":278
  *         # ---- Pattern 18: relative pronoun + ambiguous word  verb ----
  *         if (w == "who" or w == "which" or w == "that") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT or tag_val == T_IN:             # <<<<<<<<<<<<<<
@@ -4410,7 +4410,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         case 33:
         case 6:
 
-        /* "Geemeth/english_core.pyx":275
+        /* "Geemeth/english_core.pyx":279
  *         if (w == "who" or w == "which" or w == "that") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT or tag_val == T_IN:
  *                 nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -4423,14 +4423,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":276
+        /* "Geemeth/english_core.pyx":280
  *             if tag_val == T_WP or tag_val == T_WDT or tag_val == T_IN:
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 276, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 280, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_2 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_2);
@@ -4438,79 +4438,79 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":277
+        /* "Geemeth/english_core.pyx":281
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 277, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 281, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":278
+        /* "Geemeth/english_core.pyx":282
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()             # <<<<<<<<<<<<<<
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")
 */
-        __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_XDECREF_SET(__pyx_v_nwl, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":279
+        /* "Geemeth/english_core.pyx":283
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:             # <<<<<<<<<<<<<<
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")
  *                             and nt_val == T_NNS):
 */
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 283, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (__pyx_t_8) {
         } else {
           __pyx_t_7 = __pyx_t_8;
           goto __pyx_L44_bool_binop_done;
         }
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 283, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = __pyx_t_8;
         __pyx_L44_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":280
+          /* "Geemeth/english_core.pyx":284
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")             # <<<<<<<<<<<<<<
  *                             and nt_val == T_NNS):
  *                         tags[i + 1] = (nw, _T(T_VBZ))
 */
-          __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_s, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_s, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 284, __pyx_L1_error)
           if (__pyx_t_8) {
           } else {
             __pyx_t_7 = __pyx_t_8;
             goto __pyx_L47_bool_binop_done;
           }
 
-          /* "Geemeth/english_core.pyx":281
+          /* "Geemeth/english_core.pyx":285
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")
  *                             and nt_val == T_NNS):             # <<<<<<<<<<<<<<
  *                         tags[i + 1] = (nw, _T(T_VBZ))
  *                     elif (nt_val == T_JJ or nt_val == T_VB) and not nwl.endswith("s"):
 */
-          __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ss, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ss, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 284, __pyx_L1_error)
 
-          /* "Geemeth/english_core.pyx":280
+          /* "Geemeth/english_core.pyx":284
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")             # <<<<<<<<<<<<<<
@@ -4524,7 +4524,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             goto __pyx_L47_bool_binop_done;
           }
 
-          /* "Geemeth/english_core.pyx":281
+          /* "Geemeth/english_core.pyx":285
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")
  *                             and nt_val == T_NNS):             # <<<<<<<<<<<<<<
@@ -4535,7 +4535,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           __pyx_L47_bool_binop_done:;
 
-          /* "Geemeth/english_core.pyx":280
+          /* "Geemeth/english_core.pyx":284
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")             # <<<<<<<<<<<<<<
@@ -4544,7 +4544,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":282
+            /* "Geemeth/english_core.pyx":286
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")
  *                             and nt_val == T_NNS):
  *                         tags[i + 1] = (nw, _T(T_VBZ))             # <<<<<<<<<<<<<<
@@ -4571,22 +4571,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
               __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-              if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
+              if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 286, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_2);
             }
-            __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 282, __pyx_L1_error)
+            __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 286, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
             __Pyx_INCREF(__pyx_v_nw);
             __Pyx_GIVEREF(__pyx_v_nw);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 282, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 286, __pyx_L1_error);
             __Pyx_GIVEREF(__pyx_t_2);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 282, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 286, __pyx_L1_error);
             __pyx_t_2 = 0;
             __pyx_t_15 = (__pyx_v_i + 1);
-            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 282, __pyx_L1_error)
+            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 286, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-            /* "Geemeth/english_core.pyx":280
+            /* "Geemeth/english_core.pyx":284
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:
  *                     if (nwl.endswith("s") and not nwl.endswith("ss")             # <<<<<<<<<<<<<<
@@ -4596,7 +4596,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             goto __pyx_L46;
           }
 
-          /* "Geemeth/english_core.pyx":283
+          /* "Geemeth/english_core.pyx":287
  *                             and nt_val == T_NNS):
  *                         tags[i + 1] = (nw, _T(T_VBZ))
  *                     elif (nt_val == T_JJ or nt_val == T_VB) and not nwl.endswith("s"):             # <<<<<<<<<<<<<<
@@ -4617,13 +4617,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_7 = __pyx_t_16;
             goto __pyx_L50_bool_binop_done;
           }
-          __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_s, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 283, __pyx_L1_error)
+          __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_s, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 287, __pyx_L1_error)
           __pyx_t_8 = (!__pyx_t_16);
           __pyx_t_7 = __pyx_t_8;
           __pyx_L50_bool_binop_done:;
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":284
+            /* "Geemeth/english_core.pyx":288
  *                         tags[i + 1] = (nw, _T(T_VBZ))
  *                     elif (nt_val == T_JJ or nt_val == T_VB) and not nwl.endswith("s"):
  *                         tags[i + 1] = (nw, _T(T_VBP))             # <<<<<<<<<<<<<<
@@ -4650,22 +4650,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-              if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 284, __pyx_L1_error)
+              if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 288, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_10);
             }
-            __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 284, __pyx_L1_error)
+            __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 288, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
             __Pyx_INCREF(__pyx_v_nw);
             __Pyx_GIVEREF(__pyx_v_nw);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 284, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 288, __pyx_L1_error);
             __Pyx_GIVEREF(__pyx_t_10);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 284, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 288, __pyx_L1_error);
             __pyx_t_10 = 0;
             __pyx_t_15 = (__pyx_v_i + 1);
-            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 284, __pyx_L1_error)
+            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 288, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-            /* "Geemeth/english_core.pyx":283
+            /* "Geemeth/english_core.pyx":287
  *                             and nt_val == T_NNS):
  *                         tags[i + 1] = (nw, _T(T_VBZ))
  *                     elif (nt_val == T_JJ or nt_val == T_VB) and not nwl.endswith("s"):             # <<<<<<<<<<<<<<
@@ -4675,7 +4675,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           }
           __pyx_L46:;
 
-          /* "Geemeth/english_core.pyx":279
+          /* "Geemeth/english_core.pyx":283
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if nwl not in _BE_FORMS and nwl not in _MODALS:             # <<<<<<<<<<<<<<
@@ -4684,7 +4684,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":274
+        /* "Geemeth/english_core.pyx":278
  *         # ---- Pattern 18: relative pronoun + ambiguous word  verb ----
  *         if (w == "who" or w == "which" or w == "that") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT or tag_val == T_IN:             # <<<<<<<<<<<<<<
@@ -4695,7 +4695,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         default: break;
       }
 
-      /* "Geemeth/english_core.pyx":273
+      /* "Geemeth/english_core.pyx":277
  * 
  *         # ---- Pattern 18: relative pronoun + ambiguous word  verb ----
  *         if (w == "who" or w == "which" or w == "that") and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4704,14 +4704,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":287
+    /* "Geemeth/english_core.pyx":291
  * 
  *         # ---- Pattern 1: infinitive "to"  next is VB ----
  *         if w == "to" and tag_val == T_TO and i + 1 < n:             # <<<<<<<<<<<<<<
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_to, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 287, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_to, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 291, __pyx_L1_error)
     if (__pyx_t_8) {
     } else {
       __pyx_t_7 = __pyx_t_8;
@@ -4728,7 +4728,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L53_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":288
+      /* "Geemeth/english_core.pyx":292
  *         # ---- Pattern 1: infinitive "to"  next is VB ----
  *         if w == "to" and tag_val == T_TO and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -4741,14 +4741,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "Geemeth/english_core.pyx":289
+      /* "Geemeth/english_core.pyx":293
  *         if w == "to" and tag_val == T_TO and i + 1 < n:
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *             nt_val = <int>nxt[1]
  *             if not in_mask(nt_val, EXCL1_MASK):
 */
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 289, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_10 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_10);
@@ -4756,20 +4756,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":290
+      /* "Geemeth/english_core.pyx":294
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *             if not in_mask(nt_val, EXCL1_MASK):
  *                 tags[i + 1] = (nw, _T(T_VB))
 */
-      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 294, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 290, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 294, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_v_nt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":291
+      /* "Geemeth/english_core.pyx":295
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if not in_mask(nt_val, EXCL1_MASK):             # <<<<<<<<<<<<<<
@@ -4779,7 +4779,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = (!__pyx_f_7Geemeth_12english_core_in_mask(__pyx_v_nt_val, 0xC020C004E));
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":292
+        /* "Geemeth/english_core.pyx":296
  *             nt_val = <int>nxt[1]
  *             if not in_mask(nt_val, EXCL1_MASK):
  *                 tags[i + 1] = (nw, _T(T_VB))             # <<<<<<<<<<<<<<
@@ -4806,22 +4806,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 292, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 296, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
         }
-        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(__pyx_v_nw);
         __Pyx_GIVEREF(__pyx_v_nw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 292, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 296, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_10);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 292, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 296, __pyx_L1_error);
         __pyx_t_10 = 0;
         __pyx_t_15 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 292, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_15, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 296, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":291
+        /* "Geemeth/english_core.pyx":295
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if not in_mask(nt_val, EXCL1_MASK):             # <<<<<<<<<<<<<<
@@ -4830,7 +4830,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":287
+      /* "Geemeth/english_core.pyx":291
  * 
  *         # ---- Pattern 1: infinitive "to"  next is VB ----
  *         if w == "to" and tag_val == T_TO and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -4839,16 +4839,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":295
+    /* "Geemeth/english_core.pyx":299
  * 
  *         # ---- Pattern 2: modal  next content word is VB ----
  *         if w in _MODALS and tag_val == T_MD:             # <<<<<<<<<<<<<<
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 295, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 295, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 299, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
     } else {
@@ -4860,7 +4860,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L58_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":296
+      /* "Geemeth/english_core.pyx":300
  *         # ---- Pattern 2: modal  next content word is VB ----
  *         if w in _MODALS and tag_val == T_MD:
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -4869,7 +4869,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_j = (__pyx_v_i + 1);
 
-      /* "Geemeth/english_core.pyx":297
+      /* "Geemeth/english_core.pyx":301
  *         if w in _MODALS and tag_val == T_MD:
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -4882,7 +4882,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         goto __pyx_L61_bool_binop_done;
       }
-      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 297, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 301, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_10 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_10);
@@ -4892,19 +4892,19 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 297, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 301, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 297, __pyx_L1_error)
+      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 301, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_7 = __pyx_t_8;
       __pyx_L61_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":298
+        /* "Geemeth/english_core.pyx":302
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1             # <<<<<<<<<<<<<<
@@ -4913,7 +4913,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_j = (__pyx_v_j + 1);
 
-        /* "Geemeth/english_core.pyx":297
+        /* "Geemeth/english_core.pyx":301
  *         if w in _MODALS and tag_val == T_MD:
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -4922,7 +4922,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":299
+      /* "Geemeth/english_core.pyx":303
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -4935,18 +4935,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         goto __pyx_L64_bool_binop_done;
       }
-      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 299, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 303, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 299, __pyx_L1_error)
+      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 303, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_7 = __pyx_t_8;
       __pyx_L64_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":300
+        /* "Geemeth/english_core.pyx":304
  *                 j += 1
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]             # <<<<<<<<<<<<<<
@@ -4958,14 +4958,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":301
+        /* "Geemeth/english_core.pyx":305
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL2_MASK):
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_12 = __pyx_t_2;
         __Pyx_INCREF(__pyx_t_12);
@@ -4973,20 +4973,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_12));
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":302
+        /* "Geemeth/english_core.pyx":306
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 if not in_mask(nt_val, EXCL2_MASK):
  *                     tags[j] = (nw, _T(T_VB))
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 302, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 306, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 302, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":303
+        /* "Geemeth/english_core.pyx":307
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL2_MASK):             # <<<<<<<<<<<<<<
@@ -4996,7 +4996,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = (!__pyx_f_7Geemeth_12english_core_in_mask(__pyx_v_nt_val, 0xC004E));
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":304
+          /* "Geemeth/english_core.pyx":308
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL2_MASK):
  *                     tags[j] = (nw, _T(T_VB))             # <<<<<<<<<<<<<<
@@ -5023,21 +5023,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 304, __pyx_L1_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 308, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 304, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 304, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 308, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_12);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 304, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 308, __pyx_L1_error);
           __pyx_t_12 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 304, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 308, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":303
+          /* "Geemeth/english_core.pyx":307
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL2_MASK):             # <<<<<<<<<<<<<<
@@ -5046,7 +5046,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":299
+        /* "Geemeth/english_core.pyx":303
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -5055,7 +5055,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":295
+      /* "Geemeth/english_core.pyx":299
  * 
  *         # ---- Pattern 2: modal  next content word is VB ----
  *         if w in _MODALS and tag_val == T_MD:             # <<<<<<<<<<<<<<
@@ -5064,16 +5064,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":307
+    /* "Geemeth/english_core.pyx":311
  * 
  *         # ---- Pattern 3: be-verb  predict complement ----
  *         if w in _BE_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
  *             # Check for perfect-aspect context
  *             in_perfect = False
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_8) {
     } else {
@@ -5085,7 +5085,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L68_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":309
+      /* "Geemeth/english_core.pyx":313
  *         if w in _BE_FORMS and in_mask(tag_val, VERB_MASK):
  *             # Check for perfect-aspect context
  *             in_perfect = False             # <<<<<<<<<<<<<<
@@ -5094,7 +5094,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_in_perfect = 0;
 
-      /* "Geemeth/english_core.pyx":310
+      /* "Geemeth/english_core.pyx":314
  *             # Check for perfect-aspect context
  *             in_perfect = False
  *             for k in range(max(0, i - 3), i):             # <<<<<<<<<<<<<<
@@ -5114,30 +5114,30 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       for (__pyx_t_20 = __pyx_t_18; __pyx_t_20 < __pyx_t_19; __pyx_t_20+=1) {
         __pyx_v_k = __pyx_t_20;
 
-        /* "Geemeth/english_core.pyx":311
+        /* "Geemeth/english_core.pyx":315
  *             in_perfect = False
  *             for k in range(max(0, i - 3), i):
  *                 if <str>(tags[k][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
  *                     if (<str>(tags[k][0])).lower() in _HAVE_FORMS:
  *                         in_perfect = True
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 311, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 311, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 311, __pyx_L1_error)
+        __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 315, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":312
+          /* "Geemeth/english_core.pyx":316
  *             for k in range(max(0, i - 3), i):
  *                 if <str>(tags[k][0]) not in _CLAUSE_BOUNDARY:
  *                     if (<str>(tags[k][0])).lower() in _HAVE_FORMS:             # <<<<<<<<<<<<<<
  *                         in_perfect = True
  *                         break
 */
-          __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_10 = __pyx_t_2;
           __Pyx_INCREF(__pyx_t_10);
@@ -5147,17 +5147,17 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_12 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 312, __pyx_L1_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 316, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 312, __pyx_L1_error)
+          __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 316, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":313
+            /* "Geemeth/english_core.pyx":317
  *                 if <str>(tags[k][0]) not in _CLAUSE_BOUNDARY:
  *                     if (<str>(tags[k][0])).lower() in _HAVE_FORMS:
  *                         in_perfect = True             # <<<<<<<<<<<<<<
@@ -5166,7 +5166,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
             __pyx_v_in_perfect = 1;
 
-            /* "Geemeth/english_core.pyx":314
+            /* "Geemeth/english_core.pyx":318
  *                     if (<str>(tags[k][0])).lower() in _HAVE_FORMS:
  *                         in_perfect = True
  *                         break             # <<<<<<<<<<<<<<
@@ -5175,7 +5175,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
             goto __pyx_L71_break;
 
-            /* "Geemeth/english_core.pyx":312
+            /* "Geemeth/english_core.pyx":316
  *             for k in range(max(0, i - 3), i):
  *                 if <str>(tags[k][0]) not in _CLAUSE_BOUNDARY:
  *                     if (<str>(tags[k][0])).lower() in _HAVE_FORMS:             # <<<<<<<<<<<<<<
@@ -5184,7 +5184,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           }
 
-          /* "Geemeth/english_core.pyx":311
+          /* "Geemeth/english_core.pyx":315
  *             in_perfect = False
  *             for k in range(max(0, i - 3), i):
  *                 if <str>(tags[k][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -5195,7 +5195,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       }
       __pyx_L71_break:;
 
-      /* "Geemeth/english_core.pyx":315
+      /* "Geemeth/english_core.pyx":319
  *                         in_perfect = True
  *                         break
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -5204,7 +5204,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_j = (__pyx_v_i + 1);
 
-      /* "Geemeth/english_core.pyx":317
+      /* "Geemeth/english_core.pyx":321
  *             j = i + 1
  *             # Skip negations, degree adverbs, RB-family adverbs
  *             while j < n:             # <<<<<<<<<<<<<<
@@ -5215,14 +5215,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = (__pyx_v_j < __pyx_v_n);
         if (!__pyx_t_7) break;
 
-        /* "Geemeth/english_core.pyx":318
+        /* "Geemeth/english_core.pyx":322
  *             # Skip negations, degree adverbs, RB-family adverbs
  *             while j < n:
  *                 nxt_w = (<str>(tags[j][0])).lower()             # <<<<<<<<<<<<<<
  *                 nxt_t = <int>(tags[j][1])
  *                 if (nxt_w in _NEG_OR_DEG or
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 318, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 322, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_12 = __pyx_t_10;
         __Pyx_INCREF(__pyx_t_12);
@@ -5232,35 +5232,35 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         __Pyx_XDECREF_SET(__pyx_v_nxt_w, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":319
+        /* "Geemeth/english_core.pyx":323
  *             while j < n:
  *                 nxt_w = (<str>(tags[j][0])).lower()
  *                 nxt_t = <int>(tags[j][1])             # <<<<<<<<<<<<<<
  *                 if (nxt_w in _NEG_OR_DEG or
  *                         (in_mask(nxt_t, ADV_MASK) and
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 323, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_nxt_t = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":320
+        /* "Geemeth/english_core.pyx":324
  *                 nxt_w = (<str>(tags[j][0])).lower()
  *                 nxt_t = <int>(tags[j][1])
  *                 if (nxt_w in _NEG_OR_DEG or             # <<<<<<<<<<<<<<
  *                         (in_mask(nxt_t, ADV_MASK) and
  *                          <str>(tags[j][0]) not in _CLAUSE_BOUNDARY)):
 */
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nxt_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 320, __pyx_L1_error)
+        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_v_nxt_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 324, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (!__pyx_t_8) {
         } else {
@@ -5268,7 +5268,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L77_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":321
+        /* "Geemeth/english_core.pyx":325
  *                 nxt_t = <int>(tags[j][1])
  *                 if (nxt_w in _NEG_OR_DEG or
  *                         (in_mask(nxt_t, ADV_MASK) and             # <<<<<<<<<<<<<<
@@ -5282,24 +5282,24 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L77_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":322
+        /* "Geemeth/english_core.pyx":326
  *                 if (nxt_w in _NEG_OR_DEG or
  *                         (in_mask(nxt_t, ADV_MASK) and
  *                          <str>(tags[j][0]) not in _CLAUSE_BOUNDARY)):             # <<<<<<<<<<<<<<
  *                     j += 1
  *                 else:
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 322, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 326, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_10, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 322, __pyx_L1_error)
+        __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_10, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 326, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_7 = __pyx_t_8;
         __pyx_L77_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":320
+        /* "Geemeth/english_core.pyx":324
  *                 nxt_w = (<str>(tags[j][0])).lower()
  *                 nxt_t = <int>(tags[j][1])
  *                 if (nxt_w in _NEG_OR_DEG or             # <<<<<<<<<<<<<<
@@ -5308,7 +5308,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":323
+          /* "Geemeth/english_core.pyx":327
  *                         (in_mask(nxt_t, ADV_MASK) and
  *                          <str>(tags[j][0]) not in _CLAUSE_BOUNDARY)):
  *                     j += 1             # <<<<<<<<<<<<<<
@@ -5317,7 +5317,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_j = (__pyx_v_j + 1);
 
-          /* "Geemeth/english_core.pyx":320
+          /* "Geemeth/english_core.pyx":324
  *                 nxt_w = (<str>(tags[j][0])).lower()
  *                 nxt_t = <int>(tags[j][1])
  *                 if (nxt_w in _NEG_OR_DEG or             # <<<<<<<<<<<<<<
@@ -5327,7 +5327,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L76;
         }
 
-        /* "Geemeth/english_core.pyx":325
+        /* "Geemeth/english_core.pyx":329
  *                     j += 1
  *                 else:
  *                     break             # <<<<<<<<<<<<<<
@@ -5341,7 +5341,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       }
       __pyx_L75_break:;
 
-      /* "Geemeth/english_core.pyx":326
+      /* "Geemeth/english_core.pyx":330
  *                 else:
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -5354,18 +5354,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         goto __pyx_L81_bool_binop_done;
       }
-      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 326, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 326, __pyx_L1_error)
+      __pyx_t_8 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_7 = __pyx_t_8;
       __pyx_L81_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":327
+        /* "Geemeth/english_core.pyx":331
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]             # <<<<<<<<<<<<<<
@@ -5377,14 +5377,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":328
+        /* "Geemeth/english_core.pyx":332
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_10 = __pyx_t_2;
         __Pyx_INCREF(__pyx_t_10);
@@ -5392,39 +5392,39 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":329
+        /* "Geemeth/english_core.pyx":333
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 nwl = nw.lower()
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 329, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 333, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 329, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 333, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":330
+        /* "Geemeth/english_core.pyx":334
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()             # <<<<<<<<<<<<<<
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
  *                     tags[j] = (nw, _T(T_VBG))
 */
-        __pyx_t_10 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 330, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_XDECREF_SET(__pyx_v_nwl, ((PyObject*)__pyx_t_10));
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":331
+        /* "Geemeth/english_core.pyx":335
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):             # <<<<<<<<<<<<<<
  *                     tags[j] = (nw, _T(T_VBG))
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)
 */
-        __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 331, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 335, __pyx_L1_error)
         if (__pyx_t_8) {
         } else {
           __pyx_t_7 = __pyx_t_8;
@@ -5435,7 +5435,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_L84_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":332
+          /* "Geemeth/english_core.pyx":336
  *                 nwl = nw.lower()
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
  *                     tags[j] = (nw, _T(T_VBG))             # <<<<<<<<<<<<<<
@@ -5462,21 +5462,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 332, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 336, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
           }
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 332, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 336, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 332, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 336, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 332, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 336, __pyx_L1_error);
           __pyx_t_10 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 332, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 336, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":331
+          /* "Geemeth/english_core.pyx":335
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):             # <<<<<<<<<<<<<<
@@ -5486,21 +5486,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L83;
         }
 
-        /* "Geemeth/english_core.pyx":333
+        /* "Geemeth/english_core.pyx":337
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
  *                     tags[j] = (nw, _T(T_VBG))
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
  *                         and nt_val != T_JJ):
  *                     tags[j] = (nw, _T(T_VBN))
 */
-        __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 333, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 337, __pyx_L1_error)
         if (__pyx_t_8) {
         } else {
           __pyx_t_7 = __pyx_t_8;
           goto __pyx_L86_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":334
+        /* "Geemeth/english_core.pyx":338
  *                     tags[j] = (nw, _T(T_VBG))
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)
  *                         and nt_val != T_JJ):             # <<<<<<<<<<<<<<
@@ -5517,7 +5517,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         __pyx_L86_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":333
+        /* "Geemeth/english_core.pyx":337
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
  *                     tags[j] = (nw, _T(T_VBG))
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -5526,7 +5526,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":335
+          /* "Geemeth/english_core.pyx":339
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)
  *                         and nt_val != T_JJ):
  *                     tags[j] = (nw, _T(T_VBN))             # <<<<<<<<<<<<<<
@@ -5553,21 +5553,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 335, __pyx_L1_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 339, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
-          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 339, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 335, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 339, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_12);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 335, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 339, __pyx_L1_error);
           __pyx_t_12 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 335, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 339, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "Geemeth/english_core.pyx":333
+          /* "Geemeth/english_core.pyx":337
  *                 if nwl.endswith("ing") and not in_mask(nt_val, NOUN_MASK):
  *                     tags[j] = (nw, _T(T_VBG))
  *                 elif (nwl.endswith("ed") and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -5577,7 +5577,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L83;
         }
 
-        /* "Geemeth/english_core.pyx":336
+        /* "Geemeth/english_core.pyx":340
  *                         and nt_val != T_JJ):
  *                     tags[j] = (nw, _T(T_VBN))
  *                 elif (not in_perfect             # <<<<<<<<<<<<<<
@@ -5591,7 +5591,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L89_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":337
+        /* "Geemeth/english_core.pyx":341
  *                     tags[j] = (nw, _T(T_VBN))
  *                 elif (not in_perfect
  *                         and (in_mask(nt_val, NOUN_MASK) or             # <<<<<<<<<<<<<<
@@ -5604,7 +5604,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L91_next_and;
         }
 
-        /* "Geemeth/english_core.pyx":338
+        /* "Geemeth/english_core.pyx":342
  *                 elif (not in_perfect
  *                         and (in_mask(nt_val, NOUN_MASK) or
  *                              in_mask(nt_val, SIMP_VERB_MASK))             # <<<<<<<<<<<<<<
@@ -5619,20 +5619,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L91_next_and:;
 
-        /* "Geemeth/english_core.pyx":339
+        /* "Geemeth/english_core.pyx":343
  *                         and (in_mask(nt_val, NOUN_MASK) or
  *                              in_mask(nt_val, SIMP_VERB_MASK))
  *                         and not nw[0].isupper()):             # <<<<<<<<<<<<<<
  *                     tags[j] = (nw, _T(T_JJ))
  * 
 */
-        __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 339, __pyx_L1_error)
+        __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 343, __pyx_L1_error)
         __pyx_t_8 = __Pyx_Py_UNICODE_ISUPPER(__pyx_t_21); 
         __pyx_t_16 = (!__pyx_t_8);
         __pyx_t_7 = __pyx_t_16;
         __pyx_L89_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":336
+        /* "Geemeth/english_core.pyx":340
  *                         and nt_val != T_JJ):
  *                     tags[j] = (nw, _T(T_VBN))
  *                 elif (not in_perfect             # <<<<<<<<<<<<<<
@@ -5641,7 +5641,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":340
+          /* "Geemeth/english_core.pyx":344
  *                              in_mask(nt_val, SIMP_VERB_MASK))
  *                         and not nw[0].isupper()):
  *                     tags[j] = (nw, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -5668,21 +5668,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 340, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 344, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 340, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 344, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 340, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 344, __pyx_L1_error);
           __pyx_t_2 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 340, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 344, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":336
+          /* "Geemeth/english_core.pyx":340
  *                         and nt_val != T_JJ):
  *                     tags[j] = (nw, _T(T_VBN))
  *                 elif (not in_perfect             # <<<<<<<<<<<<<<
@@ -5692,7 +5692,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L83:;
 
-        /* "Geemeth/english_core.pyx":326
+        /* "Geemeth/english_core.pyx":330
  *                 else:
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -5701,7 +5701,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":307
+      /* "Geemeth/english_core.pyx":311
  * 
  *         # ---- Pattern 3: be-verb  predict complement ----
  *         if w in _BE_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
@@ -5710,16 +5710,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":343
+    /* "Geemeth/english_core.pyx":347
  * 
  *         # ---- Pattern 4: degree adverb  next word is JJ ----
  *         if w in _DEGREE_ADVERBS and i + 1 < n:             # <<<<<<<<<<<<<<
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 343, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 343, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 347, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_16) {
     } else {
@@ -5731,7 +5731,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L94_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":344
+      /* "Geemeth/english_core.pyx":348
  *         # ---- Pattern 4: degree adverb  next word is JJ ----
  *         if w in _DEGREE_ADVERBS and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -5744,14 +5744,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":345
+      /* "Geemeth/english_core.pyx":349
  *         if w in _DEGREE_ADVERBS and i + 1 < n:
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, NOUN_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
 */
-      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 345, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 349, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_2 = __pyx_t_10;
       __Pyx_INCREF(__pyx_t_2);
@@ -5759,20 +5759,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":346
+      /* "Geemeth/english_core.pyx":350
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *             if in_mask(nt_val, NOUN_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
  *                 tags[i + 1] = (nw, _T(T_JJ))
 */
-      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 346, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_v_nt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":347
+      /* "Geemeth/english_core.pyx":351
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, NOUN_MASK) or in_mask(nt_val, SIMP_VERB_MASK):             # <<<<<<<<<<<<<<
@@ -5790,7 +5790,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_L97_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":348
+        /* "Geemeth/english_core.pyx":352
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, NOUN_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
  *                 tags[i + 1] = (nw, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -5817,22 +5817,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 352, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 348, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 352, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_INCREF(__pyx_v_nw);
         __Pyx_GIVEREF(__pyx_v_nw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 348, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 352, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 348, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 352, __pyx_L1_error);
         __pyx_t_2 = 0;
         __pyx_t_18 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 348, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 352, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":347
+        /* "Geemeth/english_core.pyx":351
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, NOUN_MASK) or in_mask(nt_val, SIMP_VERB_MASK):             # <<<<<<<<<<<<<<
@@ -5841,7 +5841,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":343
+      /* "Geemeth/english_core.pyx":347
  * 
  *         # ---- Pattern 4: degree adverb  next word is JJ ----
  *         if w in _DEGREE_ADVERBS and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -5850,7 +5850,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":351
+    /* "Geemeth/english_core.pyx":355
  * 
  *         # ---- Pattern 5: DT/PRPS + ? + Noun  ? is JJ ----
  *         if (tag_val == T_DT or tag_val == T_PRPS) and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -5876,7 +5876,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L100_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":352
+      /* "Geemeth/english_core.pyx":356
  *         # ---- Pattern 5: DT/PRPS + ? + Noun  ? is JJ ----
  *         if (tag_val == T_DT or tag_val == T_PRPS) and i + 2 < n:
  *             mid = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -5889,7 +5889,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_mid, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "Geemeth/english_core.pyx":353
+      /* "Geemeth/english_core.pyx":357
  *         if (tag_val == T_DT or tag_val == T_PRPS) and i + 2 < n:
  *             mid = tags[i + 1]
  *             end = tags[i + 2]             # <<<<<<<<<<<<<<
@@ -5902,40 +5902,40 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_end, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "Geemeth/english_core.pyx":354
+      /* "Geemeth/english_core.pyx":358
  *             mid = tags[i + 1]
  *             end = tags[i + 2]
  *             mt_val = <int>mid[1]             # <<<<<<<<<<<<<<
  *             et_val = <int>end[1]
  *             mw = <str>mid[0]
 */
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_mid, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 354, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_mid, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 354, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_mt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":355
+      /* "Geemeth/english_core.pyx":359
  *             end = tags[i + 2]
  *             mt_val = <int>mid[1]
  *             et_val = <int>end[1]             # <<<<<<<<<<<<<<
  *             mw = <str>mid[0]
  *             if in_mask(et_val, NOUN_MASK) and not in_mask(mt_val, EXCL5_MASK):
 */
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_end, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_end, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 355, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 359, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_v_et_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":356
+      /* "Geemeth/english_core.pyx":360
  *             mt_val = <int>mid[1]
  *             et_val = <int>end[1]
  *             mw = <str>mid[0]             # <<<<<<<<<<<<<<
  *             if in_mask(et_val, NOUN_MASK) and not in_mask(mt_val, EXCL5_MASK):
  *                 tags[i + 1] = (mw, _T(T_JJ))
 */
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_mid, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 356, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_mid, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_2 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_2);
@@ -5943,7 +5943,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_mw, ((PyObject*)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":357
+      /* "Geemeth/english_core.pyx":361
  *             et_val = <int>end[1]
  *             mw = <str>mid[0]
  *             if in_mask(et_val, NOUN_MASK) and not in_mask(mt_val, EXCL5_MASK):             # <<<<<<<<<<<<<<
@@ -5961,7 +5961,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_L103_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":358
+        /* "Geemeth/english_core.pyx":362
  *             mw = <str>mid[0]
  *             if in_mask(et_val, NOUN_MASK) and not in_mask(mt_val, EXCL5_MASK):
  *                 tags[i + 1] = (mw, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -5988,22 +5988,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 358, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 362, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_INCREF(__pyx_v_mw);
         __Pyx_GIVEREF(__pyx_v_mw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_mw) != (0)) __PYX_ERR(0, 358, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_mw) != (0)) __PYX_ERR(0, 362, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 358, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 362, __pyx_L1_error);
         __pyx_t_2 = 0;
         __pyx_t_18 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 358, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 362, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":357
+        /* "Geemeth/english_core.pyx":361
  *             et_val = <int>end[1]
  *             mw = <str>mid[0]
  *             if in_mask(et_val, NOUN_MASK) and not in_mask(mt_val, EXCL5_MASK):             # <<<<<<<<<<<<<<
@@ -6012,7 +6012,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":351
+      /* "Geemeth/english_core.pyx":355
  * 
  *         # ---- Pattern 5: DT/PRPS + ? + Noun  ? is JJ ----
  *         if (tag_val == T_DT or tag_val == T_PRPS) and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -6021,7 +6021,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":361
+    /* "Geemeth/english_core.pyx":365
  * 
  *         # ---- Pattern 6: CC parallel structure ----
  *         if tag_val == T_CC and i > 0 and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -6045,7 +6045,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L106_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":362
+      /* "Geemeth/english_core.pyx":366
  *         # ---- Pattern 6: CC parallel structure ----
  *         if tag_val == T_CC and i > 0 and i + 1 < n:
  *             anchor_i = i - 1             # <<<<<<<<<<<<<<
@@ -6054,7 +6054,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_anchor_i = (__pyx_v_i - 1);
 
-      /* "Geemeth/english_core.pyx":363
+      /* "Geemeth/english_core.pyx":367
  *         if tag_val == T_CC and i > 0 and i + 1 < n:
  *             anchor_i = i - 1
  *             comma_skipped = False             # <<<<<<<<<<<<<<
@@ -6063,7 +6063,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_comma_skipped = 0;
 
-      /* "Geemeth/english_core.pyx":364
+      /* "Geemeth/english_core.pyx":368
  *             anchor_i = i - 1
  *             comma_skipped = False
  *             if anchor_i >= 0 and <str>(tags[anchor_i][0]) == ",":             # <<<<<<<<<<<<<<
@@ -6076,15 +6076,15 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_16;
         goto __pyx_L110_bool_binop_done;
       }
-      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_anchor_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 364, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_anchor_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_kp_u_, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 364, __pyx_L1_error)
+      __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_kp_u_, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 368, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_7 = __pyx_t_16;
       __pyx_L110_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":365
+        /* "Geemeth/english_core.pyx":369
  *             comma_skipped = False
  *             if anchor_i >= 0 and <str>(tags[anchor_i][0]) == ",":
  *                 anchor_i -= 1             # <<<<<<<<<<<<<<
@@ -6093,7 +6093,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_anchor_i = (__pyx_v_anchor_i - 1);
 
-        /* "Geemeth/english_core.pyx":366
+        /* "Geemeth/english_core.pyx":370
  *             if anchor_i >= 0 and <str>(tags[anchor_i][0]) == ",":
  *                 anchor_i -= 1
  *                 comma_skipped = True             # <<<<<<<<<<<<<<
@@ -6102,7 +6102,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_comma_skipped = 1;
 
-        /* "Geemeth/english_core.pyx":364
+        /* "Geemeth/english_core.pyx":368
  *             anchor_i = i - 1
  *             comma_skipped = False
  *             if anchor_i >= 0 and <str>(tags[anchor_i][0]) == ",":             # <<<<<<<<<<<<<<
@@ -6111,7 +6111,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":367
+      /* "Geemeth/english_core.pyx":371
  *                 anchor_i -= 1
  *                 comma_skipped = True
  *             if anchor_i >= 0:             # <<<<<<<<<<<<<<
@@ -6121,7 +6121,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = (__pyx_v_anchor_i >= 0);
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":368
+        /* "Geemeth/english_core.pyx":372
  *                 comma_skipped = True
  *             if anchor_i >= 0:
  *                 anc = tags[anchor_i]             # <<<<<<<<<<<<<<
@@ -6133,14 +6133,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_anc, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":369
+        /* "Geemeth/english_core.pyx":373
  *             if anchor_i >= 0:
  *                 anc = tags[anchor_i]
  *                 pw = <str>anc[0]             # <<<<<<<<<<<<<<
  *                 pt_val = <int>anc[1]
  * 
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 369, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 373, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_2 = __pyx_t_10;
         __Pyx_INCREF(__pyx_t_2);
@@ -6148,20 +6148,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_pw, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":370
+        /* "Geemeth/english_core.pyx":374
  *                 anc = tags[anchor_i]
  *                 pw = <str>anc[0]
  *                 pt_val = <int>anc[1]             # <<<<<<<<<<<<<<
  * 
  *                 target_i = i + 1
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 374, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 370, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 374, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_pt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":372
+        /* "Geemeth/english_core.pyx":376
  *                 pt_val = <int>anc[1]
  * 
  *                 target_i = i + 1             # <<<<<<<<<<<<<<
@@ -6170,14 +6170,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_target_i = (__pyx_v_i + 1);
 
-        /* "Geemeth/english_core.pyx":373
+        /* "Geemeth/english_core.pyx":377
  * 
  *                 target_i = i + 1
  *                 skip_w = (<str>(tags[target_i][0])).lower()             # <<<<<<<<<<<<<<
  *                 is_correlative = (skip_w == "also" or skip_w == "then"
  *                                   or skip_w == "yet")
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_target_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 373, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_target_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 377, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_10 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_10);
@@ -6187,45 +6187,45 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 373, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         __Pyx_XDECREF_SET(__pyx_v_skip_w, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":374
+        /* "Geemeth/english_core.pyx":378
  *                 target_i = i + 1
  *                 skip_w = (<str>(tags[target_i][0])).lower()
  *                 is_correlative = (skip_w == "also" or skip_w == "then"             # <<<<<<<<<<<<<<
  *                                   or skip_w == "yet")
  *                 if is_correlative and i + 2 < n:
 */
-        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_also, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 374, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_also, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 378, __pyx_L1_error)
         if (!__pyx_t_16) {
         } else {
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L113_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":375
+        /* "Geemeth/english_core.pyx":379
  *                 skip_w = (<str>(tags[target_i][0])).lower()
  *                 is_correlative = (skip_w == "also" or skip_w == "then"
  *                                   or skip_w == "yet")             # <<<<<<<<<<<<<<
  *                 if is_correlative and i + 2 < n:
  *                     target_i = i + 2
 */
-        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_then, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 374, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_then, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 378, __pyx_L1_error)
         if (!__pyx_t_16) {
         } else {
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L113_bool_binop_done;
         }
-        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_yet, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 375, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_skip_w, __pyx_mstate_global->__pyx_n_u_yet, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 379, __pyx_L1_error)
         __pyx_t_7 = __pyx_t_16;
         __pyx_L113_bool_binop_done:;
         __pyx_v_is_correlative = __pyx_t_7;
 
-        /* "Geemeth/english_core.pyx":376
+        /* "Geemeth/english_core.pyx":380
  *                 is_correlative = (skip_w == "also" or skip_w == "then"
  *                                   or skip_w == "yet")
  *                 if is_correlative and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_L117_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":377
+          /* "Geemeth/english_core.pyx":381
  *                                   or skip_w == "yet")
  *                 if is_correlative and i + 2 < n:
  *                     target_i = i + 2             # <<<<<<<<<<<<<<
@@ -6251,7 +6251,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_target_i = (__pyx_v_i + 2);
 
-          /* "Geemeth/english_core.pyx":376
+          /* "Geemeth/english_core.pyx":380
  *                 is_correlative = (skip_w == "also" or skip_w == "then"
  *                                   or skip_w == "yet")
  *                 if is_correlative and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -6260,7 +6260,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":378
+        /* "Geemeth/english_core.pyx":382
  *                 if is_correlative and i + 2 < n:
  *                     target_i = i + 2
  *                 tgt = tags[target_i]             # <<<<<<<<<<<<<<
@@ -6272,14 +6272,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_tgt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":379
+        /* "Geemeth/english_core.pyx":383
  *                     target_i = i + 2
  *                 tgt = tags[target_i]
  *                 nw = <str>tgt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>tgt[1]
  * 
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tgt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 379, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_tgt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 383, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_12 = __pyx_t_2;
         __Pyx_INCREF(__pyx_t_12);
@@ -6287,20 +6287,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_12));
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":380
+        /* "Geemeth/english_core.pyx":384
  *                 tgt = tags[target_i]
  *                 nw = <str>tgt[0]
  *                 nt_val = <int>tgt[1]             # <<<<<<<<<<<<<<
  * 
  *                 if is_correlative:
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_tgt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 380, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_tgt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 380, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":382
+        /* "Geemeth/english_core.pyx":386
  *                 nt_val = <int>tgt[1]
  * 
  *                 if is_correlative:             # <<<<<<<<<<<<<<
@@ -6309,7 +6309,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_v_is_correlative) {
 
-          /* "Geemeth/english_core.pyx":383
+          /* "Geemeth/english_core.pyx":387
  * 
  *                 if is_correlative:
  *                     jj_set_mask = JJ_PROMO_CORR_MASK             # <<<<<<<<<<<<<<
@@ -6318,7 +6318,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_jj_set_mask = 0x1D8100080;
 
-          /* "Geemeth/english_core.pyx":382
+          /* "Geemeth/english_core.pyx":386
  *                 nt_val = <int>tgt[1]
  * 
  *                 if is_correlative:             # <<<<<<<<<<<<<<
@@ -6328,7 +6328,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L119;
         }
 
-        /* "Geemeth/english_core.pyx":385
+        /* "Geemeth/english_core.pyx":389
  *                     jj_set_mask = JJ_PROMO_CORR_MASK
  *                 else:
  *                     jj_set_mask = JJ_PROMO_MASK             # <<<<<<<<<<<<<<
@@ -6340,7 +6340,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L119:;
 
-        /* "Geemeth/english_core.pyx":387
+        /* "Geemeth/english_core.pyx":391
  *                     jj_set_mask = JJ_PROMO_MASK
  * 
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):             # <<<<<<<<<<<<<<
@@ -6358,7 +6358,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_L121_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":388
+          /* "Geemeth/english_core.pyx":392
  * 
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):
  *                     tags[target_i] = (nw, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -6385,21 +6385,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 388, __pyx_L1_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 392, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 388, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 392, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 388, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 392, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_12);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 388, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 392, __pyx_L1_error);
           __pyx_t_12 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 388, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 392, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":387
+          /* "Geemeth/english_core.pyx":391
  *                     jj_set_mask = JJ_PROMO_MASK
  * 
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):             # <<<<<<<<<<<<<<
@@ -6409,7 +6409,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L120;
         }
 
-        /* "Geemeth/english_core.pyx":389
+        /* "Geemeth/english_core.pyx":393
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):
  *                     tags[target_i] = (nw, _T(T_JJ))
  *                 elif (in_mask(pt_val, NOUN_MASK) and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6423,7 +6423,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L123_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":390
+        /* "Geemeth/english_core.pyx":394
  *                     tags[target_i] = (nw, _T(T_JJ))
  *                 elif (in_mask(pt_val, NOUN_MASK) and not in_mask(nt_val, NOUN_MASK)
  *                         and not in_mask(nt_val, VERB_MASK)):             # <<<<<<<<<<<<<<
@@ -6440,7 +6440,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_16;
         __pyx_L123_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":389
+        /* "Geemeth/english_core.pyx":393
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):
  *                     tags[target_i] = (nw, _T(T_JJ))
  *                 elif (in_mask(pt_val, NOUN_MASK) and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6449,27 +6449,27 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":391
+          /* "Geemeth/english_core.pyx":395
  *                 elif (in_mask(pt_val, NOUN_MASK) and not in_mask(nt_val, NOUN_MASK)
  *                         and not in_mask(nt_val, VERB_MASK)):
  *                     tags[target_i] = (nw, anc[1])             # <<<<<<<<<<<<<<
  *                 elif (in_mask(pt_val, VERB_MASK)
  *                         and not in_mask(nt_val, NOUN_OR_VERB_MASK)
 */
-          __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 395, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 391, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 395, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 391, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 395, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 391, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 395, __pyx_L1_error);
           __pyx_t_10 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 391, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 395, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":389
+          /* "Geemeth/english_core.pyx":393
  *                 if in_mask(pt_val, ADJ_MASK) and in_mask(nt_val, jj_set_mask):
  *                     tags[target_i] = (nw, _T(T_JJ))
  *                 elif (in_mask(pt_val, NOUN_MASK) and not in_mask(nt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6479,7 +6479,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L120;
         }
 
-        /* "Geemeth/english_core.pyx":392
+        /* "Geemeth/english_core.pyx":396
  *                         and not in_mask(nt_val, VERB_MASK)):
  *                     tags[target_i] = (nw, anc[1])
  *                 elif (in_mask(pt_val, VERB_MASK)             # <<<<<<<<<<<<<<
@@ -6493,7 +6493,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L126_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":393
+        /* "Geemeth/english_core.pyx":397
  *                     tags[target_i] = (nw, anc[1])
  *                 elif (in_mask(pt_val, VERB_MASK)
  *                         and not in_mask(nt_val, NOUN_OR_VERB_MASK)             # <<<<<<<<<<<<<<
@@ -6507,7 +6507,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L126_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":394
+        /* "Geemeth/english_core.pyx":398
  *                 elif (in_mask(pt_val, VERB_MASK)
  *                         and not in_mask(nt_val, NOUN_OR_VERB_MASK)
  *                         and not in_mask(nt_val, EXCL6_MASK)             # <<<<<<<<<<<<<<
@@ -6521,7 +6521,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L126_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":395
+        /* "Geemeth/english_core.pyx":399
  *                         and not in_mask(nt_val, NOUN_OR_VERB_MASK)
  *                         and not in_mask(nt_val, EXCL6_MASK)
  *                         and not comma_skipped):             # <<<<<<<<<<<<<<
@@ -6532,7 +6532,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_16;
         __pyx_L126_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":392
+        /* "Geemeth/english_core.pyx":396
  *                         and not in_mask(nt_val, VERB_MASK)):
  *                     tags[target_i] = (nw, anc[1])
  *                 elif (in_mask(pt_val, VERB_MASK)             # <<<<<<<<<<<<<<
@@ -6541,27 +6541,27 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":396
+          /* "Geemeth/english_core.pyx":400
  *                         and not in_mask(nt_val, EXCL6_MASK)
  *                         and not comma_skipped):
  *                     tags[target_i] = (nw, anc[1])             # <<<<<<<<<<<<<<
  * 
  *                 # Backward comma-list unification
 */
-          __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 396, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 400, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 396, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 400, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 396, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 400, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_12);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 396, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 400, __pyx_L1_error);
           __pyx_t_12 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 396, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_target_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 400, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":392
+          /* "Geemeth/english_core.pyx":396
  *                         and not in_mask(nt_val, VERB_MASK)):
  *                     tags[target_i] = (nw, anc[1])
  *                 elif (in_mask(pt_val, VERB_MASK)             # <<<<<<<<<<<<<<
@@ -6571,7 +6571,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L120:;
 
-        /* "Geemeth/english_core.pyx":399
+        /* "Geemeth/english_core.pyx":403
  * 
  *                 # Backward comma-list unification
  *                 k2 = anchor_i - 1             # <<<<<<<<<<<<<<
@@ -6580,7 +6580,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_k2 = (__pyx_v_anchor_i - 1);
 
-        /* "Geemeth/english_core.pyx":400
+        /* "Geemeth/english_core.pyx":404
  *                 # Backward comma-list unification
  *                 k2 = anchor_i - 1
  *                 if k2 >= 0 and <str>(tags[k2][0]) == ",":             # <<<<<<<<<<<<<<
@@ -6593,15 +6593,15 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L131_bool_binop_done;
         }
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k2), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 400, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k2), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 404, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_kp_u_, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 400, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_kp_u_, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 404, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L131_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":401
+          /* "Geemeth/english_core.pyx":405
  *                 k2 = anchor_i - 1
  *                 if k2 >= 0 and <str>(tags[k2][0]) == ",":
  *                     k2 -= 1             # <<<<<<<<<<<<<<
@@ -6610,7 +6610,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_k2 = (__pyx_v_k2 - 1);
 
-          /* "Geemeth/english_core.pyx":402
+          /* "Geemeth/english_core.pyx":406
  *                 if k2 >= 0 and <str>(tags[k2][0]) == ",":
  *                     k2 -= 1
  *                     if k2 >= 0 and <str>(tags[k2][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -6623,18 +6623,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_7 = __pyx_t_16;
             goto __pyx_L134_bool_binop_done;
           }
-          __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k2), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 402, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_k2), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 406, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 402, __pyx_L1_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 406, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 402, __pyx_L1_error)
+          __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 406, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __pyx_t_7 = __pyx_t_16;
           __pyx_L134_bool_binop_done:;
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":403
+            /* "Geemeth/english_core.pyx":407
  *                     k2 -= 1
  *                     if k2 >= 0 and <str>(tags[k2][0]) not in _CLAUSE_BOUNDARY:
  *                         bl = tags[k2]             # <<<<<<<<<<<<<<
@@ -6646,14 +6646,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __Pyx_XDECREF_SET(__pyx_v_bl, __pyx_t_12);
             __pyx_t_12 = 0;
 
-            /* "Geemeth/english_core.pyx":404
+            /* "Geemeth/english_core.pyx":408
  *                     if k2 >= 0 and <str>(tags[k2][0]) not in _CLAUSE_BOUNDARY:
  *                         bl = tags[k2]
  *                         item_w = <str>bl[0]             # <<<<<<<<<<<<<<
  *                         item_t_val = <int>bl[1]
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
 */
-            __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_bl, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 404, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_bl, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 408, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
             __pyx_t_10 = __pyx_t_12;
             __Pyx_INCREF(__pyx_t_10);
@@ -6661,20 +6661,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __Pyx_XDECREF_SET(__pyx_v_item_w, ((PyObject*)__pyx_t_10));
             __pyx_t_10 = 0;
 
-            /* "Geemeth/english_core.pyx":405
+            /* "Geemeth/english_core.pyx":409
  *                         bl = tags[k2]
  *                         item_w = <str>bl[0]
  *                         item_t_val = <int>bl[1]             # <<<<<<<<<<<<<<
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, anc[1])
 */
-            __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_bl, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 405, __pyx_L1_error)
+            __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_bl, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 409, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
-            __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 405, __pyx_L1_error)
+            __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 409, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             __pyx_v_item_t_val = ((int)__pyx_t_6);
 
-            /* "Geemeth/english_core.pyx":406
+            /* "Geemeth/english_core.pyx":410
  *                         item_w = <str>bl[0]
  *                         item_t_val = <int>bl[1]
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):             # <<<<<<<<<<<<<<
@@ -6692,27 +6692,27 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_L137_bool_binop_done:;
             if (__pyx_t_7) {
 
-              /* "Geemeth/english_core.pyx":407
+              /* "Geemeth/english_core.pyx":411
  *                         item_t_val = <int>bl[1]
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, anc[1])             # <<<<<<<<<<<<<<
  *                         elif (in_mask(pt_val, NOUN_MASK)
  *                                 and not in_mask(item_t_val, NOUN_MASK)
 */
-              __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 407, __pyx_L1_error)
+              __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 411, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_10);
-              __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 407, __pyx_L1_error)
+              __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 411, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
               __Pyx_INCREF(__pyx_v_item_w);
               __Pyx_GIVEREF(__pyx_v_item_w);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 407, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 411, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_10);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 407, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 411, __pyx_L1_error);
               __pyx_t_10 = 0;
-              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 407, __pyx_L1_error)
+              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 411, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-              /* "Geemeth/english_core.pyx":406
+              /* "Geemeth/english_core.pyx":410
  *                         item_w = <str>bl[0]
  *                         item_t_val = <int>bl[1]
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):             # <<<<<<<<<<<<<<
@@ -6722,7 +6722,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               goto __pyx_L136;
             }
 
-            /* "Geemeth/english_core.pyx":408
+            /* "Geemeth/english_core.pyx":412
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, anc[1])
  *                         elif (in_mask(pt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6736,7 +6736,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               goto __pyx_L139_bool_binop_done;
             }
 
-            /* "Geemeth/english_core.pyx":409
+            /* "Geemeth/english_core.pyx":413
  *                             tags[k2] = (item_w, anc[1])
  *                         elif (in_mask(pt_val, NOUN_MASK)
  *                                 and not in_mask(item_t_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6750,7 +6750,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               goto __pyx_L139_bool_binop_done;
             }
 
-            /* "Geemeth/english_core.pyx":410
+            /* "Geemeth/english_core.pyx":414
  *                         elif (in_mask(pt_val, NOUN_MASK)
  *                                 and not in_mask(item_t_val, NOUN_MASK)
  *                                 and not in_mask(item_t_val, VERB_MASK)):             # <<<<<<<<<<<<<<
@@ -6761,7 +6761,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_7 = __pyx_t_16;
             __pyx_L139_bool_binop_done:;
 
-            /* "Geemeth/english_core.pyx":408
+            /* "Geemeth/english_core.pyx":412
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, anc[1])
  *                         elif (in_mask(pt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6770,27 +6770,27 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
             if (__pyx_t_7) {
 
-              /* "Geemeth/english_core.pyx":411
+              /* "Geemeth/english_core.pyx":415
  *                                 and not in_mask(item_t_val, NOUN_MASK)
  *                                 and not in_mask(item_t_val, VERB_MASK)):
  *                             tags[k2] = (item_w, anc[1])             # <<<<<<<<<<<<<<
  *                         elif in_mask(pt_val, ADJ_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, _T(T_JJ))
 */
-              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 411, __pyx_L1_error)
+              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_anc, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 415, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
-              __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 411, __pyx_L1_error)
+              __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 415, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_10);
               __Pyx_INCREF(__pyx_v_item_w);
               __Pyx_GIVEREF(__pyx_v_item_w);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 411, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 415, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_12);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 411, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 415, __pyx_L1_error);
               __pyx_t_12 = 0;
-              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 411, __pyx_L1_error)
+              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 415, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-              /* "Geemeth/english_core.pyx":408
+              /* "Geemeth/english_core.pyx":412
  *                         if in_mask(pt_val, VERB_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, anc[1])
  *                         elif (in_mask(pt_val, NOUN_MASK)             # <<<<<<<<<<<<<<
@@ -6800,7 +6800,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               goto __pyx_L136;
             }
 
-            /* "Geemeth/english_core.pyx":412
+            /* "Geemeth/english_core.pyx":416
  *                                 and not in_mask(item_t_val, VERB_MASK)):
  *                             tags[k2] = (item_w, anc[1])
  *                         elif in_mask(pt_val, ADJ_MASK) and in_mask(item_t_val, NOUN_MASK):             # <<<<<<<<<<<<<<
@@ -6818,7 +6818,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_L142_bool_binop_done:;
             if (__pyx_t_7) {
 
-              /* "Geemeth/english_core.pyx":413
+              /* "Geemeth/english_core.pyx":417
  *                             tags[k2] = (item_w, anc[1])
  *                         elif in_mask(pt_val, ADJ_MASK) and in_mask(item_t_val, NOUN_MASK):
  *                             tags[k2] = (item_w, _T(T_JJ))             # <<<<<<<<<<<<<<
@@ -6845,21 +6845,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
                 __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
                 __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
                 __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-                if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 413, __pyx_L1_error)
+                if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 417, __pyx_L1_error)
                 __Pyx_GOTREF(__pyx_t_10);
               }
-              __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 413, __pyx_L1_error)
+              __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_2);
               __Pyx_INCREF(__pyx_v_item_w);
               __Pyx_GIVEREF(__pyx_v_item_w);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 413, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_item_w) != (0)) __PYX_ERR(0, 417, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_10);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 413, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 417, __pyx_L1_error);
               __pyx_t_10 = 0;
-              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 413, __pyx_L1_error)
+              if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_k2, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 417, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-              /* "Geemeth/english_core.pyx":412
+              /* "Geemeth/english_core.pyx":416
  *                                 and not in_mask(item_t_val, VERB_MASK)):
  *                             tags[k2] = (item_w, anc[1])
  *                         elif in_mask(pt_val, ADJ_MASK) and in_mask(item_t_val, NOUN_MASK):             # <<<<<<<<<<<<<<
@@ -6869,7 +6869,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             }
             __pyx_L136:;
 
-            /* "Geemeth/english_core.pyx":402
+            /* "Geemeth/english_core.pyx":406
  *                 if k2 >= 0 and <str>(tags[k2][0]) == ",":
  *                     k2 -= 1
  *                     if k2 >= 0 and <str>(tags[k2][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -6878,7 +6878,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           }
 
-          /* "Geemeth/english_core.pyx":400
+          /* "Geemeth/english_core.pyx":404
  *                 # Backward comma-list unification
  *                 k2 = anchor_i - 1
  *                 if k2 >= 0 and <str>(tags[k2][0]) == ",":             # <<<<<<<<<<<<<<
@@ -6887,7 +6887,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":367
+        /* "Geemeth/english_core.pyx":371
  *                 anchor_i -= 1
  *                 comma_skipped = True
  *             if anchor_i >= 0:             # <<<<<<<<<<<<<<
@@ -6896,7 +6896,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":361
+      /* "Geemeth/english_core.pyx":365
  * 
  *         # ---- Pattern 6: CC parallel structure ----
  *         if tag_val == T_CC and i > 0 and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -6905,7 +6905,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":416
+    /* "Geemeth/english_core.pyx":420
  * 
  *         # ---- Pattern 7: CD + word  NNS ----
  *         if tag_val == T_CD and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -6923,7 +6923,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L145_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":417
+      /* "Geemeth/english_core.pyx":421
  *         # ---- Pattern 7: CD + word  NNS ----
  *         if tag_val == T_CD and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -6936,14 +6936,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":418
+      /* "Geemeth/english_core.pyx":422
  *         if tag_val == T_CD and i + 1 < n:
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_NN or nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ:
 */
-      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 418, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_10 = __pyx_t_2;
       __Pyx_INCREF(__pyx_t_10);
@@ -6951,20 +6951,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":419
+      /* "Geemeth/english_core.pyx":423
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *             if nt_val == T_NN or nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ:
  *                 tags[i + 1] = (nw, _T(T_NNS))
 */
-      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 419, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 423, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 419, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 423, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_v_nt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":420
+      /* "Geemeth/english_core.pyx":424
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_NN or nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ:             # <<<<<<<<<<<<<<
@@ -6977,7 +6977,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         case 27:
         case 32:
 
-        /* "Geemeth/english_core.pyx":421
+        /* "Geemeth/english_core.pyx":425
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_NN or nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ:
  *                 tags[i + 1] = (nw, _T(T_NNS))             # <<<<<<<<<<<<<<
@@ -7004,22 +7004,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 421, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 425, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
         }
-        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 421, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 425, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_INCREF(__pyx_v_nw);
         __Pyx_GIVEREF(__pyx_v_nw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 421, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 425, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_10);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 421, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 425, __pyx_L1_error);
         __pyx_t_10 = 0;
         __pyx_t_18 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 421, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 425, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":420
+        /* "Geemeth/english_core.pyx":424
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_NN or nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ:             # <<<<<<<<<<<<<<
@@ -7030,7 +7030,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         default: break;
       }
 
-      /* "Geemeth/english_core.pyx":416
+      /* "Geemeth/english_core.pyx":420
  * 
  *         # ---- Pattern 7: CD + word  NNS ----
  *         if tag_val == T_CD and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -7039,14 +7039,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":424
+    /* "Geemeth/english_core.pyx":428
  * 
  *         # ---- Pattern 8: "'s"  next is NN ----
  *         if w == "'s" and i + 1 < n:             # <<<<<<<<<<<<<<
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
 */
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_kp_u_s_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 424, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_kp_u_s_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 428, __pyx_L1_error)
     if (__pyx_t_16) {
     } else {
       __pyx_t_7 = __pyx_t_16;
@@ -7057,7 +7057,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L148_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":425
+      /* "Geemeth/english_core.pyx":429
  *         # ---- Pattern 8: "'s"  next is NN ----
  *         if w == "'s" and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -7070,14 +7070,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
       __pyx_t_12 = 0;
 
-      /* "Geemeth/english_core.pyx":426
+      /* "Geemeth/english_core.pyx":430
  *         if w == "'s" and i + 1 < n:
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, AMBIG_MASK) or nt_val == T_RB:
 */
-      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 426, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 430, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_10 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_10);
@@ -7085,20 +7085,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":427
+      /* "Geemeth/english_core.pyx":431
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *             if in_mask(nt_val, AMBIG_MASK) or nt_val == T_RB:
  *                 tags[i + 1] = (nw, _T(T_NN))
 */
-      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 427, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 431, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 427, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 431, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_v_nt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":428
+      /* "Geemeth/english_core.pyx":432
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, AMBIG_MASK) or nt_val == T_RB:             # <<<<<<<<<<<<<<
@@ -7116,7 +7116,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_L151_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":429
+        /* "Geemeth/english_core.pyx":433
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, AMBIG_MASK) or nt_val == T_RB:
  *                 tags[i + 1] = (nw, _T(T_NN))             # <<<<<<<<<<<<<<
@@ -7143,22 +7143,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 429, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 433, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
         }
-        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 429, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 433, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_INCREF(__pyx_v_nw);
         __Pyx_GIVEREF(__pyx_v_nw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 429, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 433, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_10);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 429, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 433, __pyx_L1_error);
         __pyx_t_10 = 0;
         __pyx_t_18 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 429, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 433, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":428
+        /* "Geemeth/english_core.pyx":432
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if in_mask(nt_val, AMBIG_MASK) or nt_val == T_RB:             # <<<<<<<<<<<<<<
@@ -7167,7 +7167,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":424
+      /* "Geemeth/english_core.pyx":428
  * 
  *         # ---- Pattern 8: "'s"  next is NN ----
  *         if w == "'s" and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -7176,16 +7176,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":432
+    /* "Geemeth/english_core.pyx":436
  * 
  *         # ---- Pattern 9: preposition + word  NN (ambiguous words) ----
  *         if w in _PREPOSITIONS and tag_val == T_IN and i + 1 < n:             # <<<<<<<<<<<<<<
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 432, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 432, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_16) {
     } else {
@@ -7203,7 +7203,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L154_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":433
+      /* "Geemeth/english_core.pyx":437
  *         # ---- Pattern 9: preposition + word  NN (ambiguous words) ----
  *         if w in _PREPOSITIONS and tag_val == T_IN and i + 1 < n:
  *             nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -7216,14 +7216,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":434
+      /* "Geemeth/english_core.pyx":438
  *         if w in _PREPOSITIONS and tag_val == T_IN and i + 1 < n:
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_DT and i + 2 < n:
 */
-      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_10 = __pyx_t_2;
       __Pyx_INCREF(__pyx_t_10);
@@ -7231,20 +7231,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "Geemeth/english_core.pyx":435
+      /* "Geemeth/english_core.pyx":439
  *             nxt = tags[i + 1]
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *             if nt_val == T_DT and i + 2 < n:
  *                 nxt2 = tags[i + 2]
 */
-      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 435, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 439, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 435, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 439, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_v_nt_val = ((int)__pyx_t_6);
 
-      /* "Geemeth/english_core.pyx":436
+      /* "Geemeth/english_core.pyx":440
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_DT and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -7262,7 +7262,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_L158_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":437
+        /* "Geemeth/english_core.pyx":441
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_DT and i + 2 < n:
  *                 nxt2 = tags[i + 2]             # <<<<<<<<<<<<<<
@@ -7275,14 +7275,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt2, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":438
+        /* "Geemeth/english_core.pyx":442
  *             if nt_val == T_DT and i + 2 < n:
  *                 nxt2 = tags[i + 2]
  *                 nw2 = <str>nxt2[0]             # <<<<<<<<<<<<<<
  *                 nt2_val = <int>nxt2[1]
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 438, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 442, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_2 = __pyx_t_10;
         __Pyx_INCREF(__pyx_t_2);
@@ -7290,20 +7290,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw2, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":439
+        /* "Geemeth/english_core.pyx":443
  *                 nxt2 = tags[i + 2]
  *                 nw2 = <str>nxt2[0]
  *                 nt2_val = <int>nxt2[1]             # <<<<<<<<<<<<<<
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():
  *                     tags[i + 2] = (nw2, _T(T_NN))
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt2, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt2, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 439, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_nt2_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":440
+        /* "Geemeth/english_core.pyx":444
  *                 nw2 = <str>nxt2[0]
  *                 nt2_val = <int>nxt2[1]
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():             # <<<<<<<<<<<<<<
@@ -7316,14 +7316,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L161_bool_binop_done;
         }
-        __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 440, __pyx_L1_error)
+        __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 444, __pyx_L1_error)
         __pyx_t_16 = __Pyx_Py_UNICODE_ISUPPER(__pyx_t_21); 
         __pyx_t_8 = (!__pyx_t_16);
         __pyx_t_7 = __pyx_t_8;
         __pyx_L161_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":441
+          /* "Geemeth/english_core.pyx":445
  *                 nt2_val = <int>nxt2[1]
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():
  *                     tags[i + 2] = (nw2, _T(T_NN))             # <<<<<<<<<<<<<<
@@ -7350,22 +7350,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 441, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 445, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_nw2);
           __Pyx_GIVEREF(__pyx_v_nw2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw2) != (0)) __PYX_ERR(0, 441, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw2) != (0)) __PYX_ERR(0, 445, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 441, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 445, __pyx_L1_error);
           __pyx_t_2 = 0;
           __pyx_t_18 = (__pyx_v_i + 2);
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 441, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 445, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":440
+          /* "Geemeth/english_core.pyx":444
  *                 nw2 = <str>nxt2[0]
  *                 nt2_val = <int>nxt2[1]
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():             # <<<<<<<<<<<<<<
@@ -7374,7 +7374,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":436
+        /* "Geemeth/english_core.pyx":440
  *             nw = <str>nxt[0]
  *             nt_val = <int>nxt[1]
  *             if nt_val == T_DT and i + 2 < n:             # <<<<<<<<<<<<<<
@@ -7384,7 +7384,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         goto __pyx_L157;
       }
 
-      /* "Geemeth/english_core.pyx":442
+      /* "Geemeth/english_core.pyx":446
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():
  *                     tags[i + 2] = (nw2, _T(T_NN))
  *             elif (nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ) and not nw[0].isupper():             # <<<<<<<<<<<<<<
@@ -7406,14 +7406,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_8;
         goto __pyx_L163_bool_binop_done;
       }
-      __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 442, __pyx_L1_error)
+      __pyx_t_21 = __Pyx_GetItemInt_Unicode(__pyx_v_nw, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(__pyx_t_21 == (Py_UCS4)-1)) __PYX_ERR(0, 446, __pyx_L1_error)
       __pyx_t_8 = __Pyx_Py_UNICODE_ISUPPER(__pyx_t_21); 
       __pyx_t_16 = (!__pyx_t_8);
       __pyx_t_7 = __pyx_t_16;
       __pyx_L163_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":443
+        /* "Geemeth/english_core.pyx":447
  *                     tags[i + 2] = (nw2, _T(T_NN))
  *             elif (nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ) and not nw[0].isupper():
  *                 tags[i + 1] = (nw, _T(T_NN))             # <<<<<<<<<<<<<<
@@ -7440,22 +7440,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 443, __pyx_L1_error)
+          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 447, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
         }
-        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 443, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 447, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_INCREF(__pyx_v_nw);
         __Pyx_GIVEREF(__pyx_v_nw);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 443, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 447, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_12);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 443, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 447, __pyx_L1_error);
         __pyx_t_12 = 0;
         __pyx_t_18 = (__pyx_v_i + 1);
-        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 443, __pyx_L1_error)
+        if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_10, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 447, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":442
+        /* "Geemeth/english_core.pyx":446
  *                 if in_mask(nt2_val, AMBIG_MASK) and not nw2[0].isupper():
  *                     tags[i + 2] = (nw2, _T(T_NN))
  *             elif (nt_val == T_JJ or nt_val == T_VB or nt_val == T_VBZ) and not nw[0].isupper():             # <<<<<<<<<<<<<<
@@ -7465,7 +7465,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       }
       __pyx_L157:;
 
-      /* "Geemeth/english_core.pyx":432
+      /* "Geemeth/english_core.pyx":436
  * 
  *         # ---- Pattern 9: preposition + word  NN (ambiguous words) ----
  *         if w in _PREPOSITIONS and tag_val == T_IN and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -7474,19 +7474,19 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":446
+    /* "Geemeth/english_core.pyx":450
  * 
  *         # ---- Pattern 10: wh-det/pron + ambiguous  NN ----
  *         if (w == "what" or w == "which") and i + 1 < n:             # <<<<<<<<<<<<<<
  *             if tag_val == T_WP or tag_val == T_WDT:
  *                 nxt = tags[i + 1]
 */
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_what, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 446, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_what, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 450, __pyx_L1_error)
     if (!__pyx_t_16) {
     } else {
       goto __pyx_L167_next_and;
     }
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_which, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 446, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_which, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 450, __pyx_L1_error)
     if (__pyx_t_16) {
     } else {
       __pyx_t_7 = __pyx_t_16;
@@ -7498,7 +7498,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L166_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":447
+      /* "Geemeth/english_core.pyx":451
  *         # ---- Pattern 10: wh-det/pron + ambiguous  NN ----
  *         if (w == "what" or w == "which") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT:             # <<<<<<<<<<<<<<
@@ -7509,7 +7509,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         case 34:
         case 33:
 
-        /* "Geemeth/english_core.pyx":448
+        /* "Geemeth/english_core.pyx":452
  *         if (w == "what" or w == "which") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT:
  *                 nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -7522,14 +7522,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":449
+        /* "Geemeth/english_core.pyx":453
  *             if tag_val == T_WP or tag_val == T_WDT:
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, AMBIG_MASK) and nw.lower() not in _BE_FORMS:
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 449, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 453, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_12 = __pyx_t_10;
         __Pyx_INCREF(__pyx_t_12);
@@ -7537,20 +7537,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_12));
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":450
+        /* "Geemeth/english_core.pyx":454
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 if in_mask(nt_val, AMBIG_MASK) and nw.lower() not in _BE_FORMS:
  *                     tags[i + 1] = (nw, _T(T_NN))
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 450, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_12); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 454, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":451
+        /* "Geemeth/english_core.pyx":455
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, AMBIG_MASK) and nw.lower() not in _BE_FORMS:             # <<<<<<<<<<<<<<
@@ -7563,18 +7563,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L170_bool_binop_done;
         }
-        __pyx_t_12 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 451, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 451, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_10, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 451, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_12, __pyx_t_10, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 455, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L170_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":452
+          /* "Geemeth/english_core.pyx":456
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, AMBIG_MASK) and nw.lower() not in _BE_FORMS:
  *                     tags[i + 1] = (nw, _T(T_NN))             # <<<<<<<<<<<<<<
@@ -7601,22 +7601,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 452, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 456, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
           }
-          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 456, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 452, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 456, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 452, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 456, __pyx_L1_error);
           __pyx_t_10 = 0;
           __pyx_t_18 = (__pyx_v_i + 1);
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 452, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 456, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "Geemeth/english_core.pyx":451
+          /* "Geemeth/english_core.pyx":455
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, AMBIG_MASK) and nw.lower() not in _BE_FORMS:             # <<<<<<<<<<<<<<
@@ -7625,7 +7625,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":447
+        /* "Geemeth/english_core.pyx":451
  *         # ---- Pattern 10: wh-det/pron + ambiguous  NN ----
  *         if (w == "what" or w == "which") and i + 1 < n:
  *             if tag_val == T_WP or tag_val == T_WDT:             # <<<<<<<<<<<<<<
@@ -7636,7 +7636,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         default: break;
       }
 
-      /* "Geemeth/english_core.pyx":446
+      /* "Geemeth/english_core.pyx":450
  * 
  *         # ---- Pattern 10: wh-det/pron + ambiguous  NN ----
  *         if (w == "what" or w == "which") and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -7645,16 +7645,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":455
+    /* "Geemeth/english_core.pyx":459
  * 
  *         # ---- Pattern 11: have-auxiliary  VBN ----
  *         if w in _HAVE_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 455, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 459, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_16) {
     } else {
@@ -7666,7 +7666,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L173_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":456
+      /* "Geemeth/english_core.pyx":460
  *         # ---- Pattern 11: have-auxiliary  VBN ----
  *         if w in _HAVE_FORMS and in_mask(tag_val, VERB_MASK):
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -7675,7 +7675,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_j = (__pyx_v_i + 1);
 
-      /* "Geemeth/english_core.pyx":457
+      /* "Geemeth/english_core.pyx":461
  *         if w in _HAVE_FORMS and in_mask(tag_val, VERB_MASK):
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -7688,7 +7688,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_16;
         goto __pyx_L176_bool_binop_done;
       }
-      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 457, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 461, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_10 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_10);
@@ -7698,19 +7698,19 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 457, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 461, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 457, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 461, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 457, __pyx_L1_error)
+      __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 461, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_7 = __pyx_t_16;
       __pyx_L176_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":458
+        /* "Geemeth/english_core.pyx":462
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1             # <<<<<<<<<<<<<<
@@ -7719,7 +7719,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         __pyx_v_j = (__pyx_v_j + 1);
 
-        /* "Geemeth/english_core.pyx":457
+        /* "Geemeth/english_core.pyx":461
  *         if w in _HAVE_FORMS and in_mask(tag_val, VERB_MASK):
  *             j = i + 1
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -7728,7 +7728,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":459
+      /* "Geemeth/english_core.pyx":463
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1
  *             if j < n:             # <<<<<<<<<<<<<<
@@ -7738,7 +7738,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = (__pyx_v_j < __pyx_v_n);
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":460
+        /* "Geemeth/english_core.pyx":464
  *                 j += 1
  *             if j < n:
  *                 nxt = tags[j]             # <<<<<<<<<<<<<<
@@ -7750,14 +7750,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":461
+        /* "Geemeth/english_core.pyx":465
  *             if j < n:
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 461, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 465, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_2 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_2);
@@ -7765,53 +7765,53 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":462
+        /* "Geemeth/english_core.pyx":466
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 nwl = nw.lower()
  *                 if (nwl.endswith("ed") or nwl.endswith("en")
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 462, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 466, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 462, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 466, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":463
+        /* "Geemeth/english_core.pyx":467
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()             # <<<<<<<<<<<<<<
  *                 if (nwl.endswith("ed") or nwl.endswith("en")
  *                         or (in_mask(nt_val, VERB_MASK) and nwl not in _MODALS)):
 */
-        __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 463, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_nw); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 467, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_XDECREF_SET(__pyx_v_nwl, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":464
+        /* "Geemeth/english_core.pyx":468
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if (nwl.endswith("ed") or nwl.endswith("en")             # <<<<<<<<<<<<<<
  *                         or (in_mask(nt_val, VERB_MASK) and nwl not in _MODALS)):
  *                     tags[j] = (nw, _T(T_VBN))
 */
-        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 464, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 468, __pyx_L1_error)
         if (!__pyx_t_16) {
         } else {
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L180_bool_binop_done;
         }
 
-        /* "Geemeth/english_core.pyx":465
+        /* "Geemeth/english_core.pyx":469
  *                 nwl = nw.lower()
  *                 if (nwl.endswith("ed") or nwl.endswith("en")
  *                         or (in_mask(nt_val, VERB_MASK) and nwl not in _MODALS)):             # <<<<<<<<<<<<<<
  *                     tags[j] = (nw, _T(T_VBN))
  * 
 */
-        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_en, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 464, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_nwl, __pyx_mstate_global->__pyx_n_u_en, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 468, __pyx_L1_error)
         if (!__pyx_t_16) {
         } else {
           __pyx_t_7 = __pyx_t_16;
@@ -7823,14 +7823,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L180_bool_binop_done;
         }
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 465, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 469, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 465, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_nwl, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 469, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L180_bool_binop_done:;
 
-        /* "Geemeth/english_core.pyx":464
+        /* "Geemeth/english_core.pyx":468
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if (nwl.endswith("ed") or nwl.endswith("en")             # <<<<<<<<<<<<<<
@@ -7839,7 +7839,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":466
+          /* "Geemeth/english_core.pyx":470
  *                 if (nwl.endswith("ed") or nwl.endswith("en")
  *                         or (in_mask(nt_val, VERB_MASK) and nwl not in _MODALS)):
  *                     tags[j] = (nw, _T(T_VBN))             # <<<<<<<<<<<<<<
@@ -7866,21 +7866,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 466, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 470, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 466, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 470, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 466, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 470, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 466, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 470, __pyx_L1_error);
           __pyx_t_2 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 466, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 470, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":464
+          /* "Geemeth/english_core.pyx":468
  *                 nt_val = <int>nxt[1]
  *                 nwl = nw.lower()
  *                 if (nwl.endswith("ed") or nwl.endswith("en")             # <<<<<<<<<<<<<<
@@ -7889,7 +7889,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":459
+        /* "Geemeth/english_core.pyx":463
  *             if j < n and (<str>(tags[j][0])).lower() in _NEGATIONS:
  *                 j += 1
  *             if j < n:             # <<<<<<<<<<<<<<
@@ -7898,7 +7898,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":455
+      /* "Geemeth/english_core.pyx":459
  * 
  *         # ---- Pattern 11: have-auxiliary  VBN ----
  *         if w in _HAVE_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
@@ -7907,16 +7907,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":469
+    /* "Geemeth/english_core.pyx":473
  * 
  *         # ---- Pattern 12: do-support  VB ----
  *         if w in _DO_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
  *             j = i + 1
  *             while j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_DO_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 469, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_DO_FORMS); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 473, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 469, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_10, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 473, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     if (__pyx_t_16) {
     } else {
@@ -7928,7 +7928,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L185_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":470
+      /* "Geemeth/english_core.pyx":474
  *         # ---- Pattern 12: do-support  VB ----
  *         if w in _DO_FORMS and in_mask(tag_val, VERB_MASK):
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -7937,7 +7937,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_j = (__pyx_v_i + 1);
 
-      /* "Geemeth/english_core.pyx":471
+      /* "Geemeth/english_core.pyx":475
  *         if w in _DO_FORMS and in_mask(tag_val, VERB_MASK):
  *             j = i + 1
  *             while j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -7951,38 +7951,38 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L189_bool_binop_done;
         }
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 471, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 475, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 471, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 475, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 471, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_2, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 475, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L189_bool_binop_done:;
         if (!__pyx_t_7) break;
 
-        /* "Geemeth/english_core.pyx":472
+        /* "Geemeth/english_core.pyx":476
  *             j = i + 1
  *             while j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 tj_val = <int>(tags[j][1])             # <<<<<<<<<<<<<<
  *                 tj_w = (<str>(tags[j][0])).lower()
  *                 if (tj_val == T_PRP and tj_w in _SUBJ_PRONOUNS) or tj_w in _NEGATIONS:
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 476, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 472, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 476, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_tj_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":473
+        /* "Geemeth/english_core.pyx":477
  *             while j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 tj_val = <int>(tags[j][1])
  *                 tj_w = (<str>(tags[j][0])).lower()             # <<<<<<<<<<<<<<
  *                 if (tj_val == T_PRP and tj_w in _SUBJ_PRONOUNS) or tj_w in _NEGATIONS:
  *                     j += 1
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 473, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 477, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_10 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_10);
@@ -7992,13 +7992,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 473, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 477, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         __Pyx_XDECREF_SET(__pyx_v_tj_w, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":474
+        /* "Geemeth/english_core.pyx":478
  *                 tj_val = <int>(tags[j][1])
  *                 tj_w = (<str>(tags[j][0])).lower()
  *                 if (tj_val == T_PRP and tj_w in _SUBJ_PRONOUNS) or tj_w in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -8010,9 +8010,9 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L193_next_or;
         } else {
         }
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 474, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 478, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_tj_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 474, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_tj_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 478, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         if (!__pyx_t_16) {
         } else {
@@ -8020,15 +8020,15 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L192_bool_binop_done;
         }
         __pyx_L193_next_or:;
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 474, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_NEGATIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 478, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_tj_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 474, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_tj_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 478, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L192_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":475
+          /* "Geemeth/english_core.pyx":479
  *                 tj_w = (<str>(tags[j][0])).lower()
  *                 if (tj_val == T_PRP and tj_w in _SUBJ_PRONOUNS) or tj_w in _NEGATIONS:
  *                     j += 1             # <<<<<<<<<<<<<<
@@ -8037,7 +8037,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_j = (__pyx_v_j + 1);
 
-          /* "Geemeth/english_core.pyx":474
+          /* "Geemeth/english_core.pyx":478
  *                 tj_val = <int>(tags[j][1])
  *                 tj_w = (<str>(tags[j][0])).lower()
  *                 if (tj_val == T_PRP and tj_w in _SUBJ_PRONOUNS) or tj_w in _NEGATIONS:             # <<<<<<<<<<<<<<
@@ -8047,7 +8047,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L191;
         }
 
-        /* "Geemeth/english_core.pyx":477
+        /* "Geemeth/english_core.pyx":481
  *                     j += 1
  *                 else:
  *                     break             # <<<<<<<<<<<<<<
@@ -8061,7 +8061,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       }
       __pyx_L188_break:;
 
-      /* "Geemeth/english_core.pyx":478
+      /* "Geemeth/english_core.pyx":482
  *                 else:
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -8074,18 +8074,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = __pyx_t_16;
         goto __pyx_L196_bool_binop_done;
       }
-      __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 478, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 478, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 478, __pyx_L1_error)
+      __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 482, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_7 = __pyx_t_16;
       __pyx_L196_bool_binop_done:;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":479
+        /* "Geemeth/english_core.pyx":483
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]             # <<<<<<<<<<<<<<
@@ -8097,14 +8097,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
         __pyx_t_12 = 0;
 
-        /* "Geemeth/english_core.pyx":480
+        /* "Geemeth/english_core.pyx":484
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL12_MASK):
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 480, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 484, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_2 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_2);
@@ -8112,20 +8112,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":481
+        /* "Geemeth/english_core.pyx":485
  *                 nxt = tags[j]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 if not in_mask(nt_val, EXCL12_MASK):
  *                     tags[j] = (nw, _T(T_VB))
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 481, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 481, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 485, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":482
+        /* "Geemeth/english_core.pyx":486
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL12_MASK):             # <<<<<<<<<<<<<<
@@ -8135,7 +8135,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_7 = (!__pyx_f_7Geemeth_12english_core_in_mask(__pyx_v_nt_val, 0x6000C004E));
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":483
+          /* "Geemeth/english_core.pyx":487
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL12_MASK):
  *                     tags[j] = (nw, _T(T_VB))             # <<<<<<<<<<<<<<
@@ -8162,21 +8162,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 483, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 487, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 483, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 483, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 487, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 483, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 487, __pyx_L1_error);
           __pyx_t_2 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 483, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 487, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":482
+          /* "Geemeth/english_core.pyx":486
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if not in_mask(nt_val, EXCL12_MASK):             # <<<<<<<<<<<<<<
@@ -8185,7 +8185,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":478
+        /* "Geemeth/english_core.pyx":482
  *                 else:
  *                     break
  *             if j < n and <str>(tags[j][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -8194,7 +8194,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":469
+      /* "Geemeth/english_core.pyx":473
  * 
  *         # ---- Pattern 12: do-support  VB ----
  *         if w in _DO_FORMS and in_mask(tag_val, VERB_MASK):             # <<<<<<<<<<<<<<
@@ -8203,14 +8203,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":486
+    /* "Geemeth/english_core.pyx":490
  * 
  *         # ---- Pattern 13: "going to" future  VB ----
  *         if w == "going" and i + 1 < n:             # <<<<<<<<<<<<<<
  *             if (<str>(tags[i + 1][0])).lower() == "to":
  *                 if i + 2 < n and <str>(tags[i + 2][0]) not in _CLAUSE_BOUNDARY:
 */
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_going, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 486, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_going, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 490, __pyx_L1_error)
     if (__pyx_t_16) {
     } else {
       __pyx_t_7 = __pyx_t_16;
@@ -8221,7 +8221,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L200_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":487
+      /* "Geemeth/english_core.pyx":491
  *         # ---- Pattern 13: "going to" future  VB ----
  *         if w == "going" and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() == "to":             # <<<<<<<<<<<<<<
@@ -8229,7 +8229,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
  *                     nxt = tags[i + 2]
 */
       __pyx_t_18 = (__pyx_v_i + 1);
-      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_18), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 487, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_18), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 491, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_2 = __pyx_t_12;
       __Pyx_INCREF(__pyx_t_2);
@@ -8239,14 +8239,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_10 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 487, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 491, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
       }
-      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_to, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 487, __pyx_L1_error)
+      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_to, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 491, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":488
+        /* "Geemeth/english_core.pyx":492
  *         if w == "going" and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() == "to":
  *                 if i + 2 < n and <str>(tags[i + 2][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -8260,18 +8260,18 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L204_bool_binop_done;
         }
         __pyx_t_18 = (__pyx_v_i + 2);
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_18), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 488, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_18), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 492, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 488, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 492, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 488, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_t_10, __pyx_t_12, Py_NE)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 492, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L204_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":489
+          /* "Geemeth/english_core.pyx":493
  *             if (<str>(tags[i + 1][0])).lower() == "to":
  *                 if i + 2 < n and <str>(tags[i + 2][0]) not in _CLAUSE_BOUNDARY:
  *                     nxt = tags[i + 2]             # <<<<<<<<<<<<<<
@@ -8284,14 +8284,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_12);
           __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":490
+          /* "Geemeth/english_core.pyx":494
  *                 if i + 2 < n and <str>(tags[i + 2][0]) not in _CLAUSE_BOUNDARY:
  *                     nxt = tags[i + 2]
  *                     nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                     nt_val = <int>nxt[1]
  *                     if not in_mask(nt_val, EXCL2_MASK):
 */
-          __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 490, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 494, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_10 = __pyx_t_12;
           __Pyx_INCREF(__pyx_t_10);
@@ -8299,20 +8299,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
           __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":491
+          /* "Geemeth/english_core.pyx":495
  *                     nxt = tags[i + 2]
  *                     nw = <str>nxt[0]
  *                     nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                     if not in_mask(nt_val, EXCL2_MASK):
  *                         tags[i + 2] = (nw, _T(T_VB))
 */
-          __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 491, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 495, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 491, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 495, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __pyx_v_nt_val = ((int)__pyx_t_6);
 
-          /* "Geemeth/english_core.pyx":492
+          /* "Geemeth/english_core.pyx":496
  *                     nw = <str>nxt[0]
  *                     nt_val = <int>nxt[1]
  *                     if not in_mask(nt_val, EXCL2_MASK):             # <<<<<<<<<<<<<<
@@ -8322,7 +8322,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = (!__pyx_f_7Geemeth_12english_core_in_mask(__pyx_v_nt_val, 0xC004E));
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":493
+            /* "Geemeth/english_core.pyx":497
  *                     nt_val = <int>nxt[1]
  *                     if not in_mask(nt_val, EXCL2_MASK):
  *                         tags[i + 2] = (nw, _T(T_VB))             # <<<<<<<<<<<<<<
@@ -8349,22 +8349,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 493, __pyx_L1_error)
+              if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 497, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_10);
             }
-            __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 493, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 497, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_INCREF(__pyx_v_nw);
             __Pyx_GIVEREF(__pyx_v_nw);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 493, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 497, __pyx_L1_error);
             __Pyx_GIVEREF(__pyx_t_10);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 493, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 497, __pyx_L1_error);
             __pyx_t_10 = 0;
             __pyx_t_18 = (__pyx_v_i + 2);
-            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 493, __pyx_L1_error)
+            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 497, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "Geemeth/english_core.pyx":492
+            /* "Geemeth/english_core.pyx":496
  *                     nw = <str>nxt[0]
  *                     nt_val = <int>nxt[1]
  *                     if not in_mask(nt_val, EXCL2_MASK):             # <<<<<<<<<<<<<<
@@ -8373,7 +8373,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           }
 
-          /* "Geemeth/english_core.pyx":488
+          /* "Geemeth/english_core.pyx":492
  *         if w == "going" and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() == "to":
  *                 if i + 2 < n and <str>(tags[i + 2][0]) not in _CLAUSE_BOUNDARY:             # <<<<<<<<<<<<<<
@@ -8382,7 +8382,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":487
+        /* "Geemeth/english_core.pyx":491
  *         # ---- Pattern 13: "going to" future  VB ----
  *         if w == "going" and i + 1 < n:
  *             if (<str>(tags[i + 1][0])).lower() == "to":             # <<<<<<<<<<<<<<
@@ -8391,7 +8391,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":486
+      /* "Geemeth/english_core.pyx":490
  * 
  *         # ---- Pattern 13: "going to" future  VB ----
  *         if w == "going" and i + 1 < n:             # <<<<<<<<<<<<<<
@@ -8400,19 +8400,19 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":496
+    /* "Geemeth/english_core.pyx":500
  * 
  *         # ---- Pattern 20: "most"/"least"  RBS ----
  *         if (w == "most" or w == "least") and tag_val != T_RBS and tag_val != T_JJS:             # <<<<<<<<<<<<<<
  *             if i + 1 < n:
  *                 nxt = tags[i + 1]
 */
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_most, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 496, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_most, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 500, __pyx_L1_error)
     if (!__pyx_t_16) {
     } else {
       goto __pyx_L209_next_and;
     }
-    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_least, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 496, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_least, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 500, __pyx_L1_error)
     if (__pyx_t_16) {
     } else {
       __pyx_t_7 = __pyx_t_16;
@@ -8432,7 +8432,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L208_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":497
+      /* "Geemeth/english_core.pyx":501
  *         # ---- Pattern 20: "most"/"least"  RBS ----
  *         if (w == "most" or w == "least") and tag_val != T_RBS and tag_val != T_JJS:
  *             if i + 1 < n:             # <<<<<<<<<<<<<<
@@ -8442,7 +8442,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = ((__pyx_v_i + 1) < __pyx_v_n);
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":498
+        /* "Geemeth/english_core.pyx":502
  *         if (w == "most" or w == "least") and tag_val != T_RBS and tag_val != T_JJS:
  *             if i + 1 < n:
  *                 nxt = tags[i + 1]             # <<<<<<<<<<<<<<
@@ -8455,14 +8455,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":499
+        /* "Geemeth/english_core.pyx":503
  *             if i + 1 < n:
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]             # <<<<<<<<<<<<<<
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
 */
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 499, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 503, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_10 = __pyx_t_2;
         __Pyx_INCREF(__pyx_t_10);
@@ -8470,20 +8470,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nw, ((PyObject*)__pyx_t_10));
         __pyx_t_10 = 0;
 
-        /* "Geemeth/english_core.pyx":500
+        /* "Geemeth/english_core.pyx":504
  *                 nxt = tags[i + 1]
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]             # <<<<<<<<<<<<<<
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
  *                     tag_val = T_RBS
 */
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_nxt, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 504, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 500, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_As_int(__pyx_t_10); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 504, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_v_nt_val = ((int)__pyx_t_6);
 
-        /* "Geemeth/english_core.pyx":501
+        /* "Geemeth/english_core.pyx":505
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):             # <<<<<<<<<<<<<<
@@ -8501,7 +8501,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_L213_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":502
+          /* "Geemeth/english_core.pyx":506
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
  *                     tag_val = T_RBS             # <<<<<<<<<<<<<<
@@ -8510,7 +8510,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_tag_val = 22;
 
-          /* "Geemeth/english_core.pyx":503
+          /* "Geemeth/english_core.pyx":507
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):
  *                     tag_val = T_RBS
  *                     tags[i] = (word, _T(T_RBS))             # <<<<<<<<<<<<<<
@@ -8537,21 +8537,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 503, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 507, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
           }
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 503, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 507, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_word);
           __Pyx_GIVEREF(__pyx_v_word);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 503, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 507, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 503, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 507, __pyx_L1_error);
           __pyx_t_10 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 503, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_12, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 507, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":504
+          /* "Geemeth/english_core.pyx":508
  *                     tag_val = T_RBS
  *                     tags[i] = (word, _T(T_RBS))
  *                     if not in_mask(nt_val, ADJ_MASK):             # <<<<<<<<<<<<<<
@@ -8561,7 +8561,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = (!__pyx_f_7Geemeth_12english_core_in_mask(__pyx_v_nt_val, 0x380));
           if (__pyx_t_7) {
 
-            /* "Geemeth/english_core.pyx":505
+            /* "Geemeth/english_core.pyx":509
  *                     tags[i] = (word, _T(T_RBS))
  *                     if not in_mask(nt_val, ADJ_MASK):
  *                         tags[i + 1] = (nw, _T(T_JJS))             # <<<<<<<<<<<<<<
@@ -8588,22 +8588,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
               __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 505, __pyx_L1_error)
+              if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 509, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
             }
-            __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 505, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 509, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             __Pyx_INCREF(__pyx_v_nw);
             __Pyx_GIVEREF(__pyx_v_nw);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 505, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 509, __pyx_L1_error);
             __Pyx_GIVEREF(__pyx_t_12);
-            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 505, __pyx_L1_error);
+            if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 509, __pyx_L1_error);
             __pyx_t_12 = 0;
             __pyx_t_18 = (__pyx_v_i + 1);
-            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 505, __pyx_L1_error)
+            if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_2, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 509, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "Geemeth/english_core.pyx":504
+            /* "Geemeth/english_core.pyx":508
  *                     tag_val = T_RBS
  *                     tags[i] = (word, _T(T_RBS))
  *                     if not in_mask(nt_val, ADJ_MASK):             # <<<<<<<<<<<<<<
@@ -8612,7 +8612,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           }
 
-          /* "Geemeth/english_core.pyx":501
+          /* "Geemeth/english_core.pyx":505
  *                 nw = <str>nxt[0]
  *                 nt_val = <int>nxt[1]
  *                 if in_mask(nt_val, ADJ_MASK) or in_mask(nt_val, SIMP_VERB_MASK):             # <<<<<<<<<<<<<<
@@ -8622,7 +8622,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           goto __pyx_L212;
         }
 
-        /* "Geemeth/english_core.pyx":506
+        /* "Geemeth/english_core.pyx":510
  *                     if not in_mask(nt_val, ADJ_MASK):
  *                         tags[i + 1] = (nw, _T(T_JJS))
  *                 elif nt_val == T_RB or nt_val == T_RBR:             # <<<<<<<<<<<<<<
@@ -8640,7 +8640,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":507
+          /* "Geemeth/english_core.pyx":511
  *                         tags[i + 1] = (nw, _T(T_JJS))
  *                 elif nt_val == T_RB or nt_val == T_RBR:
  *                     tag_val = T_RBS             # <<<<<<<<<<<<<<
@@ -8649,7 +8649,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
           __pyx_v_tag_val = 22;
 
-          /* "Geemeth/english_core.pyx":508
+          /* "Geemeth/english_core.pyx":512
  *                 elif nt_val == T_RB or nt_val == T_RBR:
  *                     tag_val = T_RBS
  *                     tags[i] = (word, _T(T_RBS))             # <<<<<<<<<<<<<<
@@ -8676,21 +8676,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_10, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 508, __pyx_L1_error)
+            if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 512, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
           }
-          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 508, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 512, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_INCREF(__pyx_v_word);
           __Pyx_GIVEREF(__pyx_v_word);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 508, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 512, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 508, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 512, __pyx_L1_error);
           __pyx_t_2 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 508, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_10, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 512, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "Geemeth/english_core.pyx":509
+          /* "Geemeth/english_core.pyx":513
  *                     tag_val = T_RBS
  *                     tags[i] = (word, _T(T_RBS))
  *                     tags[i + 1] = (nw, _T(T_RBS))             # <<<<<<<<<<<<<<
@@ -8717,22 +8717,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_12, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 509, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 513, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
           }
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 509, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 513, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_nw);
           __Pyx_GIVEREF(__pyx_v_nw);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 509, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_nw) != (0)) __PYX_ERR(0, 513, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 509, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 513, __pyx_L1_error);
           __pyx_t_10 = 0;
           __pyx_t_18 = (__pyx_v_i + 1);
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 509, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_t_18, __pyx_t_12, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 513, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "Geemeth/english_core.pyx":506
+          /* "Geemeth/english_core.pyx":510
  *                     if not in_mask(nt_val, ADJ_MASK):
  *                         tags[i + 1] = (nw, _T(T_JJS))
  *                 elif nt_val == T_RB or nt_val == T_RBR:             # <<<<<<<<<<<<<<
@@ -8742,7 +8742,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L212:;
 
-        /* "Geemeth/english_core.pyx":497
+        /* "Geemeth/english_core.pyx":501
  *         # ---- Pattern 20: "most"/"least"  RBS ----
  *         if (w == "most" or w == "least") and tag_val != T_RBS and tag_val != T_JJS:
  *             if i + 1 < n:             # <<<<<<<<<<<<<<
@@ -8751,7 +8751,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":496
+      /* "Geemeth/english_core.pyx":500
  * 
  *         # ---- Pattern 20: "most"/"least"  RBS ----
  *         if (w == "most" or w == "least") and tag_val != T_RBS and tag_val != T_JJS:             # <<<<<<<<<<<<<<
@@ -8760,7 +8760,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
     }
 
-    /* "Geemeth/english_core.pyx":512
+    /* "Geemeth/english_core.pyx":516
  * 
  *         # ---- Pattern 21: sentence-initial gerund mis-tagged as NN/NNS ----
  *         if i == 0 and word.lower().endswith("ing") and (tag_val == T_NN or tag_val == T_NNS):             # <<<<<<<<<<<<<<
@@ -8773,9 +8773,9 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = __pyx_t_16;
       goto __pyx_L217_bool_binop_done;
     }
-    __pyx_t_12 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 512, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 516, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 512, __pyx_L1_error)
+    __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 516, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     if (__pyx_t_16) {
     } else {
@@ -8795,7 +8795,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     __pyx_L217_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":513
+      /* "Geemeth/english_core.pyx":517
  *         # ---- Pattern 21: sentence-initial gerund mis-tagged as NN/NNS ----
  *         if i == 0 and word.lower().endswith("ing") and (tag_val == T_NN or tag_val == T_NNS):
  *             tag_val = T_VBG             # <<<<<<<<<<<<<<
@@ -8804,7 +8804,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_tag_val = 29;
 
-      /* "Geemeth/english_core.pyx":514
+      /* "Geemeth/english_core.pyx":518
  *         if i == 0 and word.lower().endswith("ing") and (tag_val == T_NN or tag_val == T_NNS):
  *             tag_val = T_VBG
  *             tags[i] = (word, _T(T_VBG))             # <<<<<<<<<<<<<<
@@ -8831,21 +8831,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_t_12 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 514, __pyx_L1_error)
+        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 518, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
       }
-      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 514, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 518, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_INCREF(__pyx_v_word);
       __Pyx_GIVEREF(__pyx_v_word);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 514, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_word) != (0)) __PYX_ERR(0, 518, __pyx_L1_error);
       __Pyx_GIVEREF(__pyx_t_12);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 514, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_12) != (0)) __PYX_ERR(0, 518, __pyx_L1_error);
       __pyx_t_12 = 0;
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 514, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 518, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "Geemeth/english_core.pyx":512
+      /* "Geemeth/english_core.pyx":516
  * 
  *         # ---- Pattern 21: sentence-initial gerund mis-tagged as NN/NNS ----
  *         if i == 0 and word.lower().endswith("ing") and (tag_val == T_NN or tag_val == T_NNS):             # <<<<<<<<<<<<<<
@@ -8855,7 +8855,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     }
   }
 
-  /* "Geemeth/english_core.pyx":517
+  /* "Geemeth/english_core.pyx":521
  * 
  *     # ---- Post-pass 19: agentive passive  VBN ----
  *     for i in range(n - 2):             # <<<<<<<<<<<<<<
@@ -8867,14 +8867,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_15; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "Geemeth/english_core.pyx":518
+    /* "Geemeth/english_core.pyx":522
  *     # ---- Post-pass 19: agentive passive  VBN ----
  *     for i in range(n - 2):
  *         w0 = (<str>(tags[i][0])).lower()             # <<<<<<<<<<<<<<
  *         if w0 in _BE_FORMS and in_mask(<int>(tags[i][1]), VERB_MASK):
  *             j = i + 1
 */
-    __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 518, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_i), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 522, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_t_12 = __pyx_t_10;
     __Pyx_INCREF(__pyx_t_12);
@@ -8884,38 +8884,38 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 518, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 522, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_XDECREF_SET(__pyx_v_w0, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "Geemeth/english_core.pyx":519
+    /* "Geemeth/english_core.pyx":523
  *     for i in range(n - 2):
  *         w0 = (<str>(tags[i][0])).lower()
  *         if w0 in _BE_FORMS and in_mask(<int>(tags[i][1]), VERB_MASK):             # <<<<<<<<<<<<<<
  *             j = i + 1
  *             while j < n and in_mask(<int>(tags[j][1]), ADV_MASK):
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 519, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_BE_FORMS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w0, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 519, __pyx_L1_error)
+    __pyx_t_16 = (__Pyx_PySequence_ContainsTF(__pyx_v_w0, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_16) {
     } else {
       __pyx_t_7 = __pyx_t_16;
       goto __pyx_L223_bool_binop_done;
     }
-    __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_i), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 519, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_i), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 519, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_16 = __pyx_f_7Geemeth_12english_core_in_mask(((int)__pyx_t_4), 0x1F8000000);
     __pyx_t_7 = __pyx_t_16;
     __pyx_L223_bool_binop_done:;
     if (__pyx_t_7) {
 
-      /* "Geemeth/english_core.pyx":520
+      /* "Geemeth/english_core.pyx":524
  *         w0 = (<str>(tags[i][0])).lower()
  *         if w0 in _BE_FORMS and in_mask(<int>(tags[i][1]), VERB_MASK):
  *             j = i + 1             # <<<<<<<<<<<<<<
@@ -8924,7 +8924,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       __pyx_v_j = (__pyx_v_i + 1);
 
-      /* "Geemeth/english_core.pyx":521
+      /* "Geemeth/english_core.pyx":525
  *         if w0 in _BE_FORMS and in_mask(<int>(tags[i][1]), VERB_MASK):
  *             j = i + 1
  *             while j < n and in_mask(<int>(tags[j][1]), ADV_MASK):             # <<<<<<<<<<<<<<
@@ -8938,16 +8938,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_7 = __pyx_t_16;
           goto __pyx_L227_bool_binop_done;
         }
-        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 521, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_v_j), 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_4 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 521, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyLong_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 525, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_16 = __pyx_f_7Geemeth_12english_core_in_mask(((int)__pyx_t_4), 0x700000);
         __pyx_t_7 = __pyx_t_16;
         __pyx_L227_bool_binop_done:;
         if (!__pyx_t_7) break;
 
-        /* "Geemeth/english_core.pyx":522
+        /* "Geemeth/english_core.pyx":526
  *             j = i + 1
  *             while j < n and in_mask(<int>(tags[j][1]), ADV_MASK):
  *                 j += 1             # <<<<<<<<<<<<<<
@@ -8957,7 +8957,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __pyx_v_j = (__pyx_v_j + 1);
       }
 
-      /* "Geemeth/english_core.pyx":523
+      /* "Geemeth/english_core.pyx":527
  *             while j < n and in_mask(<int>(tags[j][1]), ADV_MASK):
  *                 j += 1
  *             if j < n - 1:             # <<<<<<<<<<<<<<
@@ -8967,7 +8967,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
       __pyx_t_7 = (__pyx_v_j < (__pyx_v_n - 1));
       if (__pyx_t_7) {
 
-        /* "Geemeth/english_core.pyx":524
+        /* "Geemeth/english_core.pyx":528
  *                 j += 1
  *             if j < n - 1:
  *                 nxt = tags[j]             # <<<<<<<<<<<<<<
@@ -8979,14 +8979,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         __Pyx_XDECREF_SET(__pyx_v_nxt, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":525
+        /* "Geemeth/english_core.pyx":529
  *             if j < n - 1:
  *                 nxt = tags[j]
  *                 pw = (<str>nxt[0]).lower()             # <<<<<<<<<<<<<<
  *                 if (pw.endswith("ed") or pw.endswith("en")) and (<str>(tags[j + 1][0])).lower() == "by":
  *                     tags[j] = (nxt[0], _T(T_VBN))
 */
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 525, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 529, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_10 = __pyx_t_12;
         __Pyx_INCREF(__pyx_t_10);
@@ -8996,25 +8996,25 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 525, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 529, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         __Pyx_XDECREF_SET(__pyx_v_pw, ((PyObject*)__pyx_t_2));
         __pyx_t_2 = 0;
 
-        /* "Geemeth/english_core.pyx":526
+        /* "Geemeth/english_core.pyx":530
  *                 nxt = tags[j]
  *                 pw = (<str>nxt[0]).lower()
  *                 if (pw.endswith("ed") or pw.endswith("en")) and (<str>(tags[j + 1][0])).lower() == "by":             # <<<<<<<<<<<<<<
  *                     tags[j] = (nxt[0], _T(T_VBN))
  * 
 */
-        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_pw, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 526, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_pw, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 530, __pyx_L1_error)
         if (!__pyx_t_16) {
         } else {
           goto __pyx_L232_next_and;
         }
-        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_pw, __pyx_mstate_global->__pyx_n_u_en, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 526, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyUnicode_Tailmatch(__pyx_v_pw, __pyx_mstate_global->__pyx_n_u_en, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 530, __pyx_L1_error)
         if (__pyx_t_16) {
         } else {
           __pyx_t_7 = __pyx_t_16;
@@ -9022,7 +9022,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
         }
         __pyx_L232_next_and:;
         __pyx_t_17 = (__pyx_v_j + 1);
-        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_17), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 526, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__Pyx_PyList_GET_ITEM(__pyx_v_tags, __pyx_t_17), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 530, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_12 = __pyx_t_10;
         __Pyx_INCREF(__pyx_t_12);
@@ -9032,23 +9032,23 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
           __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 526, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 530, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_by, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 526, __pyx_L1_error)
+        __pyx_t_16 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_by, Py_EQ)); if (unlikely((__pyx_t_16 < 0))) __PYX_ERR(0, 530, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = __pyx_t_16;
         __pyx_L231_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "Geemeth/english_core.pyx":527
+          /* "Geemeth/english_core.pyx":531
  *                 pw = (<str>nxt[0]).lower()
  *                 if (pw.endswith("ed") or pw.endswith("en")) and (<str>(tags[j + 1][0])).lower() == "by":
  *                     tags[j] = (nxt[0], _T(T_VBN))             # <<<<<<<<<<<<<<
  * 
  *     return tags
 */
-          __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 527, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_nxt, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 531, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_12 = NULL;
           __Pyx_INCREF(__pyx_v__T);
@@ -9070,21 +9070,21 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
             __pyx_t_10 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_9, __pyx_callargs+__pyx_t_11, (2-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 527, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 531, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
           }
-          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 527, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 531, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GIVEREF(__pyx_t_2);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 527, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 531, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_10);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 527, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 531, __pyx_L1_error);
           __pyx_t_2 = 0;
           __pyx_t_10 = 0;
-          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 527, __pyx_L1_error)
+          if (unlikely((__Pyx_SetItemInt(__pyx_v_tags, __pyx_v_j, __pyx_t_9, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 531, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-          /* "Geemeth/english_core.pyx":526
+          /* "Geemeth/english_core.pyx":530
  *                 nxt = tags[j]
  *                 pw = (<str>nxt[0]).lower()
  *                 if (pw.endswith("ed") or pw.endswith("en")) and (<str>(tags[j + 1][0])).lower() == "by":             # <<<<<<<<<<<<<<
@@ -9093,7 +9093,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
         }
 
-        /* "Geemeth/english_core.pyx":523
+        /* "Geemeth/english_core.pyx":527
  *             while j < n and in_mask(<int>(tags[j][1]), ADV_MASK):
  *                 j += 1
  *             if j < n - 1:             # <<<<<<<<<<<<<<
@@ -9102,7 +9102,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
 */
       }
 
-      /* "Geemeth/english_core.pyx":519
+      /* "Geemeth/english_core.pyx":523
  *     for i in range(n - 2):
  *         w0 = (<str>(tags[i][0])).lower()
  *         if w0 in _BE_FORMS and in_mask(<int>(tags[i][1]), VERB_MASK):             # <<<<<<<<<<<<<<
@@ -9112,7 +9112,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
     }
   }
 
-  /* "Geemeth/english_core.pyx":529
+  /* "Geemeth/english_core.pyx":533
  *                     tags[j] = (nxt[0], _T(T_VBN))
  * 
  *     return tags             # <<<<<<<<<<<<<<
@@ -9124,7 +9124,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
   __pyx_r = __pyx_v_tags;
   goto __pyx_L0;
 
-  /* "Geemeth/english_core.pyx":192
+  /* "Geemeth/english_core.pyx":196
  * 
  * 
  * def apply_context_rules_cy(list tagged):             # <<<<<<<<<<<<<<
@@ -9172,7 +9172,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_2apply_context_rules_cy(CYTHON
   return __pyx_r;
 }
 
-/* "Geemeth/english_core.pyx":532
+/* "Geemeth/english_core.pyx":536
  * 
  * 
  * def guess_raw_morphology_cy(str word, object POSTag_cls):             # <<<<<<<<<<<<<<
@@ -9221,39 +9221,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_word,&__pyx_mstate_global->__pyx_n_u_POSTag_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 532, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 536, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 532, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 536, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 532, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 536, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "guess_raw_morphology_cy", 0) < (0)) __PYX_ERR(0, 532, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "guess_raw_morphology_cy", 0) < (0)) __PYX_ERR(0, 536, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("guess_raw_morphology_cy", 1, 2, 2, i); __PYX_ERR(0, 532, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("guess_raw_morphology_cy", 1, 2, 2, i); __PYX_ERR(0, 536, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 532, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 536, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 532, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 536, __pyx_L3_error)
     }
     __pyx_v_word = ((PyObject*)values[0]);
     __pyx_v_POSTag_cls = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("guess_raw_morphology_cy", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 532, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("guess_raw_morphology_cy", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 536, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9264,7 +9264,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_word), (&PyUnicode_Type), 1, "word", 1))) __PYX_ERR(0, 532, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_word), (&PyUnicode_Type), 1, "word", 1))) __PYX_ERR(0, 536, __pyx_L1_error)
   __pyx_r = __pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(__pyx_self, __pyx_v_word, __pyx_v_POSTag_cls);
 
   /* function exit code */
@@ -9301,7 +9301,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("guess_raw_morphology_cy", 0);
 
-  /* "Geemeth/english_core.pyx":541
+  /* "Geemeth/english_core.pyx":545
  *     cdef str w
  * 
  *     _T = POSTag_cls             # <<<<<<<<<<<<<<
@@ -9311,7 +9311,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   __Pyx_INCREF(__pyx_v_POSTag_cls);
   __pyx_v__T = __pyx_v_POSTag_cls;
 
-  /* "Geemeth/english_core.pyx":544
+  /* "Geemeth/english_core.pyx":548
  * 
  *     # 1. Numbers & Symbols
  *     if _is_number(word):             # <<<<<<<<<<<<<<
@@ -9321,7 +9321,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   __pyx_t_1 = __pyx_f_7Geemeth_12english_core__is_number(__pyx_v_word);
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":545
+    /* "Geemeth/english_core.pyx":549
  *     # 1. Numbers & Symbols
  *     if _is_number(word):
  *         return _T(T_CD)             # <<<<<<<<<<<<<<
@@ -9349,14 +9349,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 545, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 549, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":544
+    /* "Geemeth/english_core.pyx":548
  * 
  *     # 1. Numbers & Symbols
  *     if _is_number(word):             # <<<<<<<<<<<<<<
@@ -9365,7 +9365,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   }
 
-  /* "Geemeth/english_core.pyx":546
+  /* "Geemeth/english_core.pyx":550
  *     if _is_number(word):
  *         return _T(T_CD)
  *     if not _is_alpha_apos(word):             # <<<<<<<<<<<<<<
@@ -9375,7 +9375,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   __pyx_t_1 = (!__pyx_f_7Geemeth_12english_core__is_alpha_apos(__pyx_v_word));
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":547
+    /* "Geemeth/english_core.pyx":551
  *         return _T(T_CD)
  *     if not _is_alpha_apos(word):
  *         return _T(T_SYM)             # <<<<<<<<<<<<<<
@@ -9403,14 +9403,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 547, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 551, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":546
+    /* "Geemeth/english_core.pyx":550
  *     if _is_number(word):
  *         return _T(T_CD)
  *     if not _is_alpha_apos(word):             # <<<<<<<<<<<<<<
@@ -9419,38 +9419,38 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   }
 
-  /* "Geemeth/english_core.pyx":549
+  /* "Geemeth/english_core.pyx":553
  *         return _T(T_SYM)
  * 
  *     w = word.lower()             # <<<<<<<<<<<<<<
  * 
  *     # 2. Closed-class function words
 */
-  __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 549, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyUnicode_Type__lower, __pyx_v_word); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_w = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "Geemeth/english_core.pyx":552
+  /* "Geemeth/english_core.pyx":556
  * 
  *     # 2. Closed-class function words
  *     if w == "the" or w == "a" or w == "an":            return _T(T_DT)             # <<<<<<<<<<<<<<
  *     if w == "and" or w == "or" or w == "but":           return _T(T_CC)
  *     if w == "nor" or w == "yet" or w == "for" or w == "so": return _T(T_CC)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_the, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_the, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L6_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_a, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_a, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L6_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_an, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_an, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L6_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9475,7 +9475,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9483,26 +9483,26 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":553
+  /* "Geemeth/english_core.pyx":557
  *     # 2. Closed-class function words
  *     if w == "the" or w == "a" or w == "an":            return _T(T_DT)
  *     if w == "and" or w == "or" or w == "but":           return _T(T_CC)             # <<<<<<<<<<<<<<
  *     if w == "nor" or w == "yet" or w == "for" or w == "so": return _T(T_CC)
  *     if w == "i" or w == "he" or w == "she":             return _T(T_PRP)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_and, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_and, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_or, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_or, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L10_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_but, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_but, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L10_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9527,7 +9527,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9535,32 +9535,32 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":554
+  /* "Geemeth/english_core.pyx":558
  *     if w == "the" or w == "a" or w == "an":            return _T(T_DT)
  *     if w == "and" or w == "or" or w == "but":           return _T(T_CC)
  *     if w == "nor" or w == "yet" or w == "for" or w == "so": return _T(T_CC)             # <<<<<<<<<<<<<<
  *     if w == "i" or w == "he" or w == "she":             return _T(T_PRP)
  *     if w == "it" or w == "we" or w == "they" or w == "you": return _T(T_PRP)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_nor, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_nor, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L14_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_yet, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_yet, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L14_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_for, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_for, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L14_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_so, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_so, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L14_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9585,7 +9585,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9593,26 +9593,26 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":555
+  /* "Geemeth/english_core.pyx":559
  *     if w == "and" or w == "or" or w == "but":           return _T(T_CC)
  *     if w == "nor" or w == "yet" or w == "for" or w == "so": return _T(T_CC)
  *     if w == "i" or w == "he" or w == "she":             return _T(T_PRP)             # <<<<<<<<<<<<<<
  *     if w == "it" or w == "we" or w == "they" or w == "you": return _T(T_PRP)
  *     if w == "my" or w == "his" or w == "her":           return _T(T_PRPS)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_i, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_i, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L19_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_he, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_he, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L19_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_she, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 555, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_she, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L19_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9637,7 +9637,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 559, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9645,32 +9645,32 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":556
+  /* "Geemeth/english_core.pyx":560
  *     if w == "nor" or w == "yet" or w == "for" or w == "so": return _T(T_CC)
  *     if w == "i" or w == "he" or w == "she":             return _T(T_PRP)
  *     if w == "it" or w == "we" or w == "they" or w == "you": return _T(T_PRP)             # <<<<<<<<<<<<<<
  *     if w == "my" or w == "his" or w == "her":           return _T(T_PRPS)
  *     if w == "its" or w == "our" or w == "their" or w == "your": return _T(T_PRPS)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_it, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_it, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L23_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_we, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_we, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L23_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_they, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_they, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L23_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_you, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_you, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L23_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9695,7 +9695,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 560, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9703,26 +9703,26 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":557
+  /* "Geemeth/english_core.pyx":561
  *     if w == "i" or w == "he" or w == "she":             return _T(T_PRP)
  *     if w == "it" or w == "we" or w == "they" or w == "you": return _T(T_PRP)
  *     if w == "my" or w == "his" or w == "her":           return _T(T_PRPS)             # <<<<<<<<<<<<<<
  *     if w == "its" or w == "our" or w == "their" or w == "your": return _T(T_PRPS)
  *     if w == "this" or w == "that" or w == "these" or w == "those": return _T(T_DT)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_my, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_my, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L28_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_his, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_his, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L28_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_her, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_her, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L28_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9747,7 +9747,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 561, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9755,32 +9755,32 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":558
+  /* "Geemeth/english_core.pyx":562
  *     if w == "it" or w == "we" or w == "they" or w == "you": return _T(T_PRP)
  *     if w == "my" or w == "his" or w == "her":           return _T(T_PRPS)
  *     if w == "its" or w == "our" or w == "their" or w == "your": return _T(T_PRPS)             # <<<<<<<<<<<<<<
  *     if w == "this" or w == "that" or w == "these" or w == "those": return _T(T_DT)
  *     if w == "am" or w == "is":                          return _T(T_VBZ)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_its, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_its, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L32_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_our, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_our, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L32_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_their, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_their, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L32_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_your, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_your, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L32_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9805,7 +9805,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9813,32 +9813,32 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":559
+  /* "Geemeth/english_core.pyx":563
  *     if w == "my" or w == "his" or w == "her":           return _T(T_PRPS)
  *     if w == "its" or w == "our" or w == "their" or w == "your": return _T(T_PRPS)
  *     if w == "this" or w == "that" or w == "these" or w == "those": return _T(T_DT)             # <<<<<<<<<<<<<<
  *     if w == "am" or w == "is":                          return _T(T_VBZ)
  *     if w == "are":                                      return _T(T_VBP)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_this, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_this, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L37_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_that, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_that, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L37_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_these, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_these, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L37_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_those, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_those, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L37_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9863,7 +9863,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 559, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 563, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9871,20 +9871,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":560
+  /* "Geemeth/english_core.pyx":564
  *     if w == "its" or w == "our" or w == "their" or w == "your": return _T(T_PRPS)
  *     if w == "this" or w == "that" or w == "these" or w == "those": return _T(T_DT)
  *     if w == "am" or w == "is":                          return _T(T_VBZ)             # <<<<<<<<<<<<<<
  *     if w == "are":                                      return _T(T_VBP)
  *     if w == "was" or w == "were":                       return _T(T_VBD)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_am, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_am, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 564, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L42_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_is, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 560, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_is, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 564, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L42_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9909,7 +9909,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 560, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9917,14 +9917,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":561
+  /* "Geemeth/english_core.pyx":565
  *     if w == "this" or w == "that" or w == "these" or w == "those": return _T(T_DT)
  *     if w == "am" or w == "is":                          return _T(T_VBZ)
  *     if w == "are":                                      return _T(T_VBP)             # <<<<<<<<<<<<<<
  *     if w == "was" or w == "were":                       return _T(T_VBD)
  *     if w == "be":                                       return _T(T_VB)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_are, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 561, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_are, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 565, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -9947,7 +9947,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 561, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 565, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -9955,20 +9955,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":562
+  /* "Geemeth/english_core.pyx":566
  *     if w == "am" or w == "is":                          return _T(T_VBZ)
  *     if w == "are":                                      return _T(T_VBP)
  *     if w == "was" or w == "were":                       return _T(T_VBD)             # <<<<<<<<<<<<<<
  *     if w == "be":                                       return _T(T_VB)
  *     if w == "been":                                     return _T(T_VBN)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_was, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_was, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 566, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L46_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_were, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 562, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_were, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 566, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L46_bool_binop_done:;
   if (__pyx_t_1) {
@@ -9993,7 +9993,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 566, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10001,14 +10001,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":563
+  /* "Geemeth/english_core.pyx":567
  *     if w == "are":                                      return _T(T_VBP)
  *     if w == "was" or w == "were":                       return _T(T_VBD)
  *     if w == "be":                                       return _T(T_VB)             # <<<<<<<<<<<<<<
  *     if w == "been":                                     return _T(T_VBN)
  *     if w == "being":                                    return _T(T_VBG)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_be, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 563, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_be, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 567, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -10031,7 +10031,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 563, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 567, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10039,14 +10039,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":564
+  /* "Geemeth/english_core.pyx":568
  *     if w == "was" or w == "were":                       return _T(T_VBD)
  *     if w == "be":                                       return _T(T_VB)
  *     if w == "been":                                     return _T(T_VBN)             # <<<<<<<<<<<<<<
  *     if w == "being":                                    return _T(T_VBG)
  *     if w == "has":                                      return _T(T_VBZ)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_been, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 564, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_been, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 568, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -10069,158 +10069,6 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":565
- *     if w == "be":                                       return _T(T_VB)
- *     if w == "been":                                     return _T(T_VBN)
- *     if w == "being":                                    return _T(T_VBG)             # <<<<<<<<<<<<<<
- *     if w == "has":                                      return _T(T_VBZ)
- *     if w == "have":                                     return _T(T_VBP)
-*/
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_being, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 565, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_3 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_29};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 565, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":566
- *     if w == "been":                                     return _T(T_VBN)
- *     if w == "being":                                    return _T(T_VBG)
- *     if w == "has":                                      return _T(T_VBZ)             # <<<<<<<<<<<<<<
- *     if w == "have":                                     return _T(T_VBP)
- *     if w == "had":                                      return _T(T_VBD)
-*/
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_has, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 566, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_4 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-      assert(__pyx_t_3);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_32};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 566, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":567
- *     if w == "being":                                    return _T(T_VBG)
- *     if w == "has":                                      return _T(T_VBZ)
- *     if w == "have":                                     return _T(T_VBP)             # <<<<<<<<<<<<<<
- *     if w == "had":                                      return _T(T_VBD)
- *     if w == "having":                                   return _T(T_VBG)
-*/
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_have, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 567, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_3 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_31};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 567, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":568
- *     if w == "has":                                      return _T(T_VBZ)
- *     if w == "have":                                     return _T(T_VBP)
- *     if w == "had":                                      return _T(T_VBD)             # <<<<<<<<<<<<<<
- *     if w == "having":                                   return _T(T_VBG)
- *     if w == "does":                                     return _T(T_VBZ)
-*/
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_had, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 568, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_4 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-      assert(__pyx_t_3);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_28};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 568, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
@@ -10230,13 +10078,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":569
+ *     if w == "be":                                       return _T(T_VB)
+ *     if w == "been":                                     return _T(T_VBN)
+ *     if w == "being":                                    return _T(T_VBG)             # <<<<<<<<<<<<<<
+ *     if w == "has":                                      return _T(T_VBZ)
  *     if w == "have":                                     return _T(T_VBP)
- *     if w == "had":                                      return _T(T_VBD)
- *     if w == "having":                                   return _T(T_VBG)             # <<<<<<<<<<<<<<
- *     if w == "does":                                     return _T(T_VBZ)
- *     if w == "do":                                       return _T(T_VBP)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_having, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 569, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_being, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 569, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -10268,13 +10116,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":570
+ *     if w == "been":                                     return _T(T_VBN)
+ *     if w == "being":                                    return _T(T_VBG)
+ *     if w == "has":                                      return _T(T_VBZ)             # <<<<<<<<<<<<<<
+ *     if w == "have":                                     return _T(T_VBP)
  *     if w == "had":                                      return _T(T_VBD)
- *     if w == "having":                                   return _T(T_VBG)
- *     if w == "does":                                     return _T(T_VBZ)             # <<<<<<<<<<<<<<
- *     if w == "do":                                       return _T(T_VBP)
- *     if w == "did":                                      return _T(T_VBD)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_does, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 570, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_has, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 570, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -10306,13 +10154,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":571
+ *     if w == "being":                                    return _T(T_VBG)
+ *     if w == "has":                                      return _T(T_VBZ)
+ *     if w == "have":                                     return _T(T_VBP)             # <<<<<<<<<<<<<<
+ *     if w == "had":                                      return _T(T_VBD)
  *     if w == "having":                                   return _T(T_VBG)
- *     if w == "does":                                     return _T(T_VBZ)
- *     if w == "do":                                       return _T(T_VBP)             # <<<<<<<<<<<<<<
- *     if w == "did":                                      return _T(T_VBD)
- *     if w in _MODALS:                                    return _T(T_MD)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_do, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 571, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_have, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 571, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -10344,13 +10192,13 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":572
+ *     if w == "has":                                      return _T(T_VBZ)
+ *     if w == "have":                                     return _T(T_VBP)
+ *     if w == "had":                                      return _T(T_VBD)             # <<<<<<<<<<<<<<
+ *     if w == "having":                                   return _T(T_VBG)
  *     if w == "does":                                     return _T(T_VBZ)
- *     if w == "do":                                       return _T(T_VBP)
- *     if w == "did":                                      return _T(T_VBD)             # <<<<<<<<<<<<<<
- *     if w in _MODALS:                                    return _T(T_MD)
- *     if w in _PREPOSITIONS:                              return _T(T_IN)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_did, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 572, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_had, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 572, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -10382,15 +10230,167 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":573
+ *     if w == "have":                                     return _T(T_VBP)
+ *     if w == "had":                                      return _T(T_VBD)
+ *     if w == "having":                                   return _T(T_VBG)             # <<<<<<<<<<<<<<
+ *     if w == "does":                                     return _T(T_VBZ)
+ *     if w == "do":                                       return _T(T_VBP)
+*/
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_having, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 573, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_3 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      assert(__pyx_t_4);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_29};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":574
+ *     if w == "had":                                      return _T(T_VBD)
+ *     if w == "having":                                   return _T(T_VBG)
+ *     if w == "does":                                     return _T(T_VBZ)             # <<<<<<<<<<<<<<
+ *     if w == "do":                                       return _T(T_VBP)
+ *     if w == "did":                                      return _T(T_VBD)
+*/
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_does, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 574, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_3 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_4 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+      assert(__pyx_t_3);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_32};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":575
+ *     if w == "having":                                   return _T(T_VBG)
+ *     if w == "does":                                     return _T(T_VBZ)
+ *     if w == "do":                                       return _T(T_VBP)             # <<<<<<<<<<<<<<
+ *     if w == "did":                                      return _T(T_VBD)
+ *     if w in _MODALS:                                    return _T(T_MD)
+*/
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_do, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 575, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_3 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      assert(__pyx_t_4);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_31};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 575, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":576
+ *     if w == "does":                                     return _T(T_VBZ)
+ *     if w == "do":                                       return _T(T_VBP)
+ *     if w == "did":                                      return _T(T_VBD)             # <<<<<<<<<<<<<<
+ *     if w in _MODALS:                                    return _T(T_MD)
+ *     if w in _PREPOSITIONS:                              return _T(T_IN)
+*/
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_did, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 576, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_3 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_4 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+      assert(__pyx_t_3);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_28};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 576, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":577
  *     if w == "do":                                       return _T(T_VBP)
  *     if w == "did":                                      return _T(T_VBD)
  *     if w in _MODALS:                                    return _T(T_MD)             # <<<<<<<<<<<<<<
  *     if w in _PREPOSITIONS:                              return _T(T_IN)
  *     if w in _SUBORD_CONJ:                               return _T(T_IN)
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MODALS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 573, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 577, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
@@ -10414,7 +10414,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10422,16 +10422,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":574
+  /* "Geemeth/english_core.pyx":578
  *     if w == "did":                                      return _T(T_VBD)
  *     if w in _MODALS:                                    return _T(T_MD)
  *     if w in _PREPOSITIONS:                              return _T(T_IN)             # <<<<<<<<<<<<<<
  *     if w in _SUBORD_CONJ:                               return _T(T_IN)
  *     if w == "not" or w == "never":                      return _T(T_RB)
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 574, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
@@ -10455,7 +10455,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 578, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10463,16 +10463,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":575
+  /* "Geemeth/english_core.pyx":579
  *     if w in _MODALS:                                    return _T(T_MD)
  *     if w in _PREPOSITIONS:                              return _T(T_IN)
  *     if w in _SUBORD_CONJ:                               return _T(T_IN)             # <<<<<<<<<<<<<<
  *     if w == "not" or w == "never":                      return _T(T_RB)
  *     if w in _DEGREE_ADVERBS:                            return _T(T_RB)
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 575, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 575, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 579, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
@@ -10496,7 +10496,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 575, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10504,20 +10504,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":576
+  /* "Geemeth/english_core.pyx":580
  *     if w in _PREPOSITIONS:                              return _T(T_IN)
  *     if w in _SUBORD_CONJ:                               return _T(T_IN)
  *     if w == "not" or w == "never":                      return _T(T_RB)             # <<<<<<<<<<<<<<
  *     if w in _DEGREE_ADVERBS:                            return _T(T_RB)
  *     if w == "more" or w == "less":                      return _T(T_RBR)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_not, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 576, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_not, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 580, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L62_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_never, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 576, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_never, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 580, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L62_bool_binop_done:;
   if (__pyx_t_1) {
@@ -10542,7 +10542,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 576, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10550,16 +10550,16 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":577
+  /* "Geemeth/english_core.pyx":581
  *     if w in _SUBORD_CONJ:                               return _T(T_IN)
  *     if w == "not" or w == "never":                      return _T(T_RB)
  *     if w in _DEGREE_ADVERBS:                            return _T(T_RB)             # <<<<<<<<<<<<<<
  *     if w == "more" or w == "less":                      return _T(T_RBR)
  *     if w == "most" or w == "least":                     return _T(T_RBS)
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 581, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 577, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_w, __pyx_t_2, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 581, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
@@ -10583,7 +10583,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 577, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 581, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10591,20 +10591,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":578
+  /* "Geemeth/english_core.pyx":582
  *     if w == "not" or w == "never":                      return _T(T_RB)
  *     if w in _DEGREE_ADVERBS:                            return _T(T_RB)
  *     if w == "more" or w == "less":                      return _T(T_RBR)             # <<<<<<<<<<<<<<
  *     if w == "most" or w == "least":                     return _T(T_RBS)
  *     if w == "there":                                    return _T(T_EX)
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_more, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 578, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_more, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 582, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L66_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 578, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 582, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L66_bool_binop_done:;
   if (__pyx_t_1) {
@@ -10629,7 +10629,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 578, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 582, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10637,20 +10637,20 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":579
+  /* "Geemeth/english_core.pyx":583
  *     if w in _DEGREE_ADVERBS:                            return _T(T_RB)
  *     if w == "more" or w == "less":                      return _T(T_RBR)
  *     if w == "most" or w == "least":                     return _T(T_RBS)             # <<<<<<<<<<<<<<
  *     if w == "there":                                    return _T(T_EX)
  * 
 */
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_most, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_most, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 583, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L69_bool_binop_done;
   }
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_least, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_least, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 583, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L69_bool_binop_done:;
   if (__pyx_t_1) {
@@ -10675,7 +10675,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 583, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10683,14 +10683,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":580
+  /* "Geemeth/english_core.pyx":584
  *     if w == "more" or w == "less":                      return _T(T_RBR)
  *     if w == "most" or w == "least":                     return _T(T_RBS)
  *     if w == "there":                                    return _T(T_EX)             # <<<<<<<<<<<<<<
  * 
  *     # 3. Suffix rules (longest suffix first)
 */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_there, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 580, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_there, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 584, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -10713,7 +10713,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 584, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -10721,31 +10721,31 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":583
+  /* "Geemeth/english_core.pyx":587
  * 
  *     # 3. Suffix rules (longest suffix first)
  *     if w.endswith("ize") or w.endswith("ise") or w.endswith("ify"):             # <<<<<<<<<<<<<<
  *         return _T(T_VB)
  *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ize, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 583, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ize, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 587, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L73_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ise, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 583, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ise, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 587, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L73_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ify, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 583, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ify, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 587, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L73_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":584
+    /* "Geemeth/english_core.pyx":588
  *     # 3. Suffix rules (longest suffix first)
  *     if w.endswith("ize") or w.endswith("ise") or w.endswith("ify"):
  *         return _T(T_VB)             # <<<<<<<<<<<<<<
@@ -10773,14 +10773,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 584, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 588, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":583
+    /* "Geemeth/english_core.pyx":587
  * 
  *     # 3. Suffix rules (longest suffix first)
  *     if w.endswith("ize") or w.endswith("ise") or w.endswith("ify"):             # <<<<<<<<<<<<<<
@@ -10789,182 +10789,22 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   }
 
-  /* "Geemeth/english_core.pyx":585
+  /* "Geemeth/english_core.pyx":589
  *     if w.endswith("ize") or w.endswith("ise") or w.endswith("ify"):
  *         return _T(T_VB)
  *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)             # <<<<<<<<<<<<<<
  *     if w.endswith("ship"):                              return _T(T_NN)
  *     if w.endswith("hood"):                              return _T(T_NN)
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ism, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 585, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ism, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 589, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L77_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ist, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 585, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ist, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 589, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L77_bool_binop_done:;
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_4 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-      assert(__pyx_t_3);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_12};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 585, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":586
- *         return _T(T_VB)
- *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)
- *     if w.endswith("ship"):                              return _T(T_NN)             # <<<<<<<<<<<<<<
- *     if w.endswith("hood"):                              return _T(T_NN)
- *     if w.endswith("dom"):                               return _T(T_NN)
-*/
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ship, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 586, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_3 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_12};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 586, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":587
- *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)
- *     if w.endswith("ship"):                              return _T(T_NN)
- *     if w.endswith("hood"):                              return _T(T_NN)             # <<<<<<<<<<<<<<
- *     if w.endswith("dom"):                               return _T(T_NN)
- *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
-*/
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_hood, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 587, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_4 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-      assert(__pyx_t_3);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_12};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 587, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":588
- *     if w.endswith("ship"):                              return _T(T_NN)
- *     if w.endswith("hood"):                              return _T(T_NN)
- *     if w.endswith("dom"):                               return _T(T_NN)             # <<<<<<<<<<<<<<
- *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
- *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
-*/
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_dom, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 588, __pyx_L1_error)
-  if (__pyx_t_1) {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = NULL;
-    __Pyx_INCREF(__pyx_v__T);
-    __pyx_t_3 = __pyx_v__T; 
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_12};
-      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 588, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-    }
-    __pyx_r = __pyx_t_2;
-    __pyx_t_2 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "Geemeth/english_core.pyx":589
- *     if w.endswith("hood"):                              return _T(T_NN)
- *     if w.endswith("dom"):                               return _T(T_NN)
- *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)             # <<<<<<<<<<<<<<
- *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
- *         return _T(T_NN)
-*/
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_tion, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 589, __pyx_L1_error)
-  if (!__pyx_t_6) {
-  } else {
-    __pyx_t_1 = __pyx_t_6;
-    goto __pyx_L83_bool_binop_done;
-  }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_sion, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 589, __pyx_L1_error)
-  __pyx_t_1 = __pyx_t_6;
-  __pyx_L83_bool_binop_done:;
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -10996,30 +10836,190 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   }
 
   /* "Geemeth/english_core.pyx":590
+ *         return _T(T_VB)
+ *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)
+ *     if w.endswith("ship"):                              return _T(T_NN)             # <<<<<<<<<<<<<<
+ *     if w.endswith("hood"):                              return _T(T_NN)
+ *     if w.endswith("dom"):                               return _T(T_NN)
+*/
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ship, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 590, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_3 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      assert(__pyx_t_4);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_12};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 590, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":591
+ *     if w.endswith("ism") or w.endswith("ist"):          return _T(T_NN)
+ *     if w.endswith("ship"):                              return _T(T_NN)
+ *     if w.endswith("hood"):                              return _T(T_NN)             # <<<<<<<<<<<<<<
+ *     if w.endswith("dom"):                               return _T(T_NN)
+ *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
+*/
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_hood, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 591, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_3 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_4 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+      assert(__pyx_t_3);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_12};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 591, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":592
+ *     if w.endswith("ship"):                              return _T(T_NN)
+ *     if w.endswith("hood"):                              return _T(T_NN)
+ *     if w.endswith("dom"):                               return _T(T_NN)             # <<<<<<<<<<<<<<
+ *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
+ *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
+*/
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_dom, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 592, __pyx_L1_error)
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_4 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_3 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      assert(__pyx_t_4);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_int_12};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 592, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":593
+ *     if w.endswith("hood"):                              return _T(T_NN)
+ *     if w.endswith("dom"):                               return _T(T_NN)
+ *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)             # <<<<<<<<<<<<<<
+ *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
+ *         return _T(T_NN)
+*/
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_tion, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 593, __pyx_L1_error)
+  if (!__pyx_t_6) {
+  } else {
+    __pyx_t_1 = __pyx_t_6;
+    goto __pyx_L83_bool_binop_done;
+  }
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_sion, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 593, __pyx_L1_error)
+  __pyx_t_1 = __pyx_t_6;
+  __pyx_L83_bool_binop_done:;
+  if (__pyx_t_1) {
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_3 = NULL;
+    __Pyx_INCREF(__pyx_v__T);
+    __pyx_t_4 = __pyx_v__T; 
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+      assert(__pyx_t_3);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_int_12};
+      __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 593, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __pyx_r = __pyx_t_2;
+    __pyx_t_2 = 0;
+    goto __pyx_L0;
+  }
+
+  /* "Geemeth/english_core.pyx":594
  *     if w.endswith("dom"):                               return _T(T_NN)
  *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
  *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):             # <<<<<<<<<<<<<<
  *         return _T(T_NN)
  *     if w.endswith("ing"):                               return _T(T_VBG)
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ness, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 590, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ness, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 594, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L86_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ment, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 590, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ment, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 594, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L86_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ity, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 590, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ity, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 594, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L86_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":591
+    /* "Geemeth/english_core.pyx":595
  *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
  *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
  *         return _T(T_NN)             # <<<<<<<<<<<<<<
@@ -11047,14 +11047,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 591, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 595, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":590
+    /* "Geemeth/english_core.pyx":594
  *     if w.endswith("dom"):                               return _T(T_NN)
  *     if w.endswith("tion") or w.endswith("sion"):        return _T(T_NN)
  *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):             # <<<<<<<<<<<<<<
@@ -11063,14 +11063,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   }
 
-  /* "Geemeth/english_core.pyx":592
+  /* "Geemeth/english_core.pyx":596
  *     if w.endswith("ness") or w.endswith("ment") or w.endswith("ity"):
  *         return _T(T_NN)
  *     if w.endswith("ing"):                               return _T(T_VBG)             # <<<<<<<<<<<<<<
  *     if w.endswith("est"):                               return _T(T_JJS)
  *     if w.endswith("ed"):                                return _T(T_VBD)
 */
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 592, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ing, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 596, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -11093,7 +11093,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 592, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 596, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11101,14 +11101,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":593
+  /* "Geemeth/english_core.pyx":597
  *         return _T(T_NN)
  *     if w.endswith("ing"):                               return _T(T_VBG)
  *     if w.endswith("est"):                               return _T(T_JJS)             # <<<<<<<<<<<<<<
  *     if w.endswith("ed"):                                return _T(T_VBD)
  *     if w.endswith("ish"):                               return _T(T_JJ)
 */
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_est, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 593, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_est, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 597, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -11131,7 +11131,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 593, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 597, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11139,14 +11139,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":594
+  /* "Geemeth/english_core.pyx":598
  *     if w.endswith("ing"):                               return _T(T_VBG)
  *     if w.endswith("est"):                               return _T(T_JJS)
  *     if w.endswith("ed"):                                return _T(T_VBD)             # <<<<<<<<<<<<<<
  *     if w.endswith("ish"):                               return _T(T_JJ)
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or
 */
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 594, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ed, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 598, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
@@ -11169,7 +11169,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 594, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 598, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11177,14 +11177,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":595
+  /* "Geemeth/english_core.pyx":599
  *     if w.endswith("est"):                               return _T(T_JJS)
  *     if w.endswith("ed"):                                return _T(T_VBD)
  *     if w.endswith("ish"):                               return _T(T_JJ)             # <<<<<<<<<<<<<<
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or
  *             w.endswith("ive") or w.endswith("able") or w.endswith("ible") or
 */
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ish, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 595, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ish, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 599, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -11207,7 +11207,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 595, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11215,76 +11215,76 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":596
+  /* "Geemeth/english_core.pyx":600
  *     if w.endswith("ed"):                                return _T(T_VBD)
  *     if w.endswith("ish"):                               return _T(T_JJ)
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or             # <<<<<<<<<<<<<<
  *             w.endswith("ive") or w.endswith("able") or w.endswith("ible") or
  *             w.endswith("al") or w.endswith("ic")):
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ful, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 596, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ful, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 600, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 596, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_less, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 600, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ous, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 596, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ous, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 600, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
 
-  /* "Geemeth/english_core.pyx":597
+  /* "Geemeth/english_core.pyx":601
  *     if w.endswith("ish"):                               return _T(T_JJ)
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or
  *             w.endswith("ive") or w.endswith("able") or w.endswith("ible") or             # <<<<<<<<<<<<<<
  *             w.endswith("al") or w.endswith("ic")):
  *         return _T(T_JJ)
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ive, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 597, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ive, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 601, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_able, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 597, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_able, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 601, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ible, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 597, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ible, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 601, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
 
-  /* "Geemeth/english_core.pyx":598
+  /* "Geemeth/english_core.pyx":602
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or
  *             w.endswith("ive") or w.endswith("able") or w.endswith("ible") or
  *             w.endswith("al") or w.endswith("ic")):             # <<<<<<<<<<<<<<
  *         return _T(T_JJ)
  *     if w.endswith("ly"):                                return _T(T_RB)
 */
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_al, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 598, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_al, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 602, __pyx_L1_error)
   if (!__pyx_t_6) {
   } else {
     __pyx_t_1 = __pyx_t_6;
     goto __pyx_L94_bool_binop_done;
   }
-  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ic, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 598, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ic, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 602, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_6;
   __pyx_L94_bool_binop_done:;
 
-  /* "Geemeth/english_core.pyx":596
+  /* "Geemeth/english_core.pyx":600
  *     if w.endswith("ed"):                                return _T(T_VBD)
  *     if w.endswith("ish"):                               return _T(T_JJ)
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or             # <<<<<<<<<<<<<<
@@ -11293,7 +11293,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   if (__pyx_t_1) {
 
-    /* "Geemeth/english_core.pyx":599
+    /* "Geemeth/english_core.pyx":603
  *             w.endswith("ive") or w.endswith("able") or w.endswith("ible") or
  *             w.endswith("al") or w.endswith("ic")):
  *         return _T(T_JJ)             # <<<<<<<<<<<<<<
@@ -11321,14 +11321,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 603, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":596
+    /* "Geemeth/english_core.pyx":600
  *     if w.endswith("ed"):                                return _T(T_VBD)
  *     if w.endswith("ish"):                               return _T(T_JJ)
  *     if (w.endswith("ful") or w.endswith("less") or w.endswith("ous") or             # <<<<<<<<<<<<<<
@@ -11337,14 +11337,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
 */
   }
 
-  /* "Geemeth/english_core.pyx":600
+  /* "Geemeth/english_core.pyx":604
  *             w.endswith("al") or w.endswith("ic")):
  *         return _T(T_JJ)
  *     if w.endswith("ly"):                                return _T(T_RB)             # <<<<<<<<<<<<<<
  * 
  *     if word[0].isupper():                               return _T(T_NNP)
 */
-  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ly, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 600, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Tailmatch(__pyx_v_w, __pyx_mstate_global->__pyx_n_u_ly, 0, PY_SSIZE_T_MAX, 1); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 604, __pyx_L1_error)
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
@@ -11367,7 +11367,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 600, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 604, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11375,14 +11375,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":602
+  /* "Geemeth/english_core.pyx":606
  *     if w.endswith("ly"):                                return _T(T_RB)
  * 
  *     if word[0].isupper():                               return _T(T_NNP)             # <<<<<<<<<<<<<<
  *     return _T(T_NN)
  * 
 */
-  __pyx_t_7 = __Pyx_GetItemInt_Unicode(__pyx_v_word, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_7 == (Py_UCS4)-1)) __PYX_ERR(0, 602, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_GetItemInt_Unicode(__pyx_v_word, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_7 == (Py_UCS4)-1)) __PYX_ERR(0, 606, __pyx_L1_error)
   __pyx_t_1 = __Pyx_Py_UNICODE_ISUPPER(__pyx_t_7); 
   if (__pyx_t_1) {
     __Pyx_XDECREF(__pyx_r);
@@ -11406,7 +11406,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 602, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 606, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_r = __pyx_t_2;
@@ -11414,7 +11414,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     goto __pyx_L0;
   }
 
-  /* "Geemeth/english_core.pyx":603
+  /* "Geemeth/english_core.pyx":607
  * 
  *     if word[0].isupper():                               return _T(T_NNP)
  *     return _T(T_NN)             # <<<<<<<<<<<<<<
@@ -11442,14 +11442,14 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
     __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 603, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 607, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "Geemeth/english_core.pyx":532
+  /* "Geemeth/english_core.pyx":536
  * 
  * 
  * def guess_raw_morphology_cy(str word, object POSTag_cls):             # <<<<<<<<<<<<<<
@@ -11472,7 +11472,7 @@ static PyObject *__pyx_pf_7Geemeth_12english_core_4guess_raw_morphology_cy(CYTHO
   return __pyx_r;
 }
 
-/* "Geemeth/english_core.pyx":606
+/* "Geemeth/english_core.pyx":610
  * 
  * 
  * cdef inline bint _is_number(str s) noexcept:             # <<<<<<<<<<<<<<
@@ -11492,7 +11492,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "Geemeth/english_core.pyx":608
+  /* "Geemeth/english_core.pyx":612
  * cdef inline bint _is_number(str s) noexcept:
  *     """Return True when s looks like an integer or decimal number."""
  *     cdef int i = 0             # <<<<<<<<<<<<<<
@@ -11501,7 +11501,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   __pyx_v_i = 0;
 
-  /* "Geemeth/english_core.pyx":609
+  /* "Geemeth/english_core.pyx":613
  *     """Return True when s looks like an integer or decimal number."""
  *     cdef int i = 0
  *     cdef int n = len(s)             # <<<<<<<<<<<<<<
@@ -11510,12 +11510,12 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   if (unlikely(__pyx_v_s == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 609, __pyx_L1_error)
+    __PYX_ERR(0, 613, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_s); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_s); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 613, __pyx_L1_error)
   __pyx_v_n = __pyx_t_1;
 
-  /* "Geemeth/english_core.pyx":610
+  /* "Geemeth/english_core.pyx":614
  *     cdef int i = 0
  *     cdef int n = len(s)
  *     if n == 0:             # <<<<<<<<<<<<<<
@@ -11525,7 +11525,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
   __pyx_t_2 = (__pyx_v_n == 0);
   if (__pyx_t_2) {
 
-    /* "Geemeth/english_core.pyx":611
+    /* "Geemeth/english_core.pyx":615
  *     cdef int n = len(s)
  *     if n == 0:
  *         return False             # <<<<<<<<<<<<<<
@@ -11535,7 +11535,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":610
+    /* "Geemeth/english_core.pyx":614
  *     cdef int i = 0
  *     cdef int n = len(s)
  *     if n == 0:             # <<<<<<<<<<<<<<
@@ -11544,18 +11544,18 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   }
 
-  /* "Geemeth/english_core.pyx":612
+  /* "Geemeth/english_core.pyx":616
  *     if n == 0:
  *         return False
  *     if s[0] == '-':             # <<<<<<<<<<<<<<
  *         i = 1
  *     if i >= n:
 */
-  __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 612, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 616, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_3 == 45);
   if (__pyx_t_2) {
 
-    /* "Geemeth/english_core.pyx":613
+    /* "Geemeth/english_core.pyx":617
  *         return False
  *     if s[0] == '-':
  *         i = 1             # <<<<<<<<<<<<<<
@@ -11564,7 +11564,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
     __pyx_v_i = 1;
 
-    /* "Geemeth/english_core.pyx":612
+    /* "Geemeth/english_core.pyx":616
  *     if n == 0:
  *         return False
  *     if s[0] == '-':             # <<<<<<<<<<<<<<
@@ -11573,7 +11573,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   }
 
-  /* "Geemeth/english_core.pyx":614
+  /* "Geemeth/english_core.pyx":618
  *     if s[0] == '-':
  *         i = 1
  *     if i >= n:             # <<<<<<<<<<<<<<
@@ -11583,7 +11583,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
   __pyx_t_2 = (__pyx_v_i >= __pyx_v_n);
   if (__pyx_t_2) {
 
-    /* "Geemeth/english_core.pyx":615
+    /* "Geemeth/english_core.pyx":619
  *         i = 1
  *     if i >= n:
  *         return False             # <<<<<<<<<<<<<<
@@ -11593,7 +11593,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "Geemeth/english_core.pyx":614
+    /* "Geemeth/english_core.pyx":618
  *     if s[0] == '-':
  *         i = 1
  *     if i >= n:             # <<<<<<<<<<<<<<
@@ -11602,7 +11602,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   }
 
-  /* "Geemeth/english_core.pyx":616
+  /* "Geemeth/english_core.pyx":620
  *     if i >= n:
  *         return False
  *     while i < n and '0' <= s[i] <= '9':             # <<<<<<<<<<<<<<
@@ -11616,7 +11616,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L8_bool_binop_done;
     }
-    __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 620, __pyx_L1_error)
     __pyx_t_4 = (48 <= __pyx_t_3);
     if (__pyx_t_4) {
       __pyx_t_4 = (__pyx_t_3 <= 57);
@@ -11625,7 +11625,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
     __pyx_L8_bool_binop_done:;
     if (!__pyx_t_2) break;
 
-    /* "Geemeth/english_core.pyx":617
+    /* "Geemeth/english_core.pyx":621
  *         return False
  *     while i < n and '0' <= s[i] <= '9':
  *         i += 1             # <<<<<<<<<<<<<<
@@ -11635,7 +11635,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
     __pyx_v_i = (__pyx_v_i + 1);
   }
 
-  /* "Geemeth/english_core.pyx":618
+  /* "Geemeth/english_core.pyx":622
  *     while i < n and '0' <= s[i] <= '9':
  *         i += 1
  *     if i < n and s[i] == '.':             # <<<<<<<<<<<<<<
@@ -11648,13 +11648,13 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
     __pyx_t_2 = __pyx_t_4;
     goto __pyx_L11_bool_binop_done;
   }
-  __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 622, __pyx_L1_error)
   __pyx_t_4 = (__pyx_t_3 == 46);
   __pyx_t_2 = __pyx_t_4;
   __pyx_L11_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "Geemeth/english_core.pyx":619
+    /* "Geemeth/english_core.pyx":623
  *         i += 1
  *     if i < n and s[i] == '.':
  *         i += 1             # <<<<<<<<<<<<<<
@@ -11663,7 +11663,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
     __pyx_v_i = (__pyx_v_i + 1);
 
-    /* "Geemeth/english_core.pyx":620
+    /* "Geemeth/english_core.pyx":624
  *     if i < n and s[i] == '.':
  *         i += 1
  *         while i < n and '0' <= s[i] <= '9':             # <<<<<<<<<<<<<<
@@ -11677,7 +11677,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
         __pyx_t_2 = __pyx_t_4;
         goto __pyx_L15_bool_binop_done;
       }
-      __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 620, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_3 == (Py_UCS4)-1)) __PYX_ERR(0, 624, __pyx_L1_error)
       __pyx_t_4 = (48 <= __pyx_t_3);
       if (__pyx_t_4) {
         __pyx_t_4 = (__pyx_t_3 <= 57);
@@ -11686,7 +11686,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
       __pyx_L15_bool_binop_done:;
       if (!__pyx_t_2) break;
 
-      /* "Geemeth/english_core.pyx":621
+      /* "Geemeth/english_core.pyx":625
  *         i += 1
  *         while i < n and '0' <= s[i] <= '9':
  *             i += 1             # <<<<<<<<<<<<<<
@@ -11696,7 +11696,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
       __pyx_v_i = (__pyx_v_i + 1);
     }
 
-    /* "Geemeth/english_core.pyx":618
+    /* "Geemeth/english_core.pyx":622
  *     while i < n and '0' <= s[i] <= '9':
  *         i += 1
  *     if i < n and s[i] == '.':             # <<<<<<<<<<<<<<
@@ -11705,7 +11705,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
 */
   }
 
-  /* "Geemeth/english_core.pyx":622
+  /* "Geemeth/english_core.pyx":626
  *         while i < n and '0' <= s[i] <= '9':
  *             i += 1
  *     return i == n             # <<<<<<<<<<<<<<
@@ -11715,7 +11715,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
   __pyx_r = (__pyx_v_i == __pyx_v_n);
   goto __pyx_L0;
 
-  /* "Geemeth/english_core.pyx":606
+  /* "Geemeth/english_core.pyx":610
  * 
  * 
  * cdef inline bint _is_number(str s) noexcept:             # <<<<<<<<<<<<<<
@@ -11731,7 +11731,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_number(PyObject *__
   return __pyx_r;
 }
 
-/* "Geemeth/english_core.pyx":625
+/* "Geemeth/english_core.pyx":629
  * 
  * 
  * cdef inline bint _is_alpha_apos(str s) noexcept:             # <<<<<<<<<<<<<<
@@ -11758,7 +11758,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_is_alpha_apos", 0);
 
-  /* "Geemeth/english_core.pyx":629
+  /* "Geemeth/english_core.pyx":633
  *     cdef int i
  *     cdef str c
  *     for i in range(len(s)):             # <<<<<<<<<<<<<<
@@ -11767,28 +11767,28 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
 */
   if (unlikely(__pyx_v_s == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 629, __pyx_L1_error)
+    __PYX_ERR(0, 633, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_s); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 629, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_GET_LENGTH(__pyx_v_s); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 633, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_1;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "Geemeth/english_core.pyx":630
+    /* "Geemeth/english_core.pyx":634
  *     cdef str c
  *     for i in range(len(s)):
  *         c = s[i]             # <<<<<<<<<<<<<<
  *         if not (c.isalpha() or c == "'"):
  *             return False
 */
-    __pyx_t_4 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_4 == (Py_UCS4)-1)) __PYX_ERR(0, 630, __pyx_L1_error)
-    __pyx_t_5 = __Pyx_PyUnicode_FromOrdinal(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 630, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt_Unicode(__pyx_v_s, __pyx_v_i, int, 1, __Pyx_PyLong_From_int, 0, 0, 0, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(__pyx_t_4 == (Py_UCS4)-1)) __PYX_ERR(0, 634, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyUnicode_FromOrdinal(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (!(likely(PyUnicode_CheckExact(__pyx_t_5)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_5))) __PYX_ERR(0, 630, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_5)) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_5))) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_c, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "Geemeth/english_core.pyx":631
+    /* "Geemeth/english_core.pyx":635
  *     for i in range(len(s)):
  *         c = s[i]
  *         if not (c.isalpha() or c == "'"):             # <<<<<<<<<<<<<<
@@ -11802,23 +11802,23 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
       __pyx_t_5 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_isalpha, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 631, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 635, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 631, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 635, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (!__pyx_t_9) {
     } else {
       __pyx_t_6 = __pyx_t_9;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_v_c, __pyx_mstate_global->__pyx_kp_u__2, Py_EQ)); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 631, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_v_c, __pyx_mstate_global->__pyx_kp_u__2, Py_EQ)); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 635, __pyx_L1_error)
     __pyx_t_6 = __pyx_t_9;
     __pyx_L6_bool_binop_done:;
     __pyx_t_9 = (!__pyx_t_6);
     if (__pyx_t_9) {
 
-      /* "Geemeth/english_core.pyx":632
+      /* "Geemeth/english_core.pyx":636
  *         c = s[i]
  *         if not (c.isalpha() or c == "'"):
  *             return False             # <<<<<<<<<<<<<<
@@ -11827,7 +11827,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
       __pyx_r = 0;
       goto __pyx_L0;
 
-      /* "Geemeth/english_core.pyx":631
+      /* "Geemeth/english_core.pyx":635
  *     for i in range(len(s)):
  *         c = s[i]
  *         if not (c.isalpha() or c == "'"):             # <<<<<<<<<<<<<<
@@ -11837,7 +11837,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
     }
   }
 
-  /* "Geemeth/english_core.pyx":633
+  /* "Geemeth/english_core.pyx":637
  *         if not (c.isalpha() or c == "'"):
  *             return False
  *     return True             # <<<<<<<<<<<<<<
@@ -11845,7 +11845,7 @@ static CYTHON_INLINE int __pyx_f_7Geemeth_12english_core__is_alpha_apos(PyObject
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "Geemeth/english_core.pyx":625
+  /* "Geemeth/english_core.pyx":629
  * 
  * 
  * cdef inline bint _is_alpha_apos(str s) noexcept:             # <<<<<<<<<<<<<<
@@ -12213,175 +12213,175 @@ __Pyx_RefNannySetupContext("PyInit_english_core", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "Geemeth/english_core.pyx":149
+  /* "Geemeth/english_core.pyx":153
  * # level so the function can reference them as module globals.
  * # ---------------------------------------------------------------------------
  * _MODALS = None             # <<<<<<<<<<<<<<
  * _HAVE_FORMS = None
  * _DO_FORMS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MODALS, Py_None) < (0)) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MODALS, Py_None) < (0)) __PYX_ERR(0, 153, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":150
+  /* "Geemeth/english_core.pyx":154
  * # ---------------------------------------------------------------------------
  * _MODALS = None
  * _HAVE_FORMS = None             # <<<<<<<<<<<<<<
  * _DO_FORMS = None
  * _BE_FORMS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS, Py_None) < (0)) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_FORMS, Py_None) < (0)) __PYX_ERR(0, 154, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":151
+  /* "Geemeth/english_core.pyx":155
  * _MODALS = None
  * _HAVE_FORMS = None
  * _DO_FORMS = None             # <<<<<<<<<<<<<<
  * _BE_FORMS = None
  * _DEGREE_ADVERBS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_FORMS, Py_None) < (0)) __PYX_ERR(0, 151, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_FORMS, Py_None) < (0)) __PYX_ERR(0, 155, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":152
+  /* "Geemeth/english_core.pyx":156
  * _HAVE_FORMS = None
  * _DO_FORMS = None
  * _BE_FORMS = None             # <<<<<<<<<<<<<<
  * _DEGREE_ADVERBS = None
  * _NEGATIONS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BE_FORMS, Py_None) < (0)) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BE_FORMS, Py_None) < (0)) __PYX_ERR(0, 156, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":153
+  /* "Geemeth/english_core.pyx":157
  * _DO_FORMS = None
  * _BE_FORMS = None
  * _DEGREE_ADVERBS = None             # <<<<<<<<<<<<<<
  * _NEGATIONS = None
  * _PREPOSITIONS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS, Py_None) < (0)) __PYX_ERR(0, 153, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DEGREE_ADVERBS, Py_None) < (0)) __PYX_ERR(0, 157, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":154
+  /* "Geemeth/english_core.pyx":158
  * _BE_FORMS = None
  * _DEGREE_ADVERBS = None
  * _NEGATIONS = None             # <<<<<<<<<<<<<<
  * _PREPOSITIONS = None
  * _SUBORD_CONJ = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEGATIONS, Py_None) < (0)) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEGATIONS, Py_None) < (0)) __PYX_ERR(0, 158, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":155
+  /* "Geemeth/english_core.pyx":159
  * _DEGREE_ADVERBS = None
  * _NEGATIONS = None
  * _PREPOSITIONS = None             # <<<<<<<<<<<<<<
  * _SUBORD_CONJ = None
  * _SUBJ_PRONOUNS = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS, Py_None) < (0)) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PREPOSITIONS, Py_None) < (0)) __PYX_ERR(0, 159, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":156
+  /* "Geemeth/english_core.pyx":160
  * _NEGATIONS = None
  * _PREPOSITIONS = None
  * _SUBORD_CONJ = None             # <<<<<<<<<<<<<<
  * _SUBJ_PRONOUNS = None
  * _HAVE_TAG = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ, Py_None) < (0)) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBORD_CONJ, Py_None) < (0)) __PYX_ERR(0, 160, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":157
+  /* "Geemeth/english_core.pyx":161
  * _PREPOSITIONS = None
  * _SUBORD_CONJ = None
  * _SUBJ_PRONOUNS = None             # <<<<<<<<<<<<<<
  * _HAVE_TAG = None
  * _DO_TAG = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS, Py_None) < (0)) __PYX_ERR(0, 157, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SUBJ_PRONOUNS, Py_None) < (0)) __PYX_ERR(0, 161, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":158
+  /* "Geemeth/english_core.pyx":162
  * _SUBORD_CONJ = None
  * _SUBJ_PRONOUNS = None
  * _HAVE_TAG = None             # <<<<<<<<<<<<<<
  * _DO_TAG = None
  * _NEG_OR_DEG = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_TAG, Py_None) < (0)) __PYX_ERR(0, 158, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_HAVE_TAG, Py_None) < (0)) __PYX_ERR(0, 162, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":159
+  /* "Geemeth/english_core.pyx":163
  * _SUBJ_PRONOUNS = None
  * _HAVE_TAG = None
  * _DO_TAG = None             # <<<<<<<<<<<<<<
  * _NEG_OR_DEG = None
  * _CLAUSE_BOUNDARY = None
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_TAG, Py_None) < (0)) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DO_TAG, Py_None) < (0)) __PYX_ERR(0, 163, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":160
+  /* "Geemeth/english_core.pyx":164
  * _HAVE_TAG = None
  * _DO_TAG = None
  * _NEG_OR_DEG = None             # <<<<<<<<<<<<<<
  * _CLAUSE_BOUNDARY = None
  * _POSTag = None   # the POSTag enum class
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG, Py_None) < (0)) __PYX_ERR(0, 160, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NEG_OR_DEG, Py_None) < (0)) __PYX_ERR(0, 164, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":161
+  /* "Geemeth/english_core.pyx":165
  * _DO_TAG = None
  * _NEG_OR_DEG = None
  * _CLAUSE_BOUNDARY = None             # <<<<<<<<<<<<<<
  * _POSTag = None   # the POSTag enum class
  * 
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY, Py_None) < (0)) __PYX_ERR(0, 161, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CLAUSE_BOUNDARY, Py_None) < (0)) __PYX_ERR(0, 165, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":162
+  /* "Geemeth/english_core.pyx":166
  * _NEG_OR_DEG = None
  * _CLAUSE_BOUNDARY = None
  * _POSTag = None   # the POSTag enum class             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_POSTag, Py_None) < (0)) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_POSTag, Py_None) < (0)) __PYX_ERR(0, 166, __pyx_L1_error)
 
-  /* "Geemeth/english_core.pyx":165
+  /* "Geemeth/english_core.pyx":169
  * 
  * 
  * def _init_cy_globals(             # <<<<<<<<<<<<<<
  *     modals, have_forms, do_forms, be_forms,
  *     degree_adverbs, negations, prepositions, subord_conj,
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_1_init_cy_globals, 0, __pyx_mstate_global->__pyx_n_u_init_cy_globals, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_1_init_cy_globals, 0, __pyx_mstate_global->__pyx_n_u_init_cy_globals, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_init_cy_globals, __pyx_t_2) < (0)) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_init_cy_globals, __pyx_t_2) < (0)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Geemeth/english_core.pyx":192
+  /* "Geemeth/english_core.pyx":196
  * 
  * 
  * def apply_context_rules_cy(list tagged):             # <<<<<<<<<<<<<<
  *     """Cython-compiled context-rules pass.
  * 
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_3apply_context_rules_cy, 0, __pyx_mstate_global->__pyx_n_u_apply_context_rules_cy, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_3apply_context_rules_cy, 0, __pyx_mstate_global->__pyx_n_u_apply_context_rules_cy, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_apply_context_rules_cy, __pyx_t_2) < (0)) __PYX_ERR(0, 192, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_apply_context_rules_cy, __pyx_t_2) < (0)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Geemeth/english_core.pyx":532
+  /* "Geemeth/english_core.pyx":536
  * 
  * 
  * def guess_raw_morphology_cy(str word, object POSTag_cls):             # <<<<<<<<<<<<<<
  *     """Cython-compiled morphology guesser.
  * 
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_5guess_raw_morphology_cy, 0, __pyx_mstate_global->__pyx_n_u_guess_raw_morphology_cy, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 532, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7Geemeth_12english_core_5guess_raw_morphology_cy, 0, __pyx_mstate_global->__pyx_n_u_guess_raw_morphology_cy, NULL, __pyx_mstate_global->__pyx_n_u_Geemeth_english_core, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_guess_raw_morphology_cy, __pyx_t_2) < (0)) __PYX_ERR(0, 532, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_guess_raw_morphology_cy, __pyx_t_2) < (0)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "Geemeth/english_core.pyx":1
@@ -12582,17 +12582,17 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {14, 0, 0, 14, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 165};
+    const __Pyx_PyCode_New_function_description descr = {14, 0, 0, 14, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 169};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_modals, __pyx_mstate->__pyx_n_u_have_forms, __pyx_mstate->__pyx_n_u_do_forms, __pyx_mstate->__pyx_n_u_be_forms, __pyx_mstate->__pyx_n_u_degree_adverbs, __pyx_mstate->__pyx_n_u_negations, __pyx_mstate->__pyx_n_u_prepositions, __pyx_mstate->__pyx_n_u_subord_conj, __pyx_mstate->__pyx_n_u_subj_pronouns, __pyx_mstate->__pyx_n_u_have_tag, __pyx_mstate->__pyx_n_u_do_tag, __pyx_mstate->__pyx_n_u_neg_or_deg, __pyx_mstate->__pyx_n_u_clause_boundary, __pyx_mstate->__pyx_n_u_pos_tag_cls};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_Geemeth_english_core_pyx, __pyx_mstate->__pyx_n_u_init_cy_globals, __pyx_mstate->__pyx_kp_b_iso88591_Q_Q_Q_Q_a_Q_Q_Q_Q_Q_Q_Q_q_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 47, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 192};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 47, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 196};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_tagged, __pyx_mstate->__pyx_n_u_n, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_k, __pyx_mstate->__pyx_n_u_tag_val, __pyx_mstate->__pyx_n_u_nt_val, __pyx_mstate->__pyx_n_u_pt_val, __pyx_mstate->__pyx_n_u_et_val, __pyx_mstate->__pyx_n_u_mt_val, __pyx_mstate->__pyx_n_u_item_t_val, __pyx_mstate->__pyx_n_u_anchor_i, __pyx_mstate->__pyx_n_u_target_i, __pyx_mstate->__pyx_n_u_k2, __pyx_mstate->__pyx_n_u_comma_skipped, __pyx_mstate->__pyx_n_u_in_perfect, __pyx_mstate->__pyx_n_u_is_correlative, __pyx_mstate->__pyx_n_u_word, __pyx_mstate->__pyx_n_u_w, __pyx_mstate->__pyx_n_u_nw, __pyx_mstate->__pyx_n_u_pw, __pyx_mstate->__pyx_n_u_nw2, __pyx_mstate->__pyx_n_u_item_w, __pyx_mstate->__pyx_n_u_skip_w, __pyx_mstate->__pyx_n_u_jj_set_mask, __pyx_mstate->__pyx_n_u_tag_obj, __pyx_mstate->__pyx_n_u_nt_obj, __pyx_mstate->__pyx_n_u_pt_obj, __pyx_mstate->__pyx_n_u_tags, __pyx_mstate->__pyx_n_u_T, __pyx_mstate->__pyx_n_u_tup, __pyx_mstate->__pyx_n_u_new_tag, __pyx_mstate->__pyx_n_u_nxt, __pyx_mstate->__pyx_n_u_nwl, __pyx_mstate->__pyx_n_u_nxt_w, __pyx_mstate->__pyx_n_u_nxt_t, __pyx_mstate->__pyx_n_u_mid, __pyx_mstate->__pyx_n_u_end, __pyx_mstate->__pyx_n_u_mw, __pyx_mstate->__pyx_n_u_anc, __pyx_mstate->__pyx_n_u_tgt, __pyx_mstate->__pyx_n_u_bl, __pyx_mstate->__pyx_n_u_nxt2, __pyx_mstate->__pyx_n_u_nt2_val, __pyx_mstate->__pyx_n_u_tj_val, __pyx_mstate->__pyx_n_u_tj_w, __pyx_mstate->__pyx_n_u_w0};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_Geemeth_english_core_pyx, __pyx_mstate->__pyx_n_u_apply_context_rules_cy, __pyx_mstate->__pyx_kp_b_iso88591_AQ_T_U_1_d_1_s_1_Qa_q_D_a_2S_D, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 532};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 536};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_word, __pyx_mstate->__pyx_n_u_POSTag_cls, __pyx_mstate->__pyx_n_u_w, __pyx_mstate->__pyx_n_u_T};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_Geemeth_english_core_pyx, __pyx_mstate->__pyx_n_u_guess_raw_morphology_cy, __pyx_mstate->__pyx_kp_b_iso88591_z_r_t_r_F_r_F_Rs_c_3_7wb_r_F_Rs, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }

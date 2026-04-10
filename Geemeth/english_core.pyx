@@ -135,7 +135,11 @@ DEF PUNCT_MASK = ((1 << T_COMMA) | (1 << T_PERIOD) | (1 << T_COLON) |
 
 
 cdef inline bint in_mask(int tag, uint64_t mask) noexcept nogil:
-    """Return True when *tag* (1–63) is set in *mask*."""
+    """Return True when *tag* is set in *mask*.
+
+    *tag* should be in the range 1–63 (named tags); 0 (UNKNOWN) is always
+    rejected, as UNKNOWN is never a member of any tag-set bitmask.
+    """
     if tag <= 0 or tag > 63:
         return 0
     return (mask >> tag) & 1

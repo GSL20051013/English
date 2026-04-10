@@ -1257,7 +1257,7 @@ def find_clauses(tagged: "list[tuple[str, POSTag]]") -> list[dict]:
                 and tag in (POSTag.WP, POSTag.WDT)
                 and i > seg_start):
             # Confirm the immediately preceding non-punct token is a noun.
-            prev_tag: "POSTag | None" = None
+            prev_tag: "POSTag" = POSTag.UNKNOWN
             for k in range(i - 1, max(-1, i - 4), -1):
                 if tagged[k][1] not in _PUNCT_TAGS:
                     prev_tag = tagged[k][1]

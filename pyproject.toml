@@ -23,7 +23,6 @@ keywords = [
     "nltk",
     "clause",
     "connective",
-    "cython",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
