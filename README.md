@@ -45,13 +45,21 @@ pip install "GSL20051013-english[spacy]"
 ## Quick Start
 
 ```python
-from Geemeth import english
+from Geemeth import english, POSTag
 
-# Tag a single sentence
+# Tag a single sentence – returns list[tuple[str, POSTag]]
 tagged = english.analyze_sentence("The fast robot jumped over 2 walls!")
 print(tagged)
-# [('The', 'DT'), ('fast', 'JJ'), ('robot', 'NN'), ('jumped', 'VBD'),
-#  ('over', 'IN'), ('2', 'CD'), ('walls', 'NNS'), ('!', '.')]
+# [('The', POSTag.DT(3)), ('fast', POSTag.JJ(7)), ('robot', POSTag.NN(12)),
+#  ('jumped', POSTag.VBD(28)), ('over', POSTag.IN(6)), ('2', POSTag.CD(2)),
+#  ('walls', POSTag.NNS(13)), ('!', POSTag.PERIOD(38))]
+
+# Tags are POSTag enum members – compare, print, or use as integers
+word, tag = tagged[0]
+print(tag)           # DT
+print(tag.full_name) # Determiner
+print(int(tag))      # 3
+print(tag == POSTag.DT)  # True
 
 # Tag multiple sentences efficiently
 results = english.analyze_batch([
@@ -85,7 +93,37 @@ for conn in english.find_connectives(tagged):
 
 ## API Reference
 
-### `analyze_sentence(text: str) → list[tuple[str, str]]`
+### `POSTag`
+
+`IntEnum` of all Penn Treebank POS tag codes.  Every function in this library
+returns `POSTag` instances rather than plain strings, enabling fast numeric
+comparison and rich metadata access.
+
+```python
+from Geemeth import POSTag
+
+POSTag.NN           # POSTag.NN(12)
+int(POSTag.NN)      # 12
+str(POSTag.NN)      # 'NN'
+POSTag.NN.full_name # 'Noun, singular or mass'
+
+# Tags that contain $ use a safe Python name
+str(POSTag.PRPS)    # 'PRP$'
+str(POSTag.WPS)     # 'WP$'
+
+# Convert from a raw string (e.g. when using a third-party tagger)
+POSTag["NN"]        # POSTag.NN(12)
+```
+
+| Property / Method | Description |
+|-------------------|-------------|
+| `.full_name`      | Human-readable description (e.g. `"Noun, singular or mass"`) |
+| `.tag_string`     | Canonical Penn Treebank string (e.g. `'PRP$'`, `'WP$'`) |
+| `int(tag)`        | Numeric value (0–45); `0` means `POSTag.UNKNOWN` |
+
+---
+
+### `analyze_sentence(text: str) → list[tuple[str, POSTag]]`
 
 Tag a single English sentence.
 
@@ -93,16 +131,18 @@ Tag a single English sentence.
 |-----------|-------|------------------------------------|
 | `text`    | `str` | Raw English text (any punctuation) |
 
-**Returns** a list of `(word, tag)` tuples using Penn Treebank tags.
+**Returns** a list of `(word, POSTag)` tuples.  `str(tag)` gives the
+Penn Treebank abbreviation (e.g. `'NN'`, `'PRP$'`).
 
 ```python
 english.analyze_sentence("Dogs run faster than cats.")
-# [('Dogs', 'NNS'), ('run', 'VBP'), ('faster', 'RBR'), ('than', 'IN'), ('cats', 'NNS'), ('.', '.')]
+# [('Dogs', POSTag.NNS(13)), ('run', POSTag.VBP(31)), ('faster', POSTag.RBR(21)),
+#  ('than', POSTag.IN(6)), ('cats', POSTag.NNS(13)), ('.', POSTag.PERIOD(38))]
 ```
 
 ---
 
-### `analyze_batch(texts: list[str]) → list[list[tuple[str, str]]]`
+### `analyze_batch(texts: list[str]) → list[list[tuple[str, POSTag]]]`
 
 Tag multiple sentences in one call.  When spaCy is available this uses
 `nlp.pipe()` for significantly better throughput.
@@ -113,7 +153,7 @@ results = english.analyze_batch(["The cat sat.", "Dogs run fast."])
 
 ---
 
-### `find_clauses(tagged: list[tuple[str, str]]) → list[dict]`
+### `find_clauses(tagged: list[tuple[str, POSTag]]) → list[dict]`
 
 Segment a POS-tagged sentence into logical clauses.
 
@@ -124,7 +164,7 @@ Segment a POS-tagged sentence into logical clauses.
 | `type`       | `str`  | `'main'`, `'subordinate'`, `'relative'`                          |
 | `subtype`    | `str`  | `'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, `'additive'`, or `''` |
 | `connective` | `str`  | Opening conjunction / relative pronoun (may be multi-word, e.g. `'instead of'`), or `''` for root main |
-| `tokens`     | `list` | `list[tuple[str, str]]` – tagged tokens in this clause           |
+| `tokens`     | `list` | `list[tuple[str, POSTag]]` – tagged tokens in this clause           |
 
 ```python
 tagged = english.analyze_sentence(
@@ -138,7 +178,7 @@ for c in english.find_clauses(tagged):
 
 ---
 
-### `find_connectives(tagged: list[tuple[str, str]]) → list[dict]`
+### `find_connectives(tagged: list[tuple[str, POSTag]]) → list[dict]`
 
 Identify logical connectives in a tagged sentence.
 
@@ -147,7 +187,7 @@ Identify logical connectives in a tagged sentence.
 | Key        | Type  | Values / Notes                                                    |
 |------------|-------|-------------------------------------------------------------------|
 | `word`     | `str` | The connective as it appears in the text (multi-word connectives are space-joined, e.g. `'instead of'`) |
-| `tag`      | `str` | Penn Treebank POS tag (`'IN'` for multi-word connectives)         |
+| `tag`      | `POSTag` | POS tag of the connective (`POSTag.IN` for multi-word connectives)  |
 | `type`     | `str` | `'subordinating'`, `'coordinating'`, `'relative'`                 |
 | `subtype`  | `str` | Semantic subtype (`'causal'`, `'concessive'`, `'temporal'`, `'conditional'`, `'nominal'`, `'contrastive'`, `'exceptive'`, `'manner'`, `'purpose'`, `'additive'`) for subordinating; `''` for others |
 | `position` | `int` | Index of the first token of the connective in `tagged`            |
@@ -170,17 +210,20 @@ Register a custom POS tag (or tag-computing callable) for a specific word.
 Overrides are applied **after** the tagger and all context rules.
 
 ```python
-# Fixed override
+from Geemeth import POSTag
+from Geemeth import english
+
+# Fixed override (string tag still accepted; POSTag preferred)
 english.register_word_tag("Python", "NNP")
 
-# Callable override
-def fix_data(word, current_tag, context):
-    return "NNS" if current_tag == "NN" else current_tag
+# Callable override – receives and returns POSTag
+def fix_data(word: str, current_tag: POSTag, context: list) -> POSTag:
+    return POSTag.NNS if current_tag == POSTag.NN else current_tag
 
 english.register_word_tag("data", fix_data)
 ```
 
-The callable signature is `(word: str, current_tag: str, context: list[tuple[str, str]]) -> str`.
+The callable signature is `(word: str, current_tag: POSTag, context: list[tuple[str, POSTag]]) -> POSTag`.
 
 ---
 
@@ -204,25 +247,57 @@ Return a shallow copy of the current override registry.
 
 ## Penn Treebank POS Tags (Reference)
 
-| Tag   | Description                       | Tag   | Description                 |
-|-------|-----------------------------------|-------|-----------------------------|
-| `CC`  | Coordinating conjunction          | `PRP` | Personal pronoun            |
-| `CD`  | Cardinal number                   | `PRP$`| Possessive pronoun          |
-| `DT`  | Determiner                        | `RB`  | Adverb                      |
-| `EX`  | Existential *there*               | `RBR` | Adverb, comparative         |
-| `FW`  | Foreign word                      | `RBS` | Adverb, superlative         |
-| `IN`  | Preposition / subordinating conj  | `RP`  | Particle                    |
-| `JJ`  | Adjective                         | `TO`  | *to*                        |
-| `JJR` | Adjective, comparative            | `UH`  | Interjection                |
-| `JJS` | Adjective, superlative            | `VB`  | Verb, base form             |
-| `MD`  | Modal                             | `VBD` | Verb, past tense            |
-| `NN`  | Noun, singular                    | `VBG` | Verb, gerund / present part |
-| `NNS` | Noun, plural                      | `VBN` | Verb, past participle       |
-| `NNP` | Proper noun, singular             | `VBP` | Verb, non-3rd-person sing   |
-| `NNPS`| Proper noun, plural               | `VBZ` | Verb, 3rd-person sing       |
-| `PDT` | Predeterminer                     | `WDT` | *Wh*-determiner             |
-| `POS` | Possessive ending                 | `WP`  | *Wh*-pronoun                |
-|       |                                   | `WRB` | *Wh*-adverb                 |
+These are all members of the `POSTag` enum.  Use `POSTag.<NAME>` in code;
+`str(tag)` gives the Penn Treebank abbreviation.
+
+| Tag / Name   | `POSTag` member | Description                       |
+|--------------|-----------------|-----------------------------------|
+| `CC`         | `POSTag.CC`     | Coordinating conjunction          |
+| `CD`         | `POSTag.CD`     | Cardinal number                   |
+| `DT`         | `POSTag.DT`     | Determiner                        |
+| `EX`         | `POSTag.EX`     | Existential *there*               |
+| `FW`         | `POSTag.FW`     | Foreign word                      |
+| `IN`         | `POSTag.IN`     | Preposition / subordinating conj  |
+| `JJ`         | `POSTag.JJ`     | Adjective                         |
+| `JJR`        | `POSTag.JJR`    | Adjective, comparative            |
+| `JJS`        | `POSTag.JJS`    | Adjective, superlative            |
+| `LS`         | `POSTag.LS`     | List item marker                  |
+| `MD`         | `POSTag.MD`     | Modal                             |
+| `NN`         | `POSTag.NN`     | Noun, singular                    |
+| `NNS`        | `POSTag.NNS`    | Noun, plural                      |
+| `NNP`        | `POSTag.NNP`    | Proper noun, singular             |
+| `NNPS`       | `POSTag.NNPS`   | Proper noun, plural               |
+| `PDT`        | `POSTag.PDT`    | Predeterminer                     |
+| `POS`        | `POSTag.POS`    | Possessive ending                 |
+| `PRP`        | `POSTag.PRP`    | Personal pronoun                  |
+| `PRP$`       | `POSTag.PRPS`   | Possessive pronoun                |
+| `RB`         | `POSTag.RB`     | Adverb                            |
+| `RBR`        | `POSTag.RBR`    | Adverb, comparative               |
+| `RBS`        | `POSTag.RBS`    | Adverb, superlative               |
+| `RP`         | `POSTag.RP`     | Particle                          |
+| `SYM`        | `POSTag.SYM`    | Symbol                            |
+| `TO`         | `POSTag.TO`     | *to*                              |
+| `UH`         | `POSTag.UH`     | Interjection                      |
+| `VB`         | `POSTag.VB`     | Verb, base form                   |
+| `VBD`        | `POSTag.VBD`    | Verb, past tense                  |
+| `VBG`        | `POSTag.VBG`    | Verb, gerund / present part       |
+| `VBN`        | `POSTag.VBN`    | Verb, past participle             |
+| `VBP`        | `POSTag.VBP`    | Verb, non-3rd-person sing         |
+| `VBZ`        | `POSTag.VBZ`    | Verb, 3rd-person sing             |
+| `WDT`        | `POSTag.WDT`    | *Wh*-determiner                   |
+| `WP`         | `POSTag.WP`     | *Wh*-pronoun                      |
+| `WP$`        | `POSTag.WPS`    | Possessive *wh*-pronoun           |
+| `WRB`        | `POSTag.WRB`    | *Wh*-adverb                       |
+| `,`          | `POSTag.COMMA`  | Comma                             |
+| `.`          | `POSTag.PERIOD` | Period / sentence-final punct     |
+| `:`          | `POSTag.COLON`  | Colon or semicolon                |
+| ` `` `       | `POSTag.LQUOTE` | Left quotation mark               |
+| `''`         | `POSTag.RQUOTE` | Right quotation mark              |
+| `-LRB-`      | `POSTag.LRB`    | Left bracket                      |
+| `-RRB-`      | `POSTag.RRB`    | Right bracket                     |
+| `HYPH`       | `POSTag.HYPH`   | Hyphen                            |
+| `NFP`        | `POSTag.NFP`    | Superfluous punctuation           |
+| *(unknown)*  | `POSTag.UNKNOWN`| Unrecognised / not-yet-mapped tag |
 
 ---
 
