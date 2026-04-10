@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [Unreleased]
+## [1.1.0] – 2026-04-10
 
 ### Added
+- `POSTag` – `IntEnum` of all Penn Treebank POS tag codes (values 0–45).
+  All public functions now return `POSTag` instances instead of plain strings,
+  enabling fast numeric comparison, `full_name` descriptions, and
+  canonical `tag_string` output (e.g. `POSTag.PRPS.tag_string == 'PRP$'`).
 - `_MULTIWORD_CONJ` – recognition table for 13 multi-word connective patterns
   (e.g. "instead of", "rather than", "even though", "even if", "as long as",
   "as soon as", "as if", "as though", "so that", "in order to", "now that",
@@ -19,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `find_clauses()` now detects and segments on multi-word connectives in
   addition to single-word subordinating conjunctions.
 - `find_connectives()` now returns multi-word connectives as single entries
-  (space-joined surface form, `tag='IN'`, `position` of first token).
+  (space-joined surface form, `tag=POSTag.IN`, `position` of first token).
 - New single-word connectives: "except" (subtype `'exceptive'`) and "lest"
   (subtype `'conditional'`) added to `_SUBORD_CONJ` and `_CONJ_SUBTYPES`.
 - New single-word connectives: "whenever" (subtype `'temporal'`), "once"
