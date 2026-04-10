@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=68", "wheel", "Cython>=3.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "GSL20051013-english"
-version = "1.0.1"
+version = "1.1.0"
 description = "Context-aware English part-of-speech tagger with clause and connective detection"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -36,6 +36,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Cython",
     "Operating System :: OS Independent",
     "License :: Other/Proprietary License",
 ]
@@ -47,8 +48,12 @@ dependencies = [
 spacy = [
     "spacy>=3.5",
 ]
+cython = [
+    "Cython>=3.0",
+]
 dev = [
     "pytest>=7.0",
+    "Cython>=3.0",
     "twine",
     "build",
 ]

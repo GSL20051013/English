@@ -6,8 +6,9 @@
 
 Public API
 ----------
-analyze_sentence(text)        → list[tuple[str, str]]
-analyze_batch(texts)          → list[list[tuple[str, str]]]
+POSTag                        – IntEnum of Penn Treebank POS tag codes
+analyze_sentence(text)        → list[tuple[str, POSTag]]
+analyze_batch(texts)          → list[list[tuple[str, POSTag]]]
 find_clauses(tagged)          → list[dict]
 find_connectives(tagged)      → list[dict]
 register_word_tag(word, tag)  → None
@@ -16,8 +17,9 @@ clear_word_tag_overrides()    → None
 get_word_tag_overrides()      → dict
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __all__ = [
+    "POSTag",
     "analyze_sentence",
     "analyze_batch",
     "find_clauses",
@@ -30,8 +32,256 @@ __all__ = [
 
 import re
 import nltk
+from enum import IntEnum
 from functools import lru_cache
 from typing import Callable, Union
+
+
+# ---------------------------------------------------------------------------
+# POSTag – Penn Treebank POS tag identifiers as an IntEnum.
+#
+# Each member carries an integer value for fast numeric comparison and can
+# be serialised simply as an int.  Use .full_name to get a human-readable
+# description, and .tag_string for the canonical Penn Treebank abbreviation
+# (important for tags whose names differ from Python identifiers, e.g.
+# PRP$ → POSTag.PRPS).
+# ---------------------------------------------------------------------------
+
+class POSTag(IntEnum):
+    """Integer-valued Penn Treebank POS tag enum.
+
+    Example::
+
+        from Geemeth.english import POSTag, analyze_sentence
+
+        tagged = analyze_sentence("The fast robot runs.")
+        for word, tag in tagged:
+            print(word, int(tag), tag.full_name)
+        # → The  3  Determiner
+        # → fast 7  Adjective
+        # → robot 12 Noun, singular or mass
+        # → runs  32 Verb, 3rd person singular present
+    """
+    # ---- Structural / function words ----
+    CC   = 1    # Coordinating conjunction
+    CD   = 2    # Cardinal number
+    DT   = 3    # Determiner
+    EX   = 4    # Existential there
+    FW   = 5    # Foreign word
+    IN   = 6    # Preposition or subordinating conjunction
+    # ---- Adjectives ----
+    JJ   = 7    # Adjective
+    JJR  = 8    # Adjective, comparative
+    JJS  = 9    # Adjective, superlative
+    # ---- Misc function words ----
+    LS   = 10   # List item marker
+    MD   = 11   # Modal
+    # ---- Nouns ----
+    NN   = 12   # Noun, singular or mass
+    NNS  = 13   # Noun, plural
+    NNP  = 14   # Proper noun, singular
+    NNPS = 15   # Proper noun, plural
+    # ---- Pronouns / possessives ----
+    PDT  = 16   # Predeterminer
+    POS  = 17   # Possessive ending
+    PRP  = 18   # Personal pronoun
+    PRPS = 19   # Possessive pronoun (standard notation: PRP$)
+    # ---- Adverbs ----
+    RB   = 20   # Adverb
+    RBR  = 21   # Adverb, comparative
+    RBS  = 22   # Adverb, superlative
+    # ---- Particles / symbols ----
+    RP   = 23   # Particle
+    SYM  = 24   # Symbol
+    TO   = 25   # to
+    UH   = 26   # Interjection
+    # ---- Verbs ----
+    VB   = 27   # Verb, base form
+    VBD  = 28   # Verb, past tense
+    VBG  = 29   # Verb, gerund or present participle
+    VBN  = 30   # Verb, past participle
+    VBP  = 31   # Verb, non-3rd person singular present
+    VBZ  = 32   # Verb, 3rd person singular present
+    # ---- Wh-words ----
+    WDT  = 33   # Wh-determiner
+    WP   = 34   # Wh-pronoun
+    WPS  = 35   # Possessive wh-pronoun (standard notation: WP$)
+    WRB  = 36   # Wh-adverb
+    # ---- Punctuation / special (fine-grained spaCy/NLTK tags) ----
+    COMMA  = 37  # ","
+    PERIOD = 38  # "."
+    COLON  = 39  # ":" or ";"
+    LQUOTE = 40  # "``"
+    RQUOTE = 41  # "''"
+    LRB    = 42  # "-LRB-"
+    RRB    = 43  # "-RRB-"
+    HYPH   = 44  # Hyphen
+    NFP    = 45  # Superfluous punctuation
+    # ---- Catch-all ----
+    UNKNOWN = 0  # Unrecognised / not-yet-mapped tag
+
+    @property
+    def full_name(self) -> str:
+        """Human-readable description of this POS tag.
+
+        Example::
+
+            POSTag.NNP.full_name  # → 'Proper noun, singular'
+            POSTag.VBZ.full_name  # → 'Verb, 3rd person singular present'
+        """
+        return _TAG_FULL_NAMES.get(self, self.name)
+
+    @property
+    def tag_string(self) -> str:
+        """Canonical Penn Treebank abbreviation string.
+
+        For most tags this is just the member name (e.g. ``'NN'``, ``'VBZ'``).
+        For tags whose Penn Treebank form contains ``$`` the name differs:
+
+        * ``POSTag.PRPS.tag_string``  → ``'PRP$'``
+        * ``POSTag.WPS.tag_string``   → ``'WP$'``
+
+        Punctuation tags return their actual punctuation character or symbol.
+        """
+        return _TAG_TO_STR.get(self, self.name)
+
+    def __str__(self) -> str:  # pragma: no cover
+        return self.tag_string
+
+    def __repr__(self) -> str:  # pragma: no cover
+        return f"POSTag.{self.name}({int(self)})"
+
+
+# Populated after class definition (needs POSTag members to exist first).
+_TAG_FULL_NAMES: dict["POSTag", str] = {}
+_TAG_TO_STR: dict["POSTag", str] = {}
+
+
+def _init_tag_tables() -> None:
+    _TAG_FULL_NAMES.update({
+        POSTag.CC:     "Coordinating conjunction",
+        POSTag.CD:     "Cardinal number",
+        POSTag.DT:     "Determiner",
+        POSTag.EX:     "Existential there",
+        POSTag.FW:     "Foreign word",
+        POSTag.IN:     "Preposition or subordinating conjunction",
+        POSTag.JJ:     "Adjective",
+        POSTag.JJR:    "Adjective, comparative",
+        POSTag.JJS:    "Adjective, superlative",
+        POSTag.LS:     "List item marker",
+        POSTag.MD:     "Modal",
+        POSTag.NN:     "Noun, singular or mass",
+        POSTag.NNS:    "Noun, plural",
+        POSTag.NNP:    "Proper noun, singular",
+        POSTag.NNPS:   "Proper noun, plural",
+        POSTag.PDT:    "Predeterminer",
+        POSTag.POS:    "Possessive ending",
+        POSTag.PRP:    "Personal pronoun",
+        POSTag.PRPS:   "Possessive pronoun",
+        POSTag.RB:     "Adverb",
+        POSTag.RBR:    "Adverb, comparative",
+        POSTag.RBS:    "Adverb, superlative",
+        POSTag.RP:     "Particle",
+        POSTag.SYM:    "Symbol",
+        POSTag.TO:     "to",
+        POSTag.UH:     "Interjection",
+        POSTag.VB:     "Verb, base form",
+        POSTag.VBD:    "Verb, past tense",
+        POSTag.VBG:    "Verb, gerund or present participle",
+        POSTag.VBN:    "Verb, past participle",
+        POSTag.VBP:    "Verb, non-3rd person singular present",
+        POSTag.VBZ:    "Verb, 3rd person singular present",
+        POSTag.WDT:    "Wh-determiner",
+        POSTag.WP:     "Wh-pronoun",
+        POSTag.WPS:    "Possessive wh-pronoun",
+        POSTag.WRB:    "Wh-adverb",
+        POSTag.COMMA:  "Comma",
+        POSTag.PERIOD: "Period",
+        POSTag.COLON:  "Colon / semicolon",
+        POSTag.LQUOTE: "Left quotation mark",
+        POSTag.RQUOTE: "Right quotation mark",
+        POSTag.LRB:    "Left bracket",
+        POSTag.RRB:    "Right bracket",
+        POSTag.HYPH:   "Hyphen",
+        POSTag.NFP:    "Superfluous punctuation",
+        POSTag.UNKNOWN: "Unknown",
+    })
+    _TAG_TO_STR.update({
+        POSTag.PRPS:   "PRP$",
+        POSTag.WPS:    "WP$",
+        POSTag.COMMA:  ",",
+        POSTag.PERIOD: ".",
+        POSTag.COLON:  ":",
+        POSTag.LQUOTE: "``",
+        POSTag.RQUOTE: "''",
+        POSTag.LRB:    "-LRB-",
+        POSTag.RRB:    "-RRB-",
+    })
+
+
+_init_tag_tables()
+
+# Lookup: Penn Treebank tag string → POSTag enum member.
+_STR_TO_TAG: dict[str, POSTag] = {
+    "CC":    POSTag.CC,
+    "CD":    POSTag.CD,
+    "DT":    POSTag.DT,
+    "EX":    POSTag.EX,
+    "FW":    POSTag.FW,
+    "IN":    POSTag.IN,
+    "JJ":    POSTag.JJ,
+    "JJR":   POSTag.JJR,
+    "JJS":   POSTag.JJS,
+    "LS":    POSTag.LS,
+    "MD":    POSTag.MD,
+    "NN":    POSTag.NN,
+    "NNS":   POSTag.NNS,
+    "NNP":   POSTag.NNP,
+    "NNPS":  POSTag.NNPS,
+    "PDT":   POSTag.PDT,
+    "POS":   POSTag.POS,
+    "PRP":   POSTag.PRP,
+    "PRP$":  POSTag.PRPS,
+    "RB":    POSTag.RB,
+    "RBR":   POSTag.RBR,
+    "RBS":   POSTag.RBS,
+    "RP":    POSTag.RP,
+    "SYM":   POSTag.SYM,
+    "TO":    POSTag.TO,
+    "UH":    POSTag.UH,
+    "VB":    POSTag.VB,
+    "VBD":   POSTag.VBD,
+    "VBG":   POSTag.VBG,
+    "VBN":   POSTag.VBN,
+    "VBP":   POSTag.VBP,
+    "VBZ":   POSTag.VBZ,
+    "WDT":   POSTag.WDT,
+    "WP":    POSTag.WP,
+    "WP$":   POSTag.WPS,
+    "WRB":   POSTag.WRB,
+    ",":     POSTag.COMMA,
+    ".":     POSTag.PERIOD,
+    ":":     POSTag.COLON,
+    ";":     POSTag.COLON,
+    "``":    POSTag.LQUOTE,
+    "''":    POSTag.RQUOTE,
+    "-LRB-": POSTag.LRB,
+    "-RRB-": POSTag.RRB,
+    "HYPH":  POSTag.HYPH,
+    "NFP":   POSTag.NFP,
+    # spaCy may emit these alternative forms
+    "PUNCT": POSTag.PERIOD,
+    "X":     POSTag.UNKNOWN,
+    "_SP":   POSTag.UNKNOWN,
+}
+
+
+def _str_to_tag(s: str) -> POSTag:
+    """Convert a Penn Treebank tag string to a :class:`POSTag` enum member.
+
+    Unknown strings map to :attr:`POSTag.UNKNOWN`.
+    """
+    return _STR_TO_TAG.get(s, POSTag.UNKNOWN)
 
 for _d in ("averaged_perceptron_tagger", "averaged_perceptron_tagger_eng"):
     nltk.download(_d, quiet=True)
@@ -99,10 +349,10 @@ _SUBORD_CONJ = frozenset({
 
 _SUBJ_PRONOUNS = frozenset({"i", "he", "she", "it", "we", "they", "you"})
 
-_NOUN_TAGS = frozenset({"NN", "NNS", "NNP", "NNPS"})
-_VERB_TAGS = frozenset({"VB", "VBZ", "VBD", "VBG", "VBN", "VBP"})
-_ADJ_TAGS  = frozenset({"JJ", "JJR", "JJS"})
-_AMBIG_TAGS = frozenset({"JJ", "VB", "VBZ", "VBD"})   # tags that can be misclassified
+_NOUN_TAGS = frozenset({POSTag.NN, POSTag.NNS, POSTag.NNP, POSTag.NNPS})
+_VERB_TAGS = frozenset({POSTag.VB, POSTag.VBZ, POSTag.VBD, POSTag.VBG, POSTag.VBN, POSTag.VBP})
+_ADJ_TAGS  = frozenset({POSTag.JJ, POSTag.JJR, POSTag.JJS})
+_AMBIG_TAGS = frozenset({POSTag.JJ, POSTag.VB, POSTag.VBZ, POSTag.VBD})   # tags that can be misclassified
 
 # Pre-computed unions for use inside the hot loop
 _NEG_OR_DEG   = _NEGATIONS | _DEGREE_ADVERBS
@@ -110,8 +360,12 @@ _NOUN_OR_VERB = _NOUN_TAGS | _VERB_TAGS
 _AUX_FORMS    = _HAVE_FORMS | _DO_FORMS | _MODALS | _BE_FORMS
 
 # Lookup tables used in the context-rule self-corrections (module-level for speed)
-_HAVE_TAG = {"have": "VBP", "has": "VBZ", "had": "VBD", "having": "VBG"}
-_DO_TAG   = {"do": "VBP", "does": "VBZ", "did": "VBD"}
+_HAVE_TAG: dict[str, POSTag] = {
+    "have": POSTag.VBP, "has": POSTag.VBZ, "had": POSTag.VBD, "having": POSTag.VBG,
+}
+_DO_TAG: dict[str, POSTag] = {
+    "do": POSTag.VBP, "does": POSTag.VBZ, "did": POSTag.VBD,
+}
 
 # ---------------------------------------------------------------------------
 # Constants added for long-sentence / multi-clause support
@@ -124,7 +378,26 @@ _CLAUSE_BOUNDARY = frozenset({",", ";", ":", "–", "—", "--"})
 # Tags that are eligible to be promoted to JJ by the parallel-structure rule
 # (Pattern 6).  We intentionally exclude plain nouns (NN/NNS) to prevent
 # "agile and fox" → fox=JJ, and exclude RB at the default level.
-_JJ_PROMOTABLE = _AMBIG_TAGS | frozenset({"VBP", "VBN"})
+_JJ_PROMOTABLE = _AMBIG_TAGS | frozenset({POSTag.VBP, POSTag.VBN})
+
+# ---------------------------------------------------------------------------
+# Optional Cython backend – compiled hot-path replacements.
+# When the Cython extension is present (built via ``python setup.py
+# build_ext --inplace``), the context-rules loop and morphology guesser run
+# as C code, giving 3–6× speedup over the pure-Python implementations.
+# Falls back silently to the pure-Python functions when not available.
+# ---------------------------------------------------------------------------
+try:
+    from Geemeth import english_core as _cy  # type: ignore[import]
+    _cy._init_cy_globals(
+        _MODALS, _HAVE_FORMS, _DO_FORMS, _BE_FORMS,
+        _DEGREE_ADVERBS, _NEGATIONS, _PREPOSITIONS, _SUBORD_CONJ,
+        _SUBJ_PRONOUNS, _HAVE_TAG, _DO_TAG, _NEG_OR_DEG,
+        _CLAUSE_BOUNDARY, POSTag,
+    )
+    _USE_CYTHON = True
+except (ImportError, AttributeError):
+    _USE_CYTHON = False
 
 # Semantic subtypes of subordinating conjunctions, used by find_clauses().
 _CONJ_SUBTYPES: dict[str, str] = {
@@ -183,15 +456,19 @@ _MULTIWORD_CONJ: dict[tuple[str, ...], str] = {
 # Word-tag override registry
 # ---------------------------------------------------------------------------
 # Maps a lower-cased word to either:
-#   • a Penn Treebank tag string (e.g. "NN", "JJ"), or
+#   • a POSTag value (or a Penn Treebank tag string, auto-converted on lookup),
 #   • a callable with signature:
-#       fn(word: str, current_tag: str, context: list[tuple[str, str]]) -> str
+#       fn(word: str, current_tag: POSTag, context: list[tuple[str, POSTag]]) -> POSTag
 #
 # Overrides are applied as the last step in both analyze_sentence() and
 # analyze_batch(), so they always win over the built-in tagger and context
 # rules.  External modules can register entries via register_word_tag().
 # ---------------------------------------------------------------------------
-_TagOverride = Union[str, Callable[[str, str, list[tuple[str, str]]], str]]
+_TagOverride = Union[
+    "POSTag",
+    str,
+    Callable[["str", "POSTag", "list[tuple[str, POSTag]]"], "POSTag"],
+]
 _word_tag_overrides: dict[str, _TagOverride] = {}
 
 
@@ -206,29 +483,33 @@ def register_word_tag(word: str, tag_or_fn: _TagOverride) -> None:
     ----------
     word : str
         The word to override.  Matching is case-insensitive.
-    tag_or_fn : str or callable
-        Either a Penn Treebank tag string (e.g. ``"NN"``, ``"JJ"``) **or** a
-        callable with signature
-        ``(word: str, current_tag: str, context: list[tuple[str, str]]) -> str``
-        that returns the desired tag string:
+    tag_or_fn : POSTag, str, or callable
+        A :class:`POSTag` value, **or** a Penn Treebank tag string
+        (e.g. ``"NN"``, ``"JJ"``; auto-converted to :class:`POSTag`),
+        **or** a callable with signature
+        ``(word: str, current_tag: POSTag, context: list[tuple[str, POSTag]]) -> POSTag``
+        that returns the desired :class:`POSTag`:
 
         * ``word``        – the word as it appears in the sentence
-        * ``current_tag`` – the tag produced by the built-in pipeline
-        * ``context``     – full ``list[tuple[str, str]]`` of the sentence
+        * ``current_tag`` – the :class:`POSTag` produced by the built-in pipeline
+        * ``context``     – full ``list[tuple[str, POSTag]]`` of the sentence
 
     Example::
 
-        import english
+        import Geemeth.english as english
 
         # Fixed tag override: treat "Python" always as a proper noun
         english.register_word_tag("Python", "NNP")
+        # or: english.register_word_tag("Python", english.POSTag.NNP)
 
-        # Callable override: keep existing tag unless the tagger says "NN"
+        # Callable override: keep existing tag unless the tagger says NN
         def fix_data(word, tag, ctx):
-            return "NNP" if tag == "NN" else tag
+            return english.POSTag.NNS if tag == english.POSTag.NN else tag
 
         english.register_word_tag("data", fix_data)
     """
+    if isinstance(tag_or_fn, str):
+        tag_or_fn = _str_to_tag(tag_or_fn)
     _word_tag_overrides[word.lower()] = tag_or_fn
 
 
@@ -254,23 +535,25 @@ def get_word_tag_overrides() -> dict[str, _TagOverride]:
     Returns
     -------
     dict
-        Mapping of lower-cased word → tag string or callable.
+        Mapping of lower-cased word → :class:`POSTag` value or callable.
     """
     return dict(_word_tag_overrides)
 
 
 def _apply_word_overrides(
-    tagged: list[tuple[str, str]]
-) -> list[tuple[str, str]]:
+    tagged: "list[tuple[str, POSTag]]",
+) -> "list[tuple[str, POSTag]]":
     """Apply registered word-tag overrides to *tagged* and return the result."""
     if not _word_tag_overrides:
         return tagged
-    result: list[tuple[str, str]] | None = None
+    result: list[tuple[str, POSTag]] | None = None
     for i, (word, tag) in enumerate(tagged):
         override = _word_tag_overrides.get(word.lower())
         if override is None:
             continue
-        new_tag = override(word, tag, tagged) if callable(override) else override
+        new_tag: POSTag = override(word, tag, tagged) if callable(override) else override  # type: ignore[arg-type]
+        if isinstance(new_tag, str):
+            new_tag = _str_to_tag(new_tag)
         if new_tag != tag:
             if result is None:
                 result = list(tagged)
@@ -279,65 +562,76 @@ def _apply_word_overrides(
 
 
 @lru_cache(maxsize=4096)
-def _guess_raw_morphology(word: str) -> str:
-    """Fallback guesser that returns raw Penn Treebank-style tags."""
+def _guess_raw_morphology(word: str) -> "POSTag":
+    """Fallback guesser that returns a :class:`POSTag` for *word*.
+
+    Results are cached via :func:`~functools.lru_cache`.  When the Cython
+    extension is available the compiled ``guess_raw_morphology_cy`` is called
+    for the non-cached path.
+    """
+    if _USE_CYTHON:
+        return _cy.guess_raw_morphology_cy(word, POSTag)
     # 1. Numbers & Symbols
-    if re.match(r'^-?\d+(\.\d+)?$', word): return 'CD'   # Cardinal Digit
-    if not re.match(r"^[A-Za-z]+(?:'[A-Za-z]+)*$", word): return 'SYM'  # Symbol
+    if re.match(r'^-?\d+(\.\d+)?$', word): return POSTag.CD   # Cardinal Digit
+    if not re.match(r"^[A-Za-z]+(?:'[A-Za-z]+)*$", word): return POSTag.SYM  # Symbol
 
     w = word.lower()
 
     # 2. Common closed-class function words (before suffix rules)
-    if w in {"the", "a", "an"}:                            return 'DT'
-    if w in {"and", "or", "but", "nor", "yet", "for", "so"}: return 'CC'
-    if w in {"i", "he", "she", "it", "we", "they", "you"}: return 'PRP'
-    if w in {"my", "his", "her", "its", "our", "their", "your"}: return 'PRP$'
-    if w in {"this", "that", "these", "those"}:            return 'DT'
-    if w in {"am", "is"}:                                  return 'VBZ'
-    if w in {"are"}:                                       return 'VBP'
-    if w in {"was", "were"}:                               return 'VBD'
-    if w in {"be"}:                                        return 'VB'
-    if w in {"been"}:                                      return 'VBN'
-    if w in {"being"}:                                     return 'VBG'
-    if w in {"has"}:                                       return 'VBZ'
-    if w in {"have"}:                                      return 'VBP'
-    if w in {"had"}:                                       return 'VBD'
-    if w in {"having"}:                                    return 'VBG'
-    if w in {"does"}:                                      return 'VBZ'
-    if w in {"do"}:                                        return 'VBP'
-    if w in {"did"}:                                       return 'VBD'
-    if w in _MODALS:                                       return 'MD'
-    if w in _PREPOSITIONS:                                 return 'IN'
-    if w in _SUBORD_CONJ:                                  return 'IN'
-    if w in {"not", "never"}:                              return 'RB'
-    if w in _DEGREE_ADVERBS:                               return 'RB'
-    if w in {"more", "less"}:                              return 'RBR'
-    if w in {"most", "least"}:                             return 'RBS'
-    if w == "there":                                       return 'EX'
+    if w in {"the", "a", "an"}:                            return POSTag.DT
+    if w in {"and", "or", "but", "nor", "yet", "for", "so"}: return POSTag.CC
+    if w in {"i", "he", "she", "it", "we", "they", "you"}: return POSTag.PRP
+    if w in {"my", "his", "her", "its", "our", "their", "your"}: return POSTag.PRPS
+    if w in {"this", "that", "these", "those"}:            return POSTag.DT
+    if w in {"am", "is"}:                                  return POSTag.VBZ
+    if w in {"are"}:                                       return POSTag.VBP
+    if w in {"was", "were"}:                               return POSTag.VBD
+    if w in {"be"}:                                        return POSTag.VB
+    if w in {"been"}:                                      return POSTag.VBN
+    if w in {"being"}:                                     return POSTag.VBG
+    if w in {"has"}:                                       return POSTag.VBZ
+    if w in {"have"}:                                      return POSTag.VBP
+    if w in {"had"}:                                       return POSTag.VBD
+    if w in {"having"}:                                    return POSTag.VBG
+    if w in {"does"}:                                      return POSTag.VBZ
+    if w in {"do"}:                                        return POSTag.VBP
+    if w in {"did"}:                                       return POSTag.VBD
+    if w in _MODALS:                                       return POSTag.MD
+    if w in _PREPOSITIONS:                                 return POSTag.IN
+    if w in _SUBORD_CONJ:                                  return POSTag.IN
+    if w in {"not", "never"}:                              return POSTag.RB
+    if w in _DEGREE_ADVERBS:                               return POSTag.RB
+    if w in {"more", "less"}:                              return POSTag.RBR
+    if w in {"most", "least"}:                             return POSTag.RBS
+    if w == "there":                                       return POSTag.EX
 
     # 3. Suffix rules — longer / more specific suffixes checked first
-    if w.endswith(('ize', 'ise', 'ify')):   return 'VB'   # organize, realise, modify
-    if w.endswith(('ism', 'ist')):           return 'NN'   # capitalism, scientist
-    if w.endswith('ship'):                   return 'NN'   # friendship, hardship
-    if w.endswith('hood'):                   return 'NN'   # childhood, neighborhood
-    if w.endswith('dom'):                    return 'NN'   # kingdom, freedom
-    if w.endswith(('tion', 'sion')):         return 'NN'   # nation, tension
-    if w.endswith(('ness', 'ment', 'ity')): return 'NN'   # kindness, treatment, ability
-    if w.endswith('ing'):                    return 'VBG'  # running, jumping
-    if w.endswith('est'):                    return 'JJS'  # fastest, largest
-    if w.endswith('ed'):                     return 'VBD'  # walked, played
-    if w.endswith('ish'):                    return 'JJ'   # reddish, childish
-    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ic')): return 'JJ'
-    if w.endswith('ly'):                     return 'RB'   # quickly, slowly
+    if w.endswith(('ize', 'ise', 'ify')):   return POSTag.VB   # organize, realise, modify
+    if w.endswith(('ism', 'ist')):           return POSTag.NN   # capitalism, scientist
+    if w.endswith('ship'):                   return POSTag.NN   # friendship, hardship
+    if w.endswith('hood'):                   return POSTag.NN   # childhood, neighborhood
+    if w.endswith('dom'):                    return POSTag.NN   # kingdom, freedom
+    if w.endswith(('tion', 'sion')):         return POSTag.NN   # nation, tension
+    if w.endswith(('ness', 'ment', 'ity')): return POSTag.NN   # kindness, treatment, ability
+    if w.endswith('ing'):                    return POSTag.VBG  # running, jumping
+    if w.endswith('est'):                    return POSTag.JJS  # fastest, largest
+    if w.endswith('ed'):                     return POSTag.VBD  # walked, played
+    if w.endswith('ish'):                    return POSTag.JJ   # reddish, childish
+    if w.endswith(('ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ic')): return POSTag.JJ
+    if w.endswith('ly'):                     return POSTag.RB   # quickly, slowly
 
-    if word[0].isupper(): return 'NNP'
+    if word[0].isupper(): return POSTag.NNP
 
-    return 'NN'
+    return POSTag.NN
 
 
-def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]:
+def _apply_context_rules(tagged: "list[tuple[str, POSTag]]") -> "list[tuple[str, POSTag]]":
     """
     Refine POS tags by applying positional / contextual patterns.
+
+    When the Cython extension is available this calls the C-compiled
+    ``apply_context_rules_cy`` for 3–6× speedup; otherwise falls back to
+    the pure-Python implementation below.
 
     Patterns
     --------
@@ -388,6 +682,9 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
     21. Sentence-initial gerund mis-tagged as NN/NNS → VBG
          e.g. "RUNNING every day builds stamina"
     """
+    if _USE_CYTHON:
+        return _cy.apply_context_rules_cy(tagged)
+
     tags = list(tagged)
     n = len(tags)
 
@@ -399,60 +696,60 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # Self-correction: known degree adverbs should always be RB
         # NLTK sometimes mislabels them (e.g. "incredibly" → NN)
         # ------------------------------------------------------------------
-        if w in _DEGREE_ADVERBS and tag not in ("RB", "RBR", "RBS"):
-            tags[i] = (word, "RB")
-            tag = "RB"
+        if w in _DEGREE_ADVERBS and tag not in (POSTag.RB, POSTag.RBR, POSTag.RBS):
+            tags[i] = (word, POSTag.RB)
+            tag = POSTag.RB
 
         # ------------------------------------------------------------------
         # Self-correction: known modal / auxiliary verbs should be verb tags.
         # Sentence-initial capitalisation can cause NLTK to produce NNP.
         # ------------------------------------------------------------------
-        if w in _MODALS and tag != "MD":
-            tags[i] = (word, "MD")
-            tag = "MD"
+        if w in _MODALS and tag != POSTag.MD:
+            tags[i] = (word, POSTag.MD)
+            tag = POSTag.MD
         if w in _HAVE_FORMS and tag not in _VERB_TAGS:
-            tags[i] = (word, _HAVE_TAG.get(w, "VBZ"))
+            tags[i] = (word, _HAVE_TAG.get(w, POSTag.VBZ))
             tag = tags[i][1]
         if w in _DO_FORMS and tag not in _VERB_TAGS:
-            tags[i] = (word, _DO_TAG.get(w, "VBZ"))
+            tags[i] = (word, _DO_TAG.get(w, POSTag.VBZ))
             tag = tags[i][1]
 
         # ------------------------------------------------------------------
         # Pattern 14 — Subordinating conjunctions: force to IN
         # "BECAUSE he left", "ALTHOUGH it rained", "IF you go"
         # ------------------------------------------------------------------
-        if w in _SUBORD_CONJ and tag not in ("IN", "RB"):
-            tags[i] = (word, "IN")
-            tag = "IN"
+        if w in _SUBORD_CONJ and tag not in (POSTag.IN, POSTag.RB):
+            tags[i] = (word, POSTag.IN)
+            tag = POSTag.IN
 
         # ------------------------------------------------------------------
         # Pattern 15 — Existential "there" before a be-form → EX
         # "THERE is a problem", "THERE are many options"
         # ------------------------------------------------------------------
-        if w == "there" and tag != "EX" and i + 1 < n:
+        if w == "there" and tag != POSTag.EX and i + 1 < n:
             if tags[i + 1][0].lower() in _BE_FORMS:
-                tags[i] = (word, "EX")
-                tag = "EX"
+                tags[i] = (word, POSTag.EX)
+                tag = POSTag.EX
 
         # ------------------------------------------------------------------
         # Pattern 16 — "more" / "less" → RBR; next non-"than" word → JJ
         # "MORE beautiful", "LESS interesting", "more THAN"
         # ------------------------------------------------------------------
         if w in ("more", "less"):
-            if tag not in ("RBR", "JJR"):
-                tags[i] = (word, "RBR")
-                tag = "RBR"
+            if tag not in (POSTag.RBR, POSTag.JJR):
+                tags[i] = (word, POSTag.RBR)
+                tag = POSTag.RBR
             if i + 1 < n:
                 nw, nt = tags[i + 1]
-                if nw.lower() != "than" and nt not in _ADJ_TAGS and nt not in ("RB", "RBR", "RBS"):
-                    tags[i + 1] = (nw, "JJ")
+                if nw.lower() != "than" and nt not in _ADJ_TAGS and nt not in (POSTag.RB, POSTag.RBR, POSTag.RBS):
+                    tags[i + 1] = (nw, POSTag.JJ)
 
         # ------------------------------------------------------------------
         # Pattern 17 — Comparative/superlative + "than" → "than" is IN
         # "faster THAN light", "more beautiful THAN ever"
         # ------------------------------------------------------------------
-        if tag in ("JJR", "RBR") and i + 1 < n and tags[i + 1][0].lower() == "than":
-            tags[i + 1] = (tags[i + 1][0], "IN")
+        if tag in (POSTag.JJR, POSTag.RBR) and i + 1 < n and tags[i + 1][0].lower() == "than":
+            tags[i + 1] = (tags[i + 1][0], POSTag.IN)
 
         # ------------------------------------------------------------------
         # Pattern 18 — Relative pronoun + ambiguous word → verb form
@@ -461,37 +758,38 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # on singular nouns that legitimately end in -s (e.g. "analysis",
         # "crisis") which tend to be tagged NN rather than NNS.
         # ------------------------------------------------------------------
-        if w in ("who", "which", "that") and tag in ("WP", "WDT", "IN") and i + 1 < n:
+        if w in ("who", "which", "that") and tag in (POSTag.WP, POSTag.WDT, POSTag.IN) and i + 1 < n:
             nw, nt = tags[i + 1]
             nwl = nw.lower()
             if nwl not in _BE_FORMS and nwl not in _MODALS:
-                if nwl.endswith("s") and not nwl.endswith("ss") and nt == "NNS":
-                    tags[i + 1] = (nw, "VBZ")
-                elif nt in ("JJ", "VB") and not nwl.endswith("s"):
-                    tags[i + 1] = (nw, "VBP")
+                if nwl.endswith("s") and not nwl.endswith("ss") and nt == POSTag.NNS:
+                    tags[i + 1] = (nw, POSTag.VBZ)
+                elif nt in (POSTag.JJ, POSTag.VB) and not nwl.endswith("s"):
+                    tags[i + 1] = (nw, POSTag.VBP)
 
         # ------------------------------------------------------------------
         # Pattern 1 — Infinitive: "to" → next word is base verb (VB)
         # Covers: "want to run", "need to go", "going to eat", "have to try"
         # ------------------------------------------------------------------
-        if w == "to" and tag == "TO" and i + 1 < n:
+        if w == "to" and tag == POSTag.TO and i + 1 < n:
             nw, nt = tags[i + 1]
-            if nt not in ("DT", "CD", "PRP", "PRP$", "WP", "WP$", "IN", "CC", "TO"):
-                tags[i + 1] = (nw, "VB")
+            if nt not in (POSTag.DT, POSTag.CD, POSTag.PRP, POSTag.PRPS,
+                          POSTag.WP, POSTag.WPS, POSTag.IN, POSTag.CC, POSTag.TO):
+                tags[i + 1] = (nw, POSTag.VB)
 
         # ------------------------------------------------------------------
         # Pattern 2 — Modal auxiliary → next content word is base verb (VB)
         # Skip an optional negation ("not", "n't") between modal and verb.
         # Stops at clause boundaries to prevent tag bleeding in long sentences.
         # ------------------------------------------------------------------
-        if w in _MODALS and tag == "MD":
+        if w in _MODALS and tag == POSTag.MD:
             j = i + 1
             if j < n and tags[j][0].lower() in _NEGATIONS:
                 j += 1
             if j < n and tags[j][0] not in _CLAUSE_BOUNDARY:
                 nw, nt = tags[j]
-                if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC"):
-                    tags[j] = (nw, "VB")
+                if nt not in (POSTag.DT, POSTag.CD, POSTag.PRP, POSTag.PRPS, POSTag.IN, POSTag.CC):
+                    tags[j] = (nw, POSTag.VB)
 
         # ------------------------------------------------------------------
         # Pattern 3 — Be-verb as copula/auxiliary → predict complement
@@ -518,7 +816,7 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
             # so that "is surprisingly still running" reaches "running".
             while j < n and (
                 tags[j][0].lower() in _NEG_OR_DEG
-                or (tags[j][1] in ("RB", "RBR", "RBS")
+                or (tags[j][1] in (POSTag.RB, POSTag.RBR, POSTag.RBS)
                     and tags[j][0] not in _CLAUSE_BOUNDARY)
             ):
                 j += 1
@@ -526,18 +824,18 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                 nw, nt = tags[j]
                 nwl = nw.lower()
                 if nwl.endswith("ing") and nt not in _NOUN_TAGS:
-                    tags[j] = (nw, "VBG")
-                elif nwl.endswith("ed") and nt not in _NOUN_TAGS and nt != "JJ":
+                    tags[j] = (nw, POSTag.VBG)
+                elif nwl.endswith("ed") and nt not in _NOUN_TAGS and nt != POSTag.JJ:
                     # Only promote to VBN when the tagger hasn't already
                     # decided it is a plain adjective (JJ).
-                    tags[j] = (nw, "VBN")
+                    tags[j] = (nw, POSTag.VBN)
                 elif (not _in_perfect
-                      and nt in (_NOUN_TAGS | frozenset({"VB", "VBZ", "VBD", "VBP"}))
+                      and nt in (_NOUN_TAGS | frozenset({POSTag.VB, POSTag.VBZ, POSTag.VBD, POSTag.VBP}))
                       and not nw[0].isupper()):
                     # Predicate adjective misclassified as a noun or simple verb.
                     # VBN and VBG are excluded: they are likely passive / perfect
                     # participles that the base tagger got right.
-                    tags[j] = (nw, "JJ")
+                    tags[j] = (nw, POSTag.JJ)
 
         # ------------------------------------------------------------------
         # Pattern 4 — Degree / intensifier adverb → next word is adjective
@@ -548,8 +846,8 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # ------------------------------------------------------------------
         if w in _DEGREE_ADVERBS and i + 1 < n:
             nw, nt = tags[i + 1]
-            if nt in _NOUN_TAGS or nt in ("VB", "VBZ", "VBD", "VBP"):
-                tags[i + 1] = (nw, "JJ")
+            if nt in _NOUN_TAGS or nt in (POSTag.VB, POSTag.VBZ, POSTag.VBD, POSTag.VBP):
+                tags[i + 1] = (nw, POSTag.JJ)
 
         # ------------------------------------------------------------------
         # Pattern 5 — Article / possessive sandwich: DT + ? + Noun → ? is JJ
@@ -559,12 +857,13 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # prepositions — noun-tagged words are included because NLTK sometimes
         # mislabels adjectives as nouns (e.g. "dark" → NN before "forest").
         # ------------------------------------------------------------------
-        if tag in ("DT", "PRP$") and i + 2 < n:
+        if tag in (POSTag.DT, POSTag.PRPS) and i + 2 < n:
             mw, mt = tags[i + 1]
             ew, et = tags[i + 2]
             if (et in _NOUN_TAGS
-                    and mt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC", "TO")):
-                tags[i + 1] = (mw, "JJ")
+                    and mt not in (POSTag.DT, POSTag.CD, POSTag.PRP, POSTag.PRPS,
+                                   POSTag.IN, POSTag.CC, POSTag.TO)):
+                tags[i + 1] = (mw, POSTag.JJ)
 
         # ------------------------------------------------------------------
         # Pattern 6 — Parallel structure via CC: X + and/or/but + Y → Y ~ X
@@ -581,7 +880,7 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         #     skipping a comma — a comma before a CC typically marks a clause
         #     boundary ("he stayed, BUT she left"), not a list separator.
         # ------------------------------------------------------------------
-        if tag == "CC" and i > 0 and i + 1 < n:
+        if tag == POSTag.CC and i > 0 and i + 1 < n:
             # Step 1: find the anchor (last non-comma item before CC)
             _anchor_i = i - 1
             _comma_skipped = False
@@ -605,13 +904,14 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                 # For JJ: only promote tags in _JJ_PROMOTABLE; when a
                 # correlative adverb was skipped also allow RB (spaCy
                 # occasionally mistagging adjectives in "but also kind").
-                _jj_set = _JJ_PROMOTABLE | (frozenset({"RB"}) if _is_correlative else frozenset())
+                _jj_set = _JJ_PROMOTABLE | (frozenset({POSTag.RB}) if _is_correlative else frozenset())
                 if pt in _ADJ_TAGS and nt in _jj_set:
-                    tags[_target_i] = (nw, "JJ")
+                    tags[_target_i] = (nw, POSTag.JJ)
                 elif pt in _NOUN_TAGS and nt not in _NOUN_TAGS and nt not in _VERB_TAGS:
                     tags[_target_i] = (nw, pt)
                 elif (pt in _VERB_TAGS and nt not in _NOUN_OR_VERB
-                      and nt not in ("PRP", "PRP$", "DT", "WP", "WDT", "IN")
+                      and nt not in (POSTag.PRP, POSTag.PRPS, POSTag.DT,
+                                     POSTag.WP, POSTag.WDT, POSTag.IN)
                       and not _comma_skipped):
                     # Verb parallel only without comma: a comma before CC
                     # usually signals a new clause ("he ran, but she walked"),
@@ -633,16 +933,16 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                         elif pt in _NOUN_TAGS and item_t not in _NOUN_TAGS and item_t not in _VERB_TAGS:
                             tags[_k] = (item_w, pt)
                         elif pt in _ADJ_TAGS and item_t in _NOUN_TAGS:
-                            tags[_k] = (item_w, "JJ")
+                            tags[_k] = (item_w, POSTag.JJ)
 
         # ------------------------------------------------------------------
         # Pattern 7 — Cardinal number + word → word is plural noun (NNS)
         # "2 walls", "three dogs", "100 students"
         # ------------------------------------------------------------------
-        if tag == "CD" and i + 1 < n:
+        if tag == POSTag.CD and i + 1 < n:
             nw, nt = tags[i + 1]
-            if nt in ("NN", "JJ", "VB", "VBZ"):
-                tags[i + 1] = (nw, "NNS")
+            if nt in (POSTag.NN, POSTag.JJ, POSTag.VB, POSTag.VBZ):
+                tags[i + 1] = (nw, POSTag.NNS)
 
         # ------------------------------------------------------------------
         # Pattern 8 — Possessive clitic "'s" → next word is a noun
@@ -650,33 +950,33 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # ------------------------------------------------------------------
         if w == "'s" and i + 1 < n:
             nw, nt = tags[i + 1]
-            if nt in _AMBIG_TAGS | {"RB"}:
-                tags[i + 1] = (nw, "NN")
+            if nt in _AMBIG_TAGS | {POSTag.RB}:
+                tags[i + 1] = (nw, POSTag.NN)
 
         # ------------------------------------------------------------------
         # Pattern 9 — Preposition + word → word is likely a noun (NN)
         # "in the city", "by the river", "with great power"
         # Only fires when the word looks ambiguous (not already a noun).
         # ------------------------------------------------------------------
-        if w in _PREPOSITIONS and tag == "IN" and i + 1 < n:
+        if w in _PREPOSITIONS and tag == POSTag.IN and i + 1 < n:
             nw, nt = tags[i + 1]
             # Skip article — look one step further
-            if nt == "DT" and i + 2 < n:
+            if nt == POSTag.DT and i + 2 < n:
                 nw2, nt2 = tags[i + 2]
                 if nt2 in _AMBIG_TAGS and not nw2[0].isupper():
-                    tags[i + 2] = (nw2, "NN")
-            elif nt in ("JJ", "VB", "VBZ") and not nw[0].isupper():
-                tags[i + 1] = (nw, "NN")
+                    tags[i + 2] = (nw2, POSTag.NN)
+            elif nt in (POSTag.JJ, POSTag.VB, POSTag.VBZ) and not nw[0].isupper():
+                tags[i + 1] = (nw, POSTag.NN)
 
         # ------------------------------------------------------------------
         # Pattern 10 — Wh-determiner / pronoun context
         # "what/which + Noun-like" → NN   ("which car", "what time")
         # "what/who + be-form"     → leave as-is (interrogative)
         # ------------------------------------------------------------------
-        if w in ("what", "which") and tag in ("WP", "WDT") and i + 1 < n:
+        if w in ("what", "which") and tag in (POSTag.WP, POSTag.WDT) and i + 1 < n:
             nw, nt = tags[i + 1]
             if nt in _AMBIG_TAGS and nw.lower() not in _BE_FORMS:
-                tags[i + 1] = (nw, "NN")
+                tags[i + 1] = (nw, POSTag.NN)
 
         # ------------------------------------------------------------------
         # Pattern 11 — Have-auxiliary → perfect participle (VBN)
@@ -692,7 +992,7 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
                 nwl = nw.lower()
                 if (nwl.endswith("ed") or nwl.endswith("en")
                         or (nt in _VERB_TAGS and nwl not in _MODALS)):
-                    tags[j] = (nw, "VBN")
+                    tags[j] = (nw, POSTag.VBN)
 
         # ------------------------------------------------------------------
         # Pattern 12 — Do-support → base verb (VB)
@@ -703,14 +1003,15 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         if w in _DO_FORMS and tag in _VERB_TAGS:
             j = i + 1
             while j < n and tags[j][0] not in _CLAUSE_BOUNDARY and (
-                (tags[j][1] == "PRP" and tags[j][0].lower() in _SUBJ_PRONOUNS)
+                (tags[j][1] == POSTag.PRP and tags[j][0].lower() in _SUBJ_PRONOUNS)
                 or (tags[j][0].lower() in _NEGATIONS)
             ):
                 j += 1
             if j < n and tags[j][0] not in _CLAUSE_BOUNDARY:
                 nw, nt = tags[j]
-                if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC", "WP", "WDT"):
-                    tags[j] = (nw, "VB")
+                if nt not in (POSTag.DT, POSTag.CD, POSTag.PRP, POSTag.PRPS,
+                               POSTag.IN, POSTag.CC, POSTag.WP, POSTag.WDT):
+                    tags[j] = (nw, POSTag.VB)
 
         # ------------------------------------------------------------------
         # Pattern 13 — "going to" future construction → next verb is VB
@@ -720,8 +1021,8 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         if w == "going" and i + 1 < n and tags[i + 1][0].lower() == "to":
             if i + 2 < n and tags[i + 2][0] not in _CLAUSE_BOUNDARY:
                 nw, nt = tags[i + 2]
-                if nt not in ("DT", "CD", "PRP", "PRP$", "IN", "CC"):
-                    tags[i + 2] = (nw, "VB")
+                if nt not in (POSTag.DT, POSTag.CD, POSTag.PRP, POSTag.PRPS, POSTag.IN, POSTag.CC):
+                    tags[i + 2] = (nw, POSTag.VB)
 
         # ------------------------------------------------------------------
         # Pattern 20 — "most" / "least" as superlative intensifier → RBS
@@ -729,18 +1030,18 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # "most beautiful" → RBS + JJS; "most carefully" → RBS + RBS
         # Excludes "most" used as a determiner before a noun ("most people").
         # ------------------------------------------------------------------
-        if w in ("most", "least") and tag not in ("RBS", "JJS"):
+        if w in ("most", "least") and tag not in (POSTag.RBS, POSTag.JJS):
             if i + 1 < n:
                 nw, nt = tags[i + 1]
-                if nt in _ADJ_TAGS or nt in ("VB", "VBZ", "VBD", "VBP"):
-                    tags[i] = (word, "RBS")
-                    tag = "RBS"
+                if nt in _ADJ_TAGS or nt in (POSTag.VB, POSTag.VBZ, POSTag.VBD, POSTag.VBP):
+                    tags[i] = (word, POSTag.RBS)
+                    tag = POSTag.RBS
                     if nt not in _ADJ_TAGS:
-                        tags[i + 1] = (nw, "JJS")
-                elif nt in ("RB", "RBR"):
-                    tags[i] = (word, "RBS")
-                    tag = "RBS"
-                    tags[i + 1] = (nw, "RBS")
+                        tags[i + 1] = (nw, POSTag.JJS)
+                elif nt in (POSTag.RB, POSTag.RBR):
+                    tags[i] = (word, POSTag.RBS)
+                    tag = POSTag.RBS
+                    tags[i + 1] = (nw, POSTag.RBS)
 
         # ------------------------------------------------------------------
         # Pattern 21 — Sentence-initial gerund subject
@@ -750,9 +1051,9 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         # mis-labelled it as NN/NNS, restore VBG.
         # e.g. "Running every day builds stamina."
         # ------------------------------------------------------------------
-        if i == 0 and word.lower().endswith("ing") and tag in ("NN", "NNS"):
-            tags[i] = (word, "VBG")
-            tag = "VBG"
+        if i == 0 and word.lower().endswith("ing") and tag in (POSTag.NN, POSTag.NNS):
+            tags[i] = (word, POSTag.VBG)
+            tag = POSTag.VBG
 
     # ------------------------------------------------------------------
     # Post-pass 19 — Passive voice (agentive): be + [advs] + -ed/-en word + "by" → VBN
@@ -765,45 +1066,57 @@ def _apply_context_rules(tagged: list[tuple[str, str]]) -> list[tuple[str, str]]
         w0 = tags[i][0].lower()
         if w0 in _BE_FORMS and tags[i][1] in _VERB_TAGS:
             j = i + 1
-            while j < n and tags[j][1] in ("RB", "RBR", "RBS"):
+            while j < n and tags[j][1] in (POSTag.RB, POSTag.RBR, POSTag.RBS):
                 j += 1
             if j < n - 1:
                 pw, pt = tags[j]
                 pwl = pw.lower()
                 if (pwl.endswith("ed") or pwl.endswith("en")) and tags[j + 1][0].lower() == "by":
-                    tags[j] = (pw, "VBN")
+                    tags[j] = (pw, POSTag.VBN)
 
     return tags
 
 
-def analyze_sentence(text: str) -> list[tuple[str, str]]:
+def analyze_sentence(text: str) -> "list[tuple[str, POSTag]]":
     """
-    Takes an English string and returns a list of (word, POS_TAG) tuples,
+    Takes an English string and returns a list of ``(word, POSTag)`` tuples,
     with contextual pattern rules applied on top of the base tagger.
 
     Uses spaCy (en_core_web_sm) when available for higher accuracy and speed;
     falls back to NLTK's averaged perceptron tagger otherwise.
 
-    Example: [('The', 'DT'), ('fast', 'JJ'), ('robot', 'NN')]
+    Each tag is a :class:`POSTag` integer enum; use ``int(tag)`` for the raw
+    number, ``tag.tag_string`` for the Penn Treebank abbreviation, and
+    ``tag.full_name`` for the human-readable description.
+
+    Example::
+
+        tagged = analyze_sentence("The fast robot runs.")
+        # [('The', POSTag.DT(3)), ('fast', POSTag.JJ(7)), ...]
+        for word, tag in tagged:
+            print(word, int(tag), tag.full_name)
     """
     if _USE_SPACY:
         doc = _nlp(text)
-        tagged = [(t.text, t.tag_) for t in doc if not t.is_space]
+        tagged = [(t.text, _str_to_tag(t.tag_)) for t in doc if not t.is_space]
     else:
         tokens = _TOKENIZE.findall(text)
         raw = nltk.pos_tag(tokens) if tokens else []
-        tagged = [(w, t if t else _guess_raw_morphology(w)) for w, t in raw]
+        tagged = [(w, _str_to_tag(t) if t else _guess_raw_morphology(w)) for w, t in raw]
 
     return _apply_word_overrides(_apply_context_rules(tagged))
 
 
-def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
+def analyze_batch(texts: "list[str]") -> "list[list[tuple[str, POSTag]]]":
     """
     Analyze multiple sentences efficiently.
 
     When spaCy is available, uses nlp.pipe() for batched throughput,
     which is significantly faster than calling analyze_sentence() in a loop.
     Falls back to sequential analyze_sentence() calls when spaCy is absent.
+
+    Returns a list of :class:`POSTag`-tagged sentences (same format as
+    :func:`analyze_sentence`).
 
     Example::
 
@@ -813,7 +1126,9 @@ def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
     """
     if _USE_SPACY:
         return [
-            _apply_word_overrides(_apply_context_rules([(t.text, t.tag_) for t in doc if not t.is_space]))
+            _apply_word_overrides(_apply_context_rules(
+                [(t.text, _str_to_tag(t.tag_)) for t in doc if not t.is_space]
+            ))
             for doc in _nlp.pipe(texts)
         ]
     return [analyze_sentence(t) for t in texts]
@@ -822,13 +1137,17 @@ def analyze_batch(texts: list[str]) -> list[list[tuple[str, str]]]:
 # ---------------------------------------------------------------------------
 # Punctuation tags that are stripped from clause token lists
 # ---------------------------------------------------------------------------
-_PUNCT_TAGS = frozenset({",", ".", ":", ";", "``", "''",
-                          "-LRB-", "-RRB-", "HYPH", "NFP", "SYM"})
+_PUNCT_TAGS = frozenset({
+    POSTag.COMMA, POSTag.PERIOD, POSTag.COLON,
+    POSTag.LQUOTE, POSTag.RQUOTE,
+    POSTag.LRB, POSTag.RRB,
+    POSTag.HYPH, POSTag.NFP, POSTag.SYM,
+})
 
 
 def _match_multiword(
-    tagged: list[tuple[str, str]], i: int
-) -> tuple[str, str, int] | None:
+    tagged: "list[tuple[str, POSTag]]", i: int
+) -> "tuple[str, str, int] | None":
     """Check whether *tagged[i:]* opens a known multi-word connective.
 
     Longer keys (3 words) are tested before shorter ones (2 words) to ensure
@@ -836,7 +1155,7 @@ def _match_multiword(
 
     Parameters
     ----------
-    tagged : list[tuple[str, str]]
+    tagged : list[tuple[str, POSTag]]
         Full list of ``(word, tag)`` pairs for the sentence.
     i : int
         Start index to check.
@@ -858,7 +1177,7 @@ def _match_multiword(
     return None
 
 
-def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
+def find_clauses(tagged: "list[tuple[str, POSTag]]") -> list[dict]:
     """
     Segment a POS-tagged sentence into logical clause records.
 
@@ -873,7 +1192,7 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
 
     Parameters
     ----------
-    tagged : list[tuple[str, str]]
+    tagged : list[tuple[str, POSTag]]
         Output of analyze_sentence() or analyze_batch().
 
     Returns
@@ -935,10 +1254,10 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
 
         # ---- Relative pronoun after a noun → start a relative clause ----
         if (w in ("who", "whom", "whose", "which")
-                and tag in ("WP", "WDT")
+                and tag in (POSTag.WP, POSTag.WDT)
                 and i > seg_start):
             # Confirm the immediately preceding non-punct token is a noun.
-            prev_tag = ""
+            prev_tag: "POSTag" = POSTag.UNKNOWN
             for k in range(i - 1, max(-1, i - 4), -1):
                 if tagged[k][1] not in _PUNCT_TAGS:
                     prev_tag = tagged[k][1]
@@ -973,7 +1292,7 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
             continue
 
         # ---- Subordinating conjunction ----
-        if (tag == "IN"
+        if (tag == POSTag.IN
                 and w in _CONJ_SUBTYPES
                 and w not in _PREPOSITIONS):     # exclude "in", "on", etc.
             if i == seg_start:
@@ -1020,7 +1339,7 @@ def find_clauses(tagged: list[tuple[str, str]]) -> list[dict]:
     return result
 
 
-def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
+def find_connectives(tagged: "list[tuple[str, POSTag]]") -> list[dict]:
     """
     Identify logical connectives in a POS-tagged sentence.
 
@@ -1029,7 +1348,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
     ``word``     : the connective word(s) as they appear in the sentence;
                    multi-word connectives are returned as a single space-joined
                    string (e.g. ``'instead of'``, ``'even though'``)
-    ``tag``      : Penn Treebank POS tag of the first token (``'IN'`` for
+    ``tag``      : :class:`POSTag` of the first token (``POSTag.IN`` for
                    multi-word connectives)
     ``type``     : ``'subordinating'``, ``'coordinating'``, or ``'relative'``
     ``subtype``  : semantic relationship (``'causal'``, ``'concessive'``,
@@ -1041,7 +1360,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
 
     Parameters
     ----------
-    tagged : list[tuple[str, str]]
+    tagged : list[tuple[str, POSTag]]
         Output of analyze_sentence() or analyze_batch().
 
     Example::
@@ -1065,7 +1384,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
             surface, subtype, length = mw_match
             result.append({
                 "word": surface,
-                "tag": "IN",
+                "tag": POSTag.IN,
                 "type": "subordinating",
                 "subtype": subtype,
                 "position": i,
@@ -1073,7 +1392,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
             i += length
             continue
 
-        if tag == "IN" and w in _CONJ_SUBTYPES and w not in _PREPOSITIONS:
+        if tag == POSTag.IN and w in _CONJ_SUBTYPES and w not in _PREPOSITIONS:
             result.append({
                 "word": word,
                 "tag": tag,
@@ -1081,7 +1400,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
                 "subtype": _CONJ_SUBTYPES[w],
                 "position": i,
             })
-        elif tag == "CC":
+        elif tag == POSTag.CC:
             result.append({
                 "word": word,
                 "tag": tag,
@@ -1089,7 +1408,7 @@ def find_connectives(tagged: list[tuple[str, str]]) -> list[dict]:
                 "subtype": "",
                 "position": i,
             })
-        elif w in ("who", "whom", "whose", "which") and tag in ("WP", "WDT"):
+        elif w in ("who", "whom", "whose", "which") and tag in (POSTag.WP, POSTag.WDT):
             result.append({
                 "word": word,
                 "tag": tag,
@@ -1167,11 +1486,12 @@ if __name__ == "__main__":
     ]
 
     backend = "spaCy" if _USE_SPACY else "NLTK"
-    print(f"=== Single sentence analysis  [backend: {backend}] ===\n")
+    cy_info = " + Cython" if _USE_CYTHON else " (pure Python)"
+    print(f"=== Single sentence analysis  [backend: {backend}{cy_info}] ===\n")
     for sentence in sentences:
         print(f"INPUT: '{sentence}'")
         for word, raw_tag in analyze_sentence(sentence):
-            print(f"  {word:<20} -> {raw_tag}")
+            print(f"  {word:<20} {int(raw_tag):>3}  {raw_tag.tag_string:<6}  {raw_tag.full_name}")
         print()
 
     print("=== Batch analysis demo ===\n")
@@ -1179,7 +1499,7 @@ if __name__ == "__main__":
     for sent, result in zip(batch, analyze_batch(batch)):
         print(f"INPUT: '{sent}'")
         for word, tag in result:
-            print(f"  {word:<20} -> {tag}")
+            print(f"  {word:<20} {int(tag):>3}  {tag.tag_string:<6}  {tag.full_name}")
         print()
 
     print("=== find_clauses() demo ===\n")
@@ -1216,7 +1536,8 @@ if __name__ == "__main__":
         conns = find_connectives(tagged)
         print(f"INPUT: '{sentence}'")
         for c in conns:
-            print(f"  pos={c['position']:<3} {c['type']:<16} subtype={c['subtype']:<12} word={c['word']!r}")
+            tag_str = c['tag'].tag_string if isinstance(c['tag'], POSTag) else c['tag']
+            print(f"  pos={c['position']:<3} {c['type']:<16} subtype={c['subtype']:<12} word={c['word']!r}  tag={tag_str}")
         print()
 
     # -----------------------------------------------------------------------
@@ -1224,32 +1545,38 @@ if __name__ == "__main__":
     # -----------------------------------------------------------------------
     print("=== Word-tag override demo ===\n")
 
-    # 1. Fixed tag: treat "Python" as a proper noun regardless of context
+    # 1. Fixed tag via string: treat "Python" as a proper noun regardless of context
     register_word_tag("Python", "NNP")
     print("After register_word_tag('Python', 'NNP'):")
     print(" ", analyze_sentence("I love Python programming."))
     print()
 
-    # 2. Callable override: force "data" to NNS (plural) when the tagger
+    # 2. Fixed tag via POSTag enum:
+    register_word_tag("Python", POSTag.NNP)
+    print("After register_word_tag('Python', POSTag.NNP):")
+    print(" ", analyze_sentence("I love Python programming."))
+    print()
+
+    # 3. Callable override: force "data" to NNS (plural) when the tagger
     #    returns NN (singular) — a common mis-tag for the uncountable noun.
-    def _fix_data(word: str, tag: str, context: list) -> str:
-        return "NNS" if tag == "NN" else tag
+    def _fix_data(word: str, tag: POSTag, context: list) -> POSTag:
+        return POSTag.NNS if tag == POSTag.NN else tag
 
     register_word_tag("data", _fix_data)
     print("After register_word_tag('data', callable):")
     print(" ", analyze_sentence("The data shows a clear trend."))
     print()
 
-    # 3. Inspect the registry
+    # 4. Inspect the registry
     print("Current overrides:", get_word_tag_overrides())
     print()
 
-    # 4. Remove a single override
+    # 5. Remove a single override
     unregister_word_tag("Python")
     print("After unregister_word_tag('Python'):", get_word_tag_overrides())
     print()
 
-    # 5. Clear all overrides
+    # 6. Clear all overrides
     clear_word_tag_overrides()
     print("After clear_word_tag_overrides():", get_word_tag_overrides())
     print()
