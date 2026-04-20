@@ -1,0 +1,2 @@
+include Geemeth/english_core.pyx
+include Geemeth/english_core.c
